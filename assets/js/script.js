@@ -28,8 +28,21 @@ function buildLetters() {
         document.getElementById("actualGame").innerHTML += ltr;
         console.log(i);
         console.log(ltr);
+        correctBox();
     };
 }
+
+function lettersOnly(l) {
+    let matcher = /^[A-Za-z]+$/;
+    l.value.match(matcher) ? console.log('is letter is true') : console.log('is letter is false');
+}
+
+function correctBox() {
+    console.log(document.getElementById('input1'))
+    //.value = '' ? console.log('box1 empty') : console.log('box 1 full');
+}
+
+//document.getElementById('input2').disabled = true
 
 function handleKeys(event) {
     //event.preventDefault();
