@@ -1,5 +1,9 @@
 console.log("connected yah")
 
+/**
+ * On DOM load sends it to the game or gives the instructions pop up
+ */
+
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("startGame").addEventListener("click", function () {
         console.log("go to start game");
@@ -9,7 +13,26 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 })
 
+/**
+ * build instructions pop up box
+ */
 
+const openButton = document.querySelector("[data-open-modal]");
+const closeButton = document.querySelector("[data-close-modal]");
+const modal = document.querySelector("[data-modal]");
+
+openButton.addEventListener("click", () => {
+    modal.showModal()
+})
+
+closeButton.addEventListener("click", () => {
+    modal.close();
+})
+
+
+/**
+ * Javascript required to play the game
+ */
 
 const wordData = [{
     'word': 'elephant',
