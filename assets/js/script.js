@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 const wordData = [{
     'word': 'elephant',
-    'image': 'url',
+    'image': 'images',
     'decs': 'large animal often found in Africa or Asia',
     'hint': 'f and ph often sound the same'
 }, ]
@@ -22,7 +22,7 @@ let currentWord = wordData[0].word;
 console.log(currentWord);
 
 function buildLetters() {
-    let ltr = "<input type=text placeholder=- >";
+    let ltr = "<input type=text placeholder=- maxlength=1>";
     console.log("buildLetters activated");
     for (let i = 0; i < currentWord.length; i++) {
         document.getElementById("actualGame").innerHTML += ltr;
