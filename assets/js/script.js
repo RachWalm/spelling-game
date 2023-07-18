@@ -22,8 +22,10 @@ let currentWord = wordData[0].word;
 console.log(currentWord);
 
 function buildLetters() {
-    //let inputs = currentWord.length;
-    //for (let input of inputs) {ltr.innerHTML +=};
-    let ltr = document.getElementById("actualGame");
-    ltr.innerHTML = "<input type=text placeholder=->"
+    let ltr = "<input type=text placeholder=- >";
+    console.log("buildLetters activated");
+    for (let i = 0; i < currentWord.length; i++) {
+        document.getElementById("actualGame").innerHTML += ltr;
+        console.log(i);
+    };
 }
