@@ -3,6 +3,9 @@ console.log("connected yah")
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("startGame").addEventListener("click", function () {
         console.log("go to start game");
+        buildLetters();
+        //document.getElementById("instructions").addEventListener("click", function () {
+        //console.log("go to instructions");
     });
 })
 
@@ -21,6 +24,6 @@ console.log(currentWord);
 function buildLetters() {
     //let inputs = currentWord.length;
     //for (let input of inputs) {ltr.innerHTML +=};
-    let ltr = document.getElementById("actual--game");
-    ltr.innerHTML = "input type=text placeholder=-"
+    let ltr = document.getElementById("actualGame");
+    ltr.innerHTML = "<input type=text placeholder=->"
 }
