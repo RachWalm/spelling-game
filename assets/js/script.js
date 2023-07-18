@@ -38,12 +38,18 @@ function lettersOnly(l) {
 }
 
 function correctBox() {
-    document.getElementById('input0').value.length == 0 ? document.getElementById('input1').disabled = true : console.log('box 1 full');
+    document.getElementById('input0').value.length == 0 ? disableArrayBoxes() : console.log('box 1 full');
     console.log(document.getElementById('input0').value.length)
 }
 
 function disableArrayBoxes() {
     let total = currentWord.length;
+    //let ind = document.getElementById('2');
+    for (i = 1; i < total; i++) {
+        let imp = 'input' + i;
+        console.log('imp equals ', imp);
+        document.getElementById(`${imp}`).disabled = true
+    }
 
 }
 
