@@ -28,8 +28,8 @@ function buildLetters() {
         document.getElementById("actualGame").innerHTML += ltr;
         console.log(i);
         console.log(ltr);
-        correctBox();
     };
+    correctBox();
 }
 
 function lettersOnly(l) {
@@ -38,11 +38,14 @@ function lettersOnly(l) {
 }
 
 function correctBox() {
-    console.log(document.getElementById('input1'))
-    //.value = '' ? console.log('box1 empty') : console.log('box 1 full');
+    document.getElementById('input0').value.length == 0 ? document.getElementById('input1').disabled = true : console.log('box 1 full');
+    console.log(document.getElementById('input0').value.length)
 }
 
-//document.getElementById('input2').disabled = true
+function disableArrayBoxes() {
+    let total = currentWord.length;
+
+}
 
 function handleKeys(event) {
     //event.preventDefault();
