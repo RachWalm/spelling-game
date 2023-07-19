@@ -10,7 +10,14 @@ body {
     background: orange;
 }
 
+dialog::backdrop {
+    background-color: rgba(226, 206, 28, 0.5);
+}
+
 dialog {
+    position: relative;
+    top: 25vh;
+    left: 25vw;
     background-color: blueviolet;
     padding: 5px;
 }

@@ -1,6 +1,6 @@
 ## Atribution
 
-key up and down from the CI javascript& the dom > handling DOM events > keyboard events to stop repeeat event.repeat
+key up and down from the CI javascript& the dom > handling DOM events > keyboard events to stop repeat event.repeat
 
 to disable input into later boxes https://www.w3schools.com/jsref/prop_text_disabled.asp
 
@@ -8,4 +8,4 @@ is it all letters https://www.w3resource.com/javascript/form/all-letters-field.p
 
 modals and dialogues - https://blog.webdevsimplified.com/2023-04/html-dialog/
 
-choose showModal() not just show() so that the rest of the page becomes inert.
+choose showModal() not just show() so that the rest of the page becomes inert. when testing re-watch the video so that you can test all the features of dialogue
