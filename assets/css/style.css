@@ -10,11 +10,16 @@ body {
     background: orange;
 }
 
+dialog {
+    background-color: blueviolet;
+    padding: 5px;
+}
+
 .front--box {
     border: 1px solid black;
     border-radius: 5%;
     width: 300px;
     height: 50px;
-    background-color: #A7DCEF;
+    background-color: lightcyan;
     padding-left: 5px;
 }
