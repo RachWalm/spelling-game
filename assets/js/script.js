@@ -62,7 +62,7 @@ function buildLetters() {
         console.log(i);
         console.log(ltr);
     };
-    correctBox();
+    firstBox();
 }
 
 function lettersOnly(l) {
@@ -71,7 +71,7 @@ function lettersOnly(l) {
 }
 
 function whichBoxNumber() {
-    let guessLen = guess.length;
+    let guessLen = parseInt(guess.length);
     let len = guessLen / 2;
     console.log('box number  equals ' + len);
     return len;
@@ -83,9 +83,9 @@ function whichBoxInput() {
     return num;
 }
 
-function correctBox() {
-    document.getElementById(whichBoxInput()).value.length == 0 ? disableArrayBoxes() : console.log('box full');
-    console.log(document.getElementById(whichBoxInput()).value.length)
+function firstBox() {
+    document.getElementById('input0').value.length == 0 ? disableArrayBoxes() : console.log('box full');
+    console.log(document.getElementById('input0').value.length)
 }
 
 
@@ -103,8 +103,6 @@ function disableArrayBoxes() {
 
 }
 
-
-
 function handleKeys(event) {
     //event.preventDefault();
     if (event.repeat) {
@@ -117,10 +115,24 @@ function handleKeys(event) {
         guess.push(event.key);
         console.log(guess);
         console.log(guess.length)
-        disableArrayBoxes();
+        isLetterCorrect();
+        //disableArrayBoxes();
     }
 }
 
-function userLetter() {
-    console.log('which user letter add to array')
+function isLetterCorrect() {
+    let number = whichBoxNumber() - 1
+    let boxContent = guess[number];
+    let actualLetter = currentWord[number];
+    let isCorrect = boxContent === actualLetter;
+    console.log('is my letter correct' + isCorrect)
+    console.log('the letter from the array is ' + actualLetter);
+    console.log('the box content is ' + boxContent);
+    if (isCorrect) {
+        console.log('correct letter match')
+        document.getElementById('input0').style.color = "green";
+    } else {
+        console.log('not correct letter match')
+        document.getElementById('input0').style.color = "red";
+    }
 }
