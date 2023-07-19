@@ -9,3 +9,4 @@ is it all letters https://www.w3resource.com/javascript/form/all-letters-field.p
 modals and dialogues - https://blog.webdevsimplified.com/2023-04/html-dialog/
 
 choose showModal() not just show() so that the rest of the page becomes inert. when testing re-watch the video so that you can test all the features of dialogue
+click to close dialogue by button or escape

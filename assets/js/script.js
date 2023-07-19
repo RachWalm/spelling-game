@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
 })
 
 /**
- * build instructions pop up box
+ * build instructions dialogue box
  */
 
 const openButton = document.querySelector("[data-open-modal]");
@@ -29,15 +29,15 @@ closeButton.addEventListener("click", () => {
     modal.close()
 })
 
-dialog.addEventListener("click", e => {
-    const dialogDimensions = dialog.getBoundingClientRect()
+modal.addEventListener("click", e => {
+    const dialogDimensions = modal.getBoundingClientRect()
     if (
         e.clientX < dialogDimensions.left ||
         e.clientX > dialogDimensions.right ||
         e.clientY < dialogDimensions.top ||
         e.clientY > dialogDimensions.bottom
     ) {
-        dialog.close()
+        modal.close()
     }
 })
 
