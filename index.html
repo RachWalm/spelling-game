@@ -18,7 +18,7 @@
     <h1> logo and title Spelling!</h1>
     <!--Start view loading with buttons to instructions and game-->
     <div>
-        <div id="instructions" class="srtBttn">
+        <div id="instructions">
             <button data-open-modal>Instructions</button>
             <dialog data-modal>
                 <h2>Instructions</h2>
@@ -46,21 +46,22 @@
                         </li>
                     </ol>
                 </p>
-                <button data-close-modal>Close</button>
+                <button class="close" data-close-modal>Close</button>
             </dialog>
         </div>
-        <div id="startGame" class="srtBttn">
+        <div id="startGame">
             <button>Start game</button>
         </div>
-        <!--Game view-->
-        <div id="actualGame" class="front--box" onkeydown="handleKeys(event);">
-            <h2>actual game</h2>
-        </div>
-        <div>
+    </div>
+    <!--Game view-->
+    <div id="actualGame" class="front--box" onkeydown="handleKeys(event);">
+        <h2>actual game</h2>
+    </div>
+    <div>
 
-        </div>
+    </div>
 
-        <script src="assets/js/script.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>

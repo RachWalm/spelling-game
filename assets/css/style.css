@@ -18,13 +18,34 @@ dialog::backdrop {
 
 dialog {
     position: relative;
-    top: 25vh;
-    left: 25vw;
+    top: 20vh;
+    left: 20vw;
     background-color: blueviolet;
     padding: 5px;
 }
 
 /*main page*/
+
+button {
+    display: flex;
+    font-size: 100px;
+    justify-content: center;
+    align-content: center;
+    width: 40rem;
+    background-color: aquamarine;
+    padding: 3rem;
+    border-radius: 8%;
+}
+
+#instructions {
+    font-size: 24px;
+}
+
+.close {
+    font-size: 30px;
+    padding: 1em;
+    width: auto;
+}
 
 .front--box {
     border: 1px solid black;
