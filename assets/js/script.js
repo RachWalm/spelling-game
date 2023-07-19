@@ -70,23 +70,40 @@ function lettersOnly(l) {
     l.value.match(matcher) ? console.log('is letter is true') : console.log('is letter is false');
 }
 
+function whichBoxNumber() {
+    let guessLen = guess.length;
+    let len = guessLen / 2;
+    console.log('box number  equals ' + len);
+    return len;
+}
+
+function whichBoxInput() {
+    let num = 'input' + whichBoxNumber();
+    console.log('input equals ' + num);
+    return num;
+}
+
 function correctBox() {
-    document.getElementById('input0').value.length == 0 ? disableArrayBoxes(5) : console.log('box 1 full');
-    console.log(document.getElementById('input0').value.length)
+    document.getElementById(whichBoxInput()).value.length == 0 ? disableArrayBoxes() : console.log('box full');
+    console.log(document.getElementById(whichBoxInput()).value.length)
 }
 
 
 function disableArrayBoxes() {
     for (let i = 0; i < currentWord.length; i++) {
-        if (i === 0) {
-            continue;
-        }
+        console.log(whichBoxInput());
         let imp = 'input' + i;
         console.log('imp equals ', imp);
-        document.getElementById(`${imp}`).disabled = true
+        if (i === whichBoxNumber()) {
+            document.getElementById(`${imp}`).disabled = false;
+        } else {
+            document.getElementById(`${imp}`).disabled = true;
+        }
     }
 
 }
+
+
 
 function handleKeys(event) {
     //event.preventDefault();
@@ -100,7 +117,7 @@ function handleKeys(event) {
         guess.push(event.key);
         console.log(guess);
         console.log(guess.length)
-
+        disableArrayBoxes();
     }
 }
 
