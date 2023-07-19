@@ -8,8 +8,6 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("startGame").addEventListener("click", function () {
         console.log("go to start game");
         buildLetters();
-        //document.getElementById("instructions").addEventListener("click", function () {
-        //console.log("go to instructions");
     });
 })
 
@@ -54,6 +52,7 @@ const wordData = [{
 
 let currentWord = wordData[0].word;
 console.log(currentWord);
+let guess = [];
 
 function buildLetters() {
     console.log("buildLetters activated");
@@ -72,14 +71,16 @@ function lettersOnly(l) {
 }
 
 function correctBox() {
-    document.getElementById('input0').value.length == 0 ? disableArrayBoxes() : console.log('box 1 full');
+    document.getElementById('input0').value.length == 0 ? disableArrayBoxes(5) : console.log('box 1 full');
     console.log(document.getElementById('input0').value.length)
 }
 
+
 function disableArrayBoxes() {
-    let total = currentWord.length;
-    //let ind = document.getElementById('2');
-    for (i = 1; i < total; i++) {
+    for (let i = 0; i < currentWord.length; i++) {
+        if (i === 0) {
+            continue;
+        }
         let imp = 'input' + i;
         console.log('imp equals ', imp);
         document.getElementById(`${imp}`).disabled = true
@@ -93,10 +94,13 @@ function handleKeys(event) {
         return false;
     } else { //need an else if for weird characters
         //if (event === 'keydown') {
-        //console.log(event.code);
         console.log(event);
         console.log(event.getModifierState("CapsLock")); //NumLock ScrollLock
-        //}
+        console.log(event.key);
+        guess.push(event.key);
+        console.log(guess);
+        console.log(guess.length)
+
     }
 }
 
