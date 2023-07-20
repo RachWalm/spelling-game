@@ -87,6 +87,13 @@ function whichBoxInput() {
     return num;
 }
 
+function whichBoxInputMinusOne() {
+    let math = whichBoxNumber() - 1;
+    let out = 'input' + math;
+    //console.log('input equals ' + out);
+    return out;
+}
+
 function firstBox() {
     document.getElementById('input0').value.length == 0 ? disableArrayBoxes() : console.log('box full');
     //console.log(document.getElementById('input0').value.length)
@@ -129,20 +136,20 @@ function handleKeys(event) {
 }
 
 function isLetterCorrect() {
-    let number = whichBoxNumber() - 1;
-    let boxContent = guess[number];
-    let actualLetter = currentWord[number];
+    let whichNumber = whichBoxNumber() - 1;
+    let boxContent = guess[whichNumber];
+    let actualLetter = currentWord[whichNumber];
     let isCorrect = boxContent === actualLetter;
     //console.log('is my letter correct' + isCorrect)
     //console.log('the letter from the current word array is ' + actualLetter);
     //console.log('the box content is ' + boxContent);
     if (isCorrect) {
         //console.log('correct letter match')
-        document.getElementById(whichBoxInput).style.color = "green";
-        //disableArrayBoxes();
+        console.log('to choose colour of box ' + whichBoxInputMinusOne());
+        document.getElementById(whichBoxInputMinusOne()).style.color = "green";
     } else {
         //console.log('not correct letter match')
-        document.getElementById(whichBoxInput).style.color = "red";
+        document.getElementById(whichBoxInputMinusOne()).style.color = "red";
         guess.pop(); //this will need to empty the incorrect answer out of the array
         console.log(guess);
         //see modifier state in handlekey events
