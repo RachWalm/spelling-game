@@ -147,6 +147,7 @@ function isLetterCorrect() {
         //console.log('correct letter match')
         console.log('to choose colour of box ' + whichBoxInputMinusOne());
         document.getElementById(whichBoxInputMinusOne()).style.color = "green";
+        moveOn();
     } else {
         //console.log('not correct letter match')
         document.getElementById(whichBoxInputMinusOne()).style.color = "red";
@@ -156,6 +157,8 @@ function isLetterCorrect() {
     }
 }
 
-//function moveOn() {
-//
-//}
+function moveOn() {
+    console.log('move on activated');
+    disableArrayBoxes();
+    document.getElementById(whichBoxInput()).focus();
+}
