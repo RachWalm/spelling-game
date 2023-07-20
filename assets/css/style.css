@@ -33,7 +33,7 @@ button {
     align-content: center;
     width: 40rem;
     background-color: aquamarine;
-    padding: 3rem;
+    /*padding: 3rem;*/
     border-radius: 8%;
 }
 

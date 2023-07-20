@@ -57,7 +57,7 @@ let guess = [];
 function buildLetters() {
     console.log("buildLetters activated");
     for (let i = 0; i < currentWord.length; i++) {
-        let ltr = `<input type=text id=input${i} placeholder=- maxlength=1 onkeydown=handleKeys(event);>`;
+        let ltr = `<input type=text id=input${i} placeholder=- maxlength=1;>`;
         document.getElementById("actualGame").innerHTML += ltr;
         console.log(i);
         console.log(ltr);
@@ -72,7 +72,7 @@ function lettersOnly(l) {
 
 function whichBoxNumber() {
     let guessLen = parseInt(guess.length);
-    let len = guessLen / 2;
+    let len = guessLen;
     console.log('box number  equals ' + len);
     return len;
 }
@@ -108,20 +108,26 @@ function handleKeys(event) {
     if (event.repeat) {
         return false;
     } else { //need an else if for weird characters
-        //if (event === 'keydown') {
+        if (event === 'keydown') {
+            console.log('this is keydown')
+        } else if (event === 'keyup') {
+            console.log('this is key up')
+        } else {
+            console.log('who knows keyup or down')
+        }
+
         console.log(event);
-        console.log(event.getModifierState("CapsLock")); //NumLock ScrollLock
-        console.log(event.key);
-        guess.push(event.key);
-        console.log(guess);
-        console.log(guess.length)
-        isLetterCorrect();
-        //disableArrayBoxes();
+        //console.log(event.getModifierState("CapsLock")); //NumLock ScrollLock
+        //console.log(event.key);
+        //guess.push(event.key);
+        //console.log(guess);
+        //console.log(guess.length)
+        //isLetterCorrect();
     }
 }
 
 function isLetterCorrect() {
-    let number = whichBoxNumber() - 1
+    let number = whichBoxNumber();
     let boxContent = guess[number];
     let actualLetter = currentWord[number];
     let isCorrect = boxContent === actualLetter;
@@ -131,8 +137,17 @@ function isLetterCorrect() {
     if (isCorrect) {
         console.log('correct letter match')
         document.getElementById('input0').style.color = "green";
+        //disableArrayBoxes();
     } else {
         console.log('not correct letter match')
         document.getElementById('input0').style.color = "red";
+        guess = []; //this will need to empty the incorrect answer out of the array
+        //lettersOnly(put character in here);
+        //see modifier state in handlekey events
+        //alert('only letters can be accepted not numbers or special characters')
     }
+}
+
+function showLetter() {
+
 }
