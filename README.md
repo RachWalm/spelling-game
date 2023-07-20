@@ -10,3 +10,5 @@ modals and dialogues - https://blog.webdevsimplified.com/2023-04/html-dialog/
 
 choose showModal() not just show() so that the rest of the page becomes inert. when testing re-watch the video so that you can test all the features of dialogue
 click to close dialogue by button or escape
+
+bug : double listening of handle event where it was in the input HTML and again in the JS

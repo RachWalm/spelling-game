@@ -67,7 +67,11 @@ function buildLetters() {
 
 function lettersOnly(l) {
     let matcher = /^[A-Za-z]+$/;
-    l.value.match(matcher) ? console.log('is letter is true') : console.log('is letter is false');
+    console.log('letters only in ' + l);
+    console.log('lettersonly input type is' + (typeof (l)));
+    console.log('matcher test is ' + matcher.test(l));
+    return matcher.test(l);
+
 }
 
 function whichBoxNumber() {
@@ -105,34 +109,32 @@ function disableArrayBoxes() {
 
 function handleKeys(event) {
     //event.preventDefault();
-    if (event.repeat) {
-        return false;
-    } else { //need an else if for weird characters
-        if (event === 'keydown') {
-            console.log('this is keydown')
-        } else if (event === 'keyup') {
-            console.log('this is key up')
-        } else {
-            console.log('who knows keyup or down')
-        }
-
+    //if (event.repeat) {
+    //  return false;
+    //} else 
+    console.log('output of lettersOnly is ' + lettersOnly(event.key))
+    if (lettersOnly(event.key) === false) {
+        alert('you must insert a letter, numbers and special characters are not accepted'); //need an else if for weird characters
+    } else if (lettersOnly(event.key) === true) {
         console.log(event);
         //console.log(event.getModifierState("CapsLock")); //NumLock ScrollLock
         //console.log(event.key);
-        //guess.push(event.key);
-        //console.log(guess);
-        //console.log(guess.length)
-        //isLetterCorrect();
+        guess.push(event.key);
+        console.log('guess array contains ' + guess);
+        console.log('length of guess array is' + guess.length)
+        isLetterCorrect();
+    } else {
+        console.log('problem in lettersOnly possibly');
     }
 }
 
 function isLetterCorrect() {
-    let number = whichBoxNumber();
+    let number = whichBoxNumber() - 1;
     let boxContent = guess[number];
     let actualLetter = currentWord[number];
     let isCorrect = boxContent === actualLetter;
     console.log('is my letter correct' + isCorrect)
-    console.log('the letter from the array is ' + actualLetter);
+    console.log('the letter from the current word array is ' + actualLetter);
     console.log('the box content is ' + boxContent);
     if (isCorrect) {
         console.log('correct letter match')
@@ -148,6 +150,6 @@ function isLetterCorrect() {
     }
 }
 
-function showLetter() {
-
-}
+//function showLetter() {
+//
+//}
