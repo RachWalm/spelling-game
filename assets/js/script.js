@@ -7,7 +7,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("startGame").addEventListener("click", function () {
         //console.log("go to start game");
-        buildLetters();
+        buildGameArea();
     });
 })
 
@@ -45,46 +45,60 @@ modal.addEventListener("click", e => {
 
 const wordData = [{
         'word': 'elephant',
-        'image': 'images',
+        'image': 'src="assets/images/elephant.png" alt"cartoon elephant"',
         'decs': 'large animal often found in Africa or Asia',
         'hint': 'f and ph often sound the same'
     },
     {
         'word': 'station',
-        'image': 'images',
+        'image': 'src="assets/images/station.png" alt"cartoon station"',
         'decs': 'place where trains or buses stop for passengers',
         'hint': 'tion sounds like shun'
     },
     {
         'word': 'pharaoh',
-        'image': 'images',
+        'image': 'src="assets/images/pharoah.png" alt"cartoon pharoah"',
         'decs': 'egyptian king',
         'hint': 'f and ph often sound the same'
     },
     {
         'word': 'quarter',
-        'image': 'images',
+        'image': 'src="assets/images/quarter.png" alt"cartoon quarter pie chart"',
         'decs': '1/4 of something',
-        'hint': 'f and ph often sound the same'
+        'hint': 'q usually has a u after it'
     },
     {
         'word': 'incense',
-        'image': 'images',
+        'image': 'src="assets/images/incense.png" alt"cartoon incense"',
         'decs': 'burnt to give a smell',
         'hint': 's and c are difficult to place in this word'
     },
 
 ]
 
-let currentWord = wordData[random()].word;
+let pick = rand();
+let currentWord = wordData[pick].word;
 console.log(currentWord);
 let guess = [];
 
-function random() {
+function rand() {
     let rndm = Math.floor(Math.random() * wordData.length);
     console.log(wordData.length);
     console.log('random array number is ' + rndm);
     return rndm;
+}
+
+function buildGameArea() {
+    let imge = `<img ${wordData[pick].image}>`;
+    let des = `<p>${wordData[pick].decs}</p>`;
+    let hinty = `<p>${wordData[pick].hint}</p>`
+    console.log(imge);
+    console.log(des)
+    document.getElementById("image").innerHTML += imge;
+    document.getElementById("description").innerHTML += des;
+    buildLetters();
+    document.getElementById("hints").innerHTML += hinty;
+
 }
 
 function buildLetters() {
@@ -157,7 +171,7 @@ function handleKeys(event) {
     if (event.type === 'keydown') {
         console.log('keydown')
         if (lettersOnly(event.key) === false) {
-            alert('you must insert a letter, numbers and special characters are not accepted'); //need an else if for weird characters
+            alert('You must insert a letter. As numbers and special characters are not accepted'); //need an else if for weird characters
         } else if (lettersOnly(event.key) === true) {
             //console.log(event);
             //console.log(event.getModifierState("CapsLock")); //NumLock ScrollLock
