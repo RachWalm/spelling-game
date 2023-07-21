@@ -44,15 +44,48 @@ modal.addEventListener("click", e => {
  */
 
 const wordData = [{
-    'word': 'elephant',
-    'image': 'images',
-    'decs': 'large animal often found in Africa or Asia',
-    'hint': 'f and ph often sound the same'
-}, ]
+        'word': 'elephant',
+        'image': 'images',
+        'decs': 'large animal often found in Africa or Asia',
+        'hint': 'f and ph often sound the same'
+    },
+    {
+        'word': 'station',
+        'image': 'images',
+        'decs': 'place where trains or buses stop for passengers',
+        'hint': 'tion sounds like shun'
+    },
+    {
+        'word': 'pharaoh',
+        'image': 'images',
+        'decs': 'egyptian king',
+        'hint': 'f and ph often sound the same'
+    },
+    {
+        'word': 'quarter',
+        'image': 'images',
+        'decs': '1/4 of something',
+        'hint': 'f and ph often sound the same'
+    },
+    {
+        'word': 'incense',
+        'image': 'images',
+        'decs': 'burnt to give a smell',
+        'hint': 's and c are difficult to place in this word'
+    },
 
-let currentWord = wordData[0].word;
-//console.log(currentWord);
+]
+
+let currentWord = wordData[random()].word;
+console.log(currentWord);
 let guess = [];
+
+function random() {
+    let rndm = Math.floor(Math.random() * wordData.length);
+    console.log(wordData.length);
+    console.log('random array number is ' + rndm);
+    return rndm;
+}
 
 function buildLetters() {
     //console.log("buildLetters activated");
@@ -107,6 +140,7 @@ function disableArrayBoxes() {
         //console.log('imp equals ', imp);
         if (i === whichBoxNumber()) {
             document.getElementById(`${imp}`).disabled = false;
+            document.getElementById(whichBoxInput()).focus();
         } else {
             document.getElementById(`${imp}`).disabled = true;
         }
@@ -165,5 +199,4 @@ function isLetterCorrect() {
 function moveOn() {
     console.log('move on activated');
     disableArrayBoxes();
-    document.getElementById(whichBoxInput()).focus();
 }

@@ -5,6 +5,7 @@ key up and down from the CI javascript& the dom > handling DOM events > keyboard
 to disable input into later boxes https://www.w3schools.com/jsref/prop_text_disabled.asp
 
 is it all letters https://www.w3resource.com/javascript/form/all-letters-field.php#:~:text=You%20can%20write%20a%20JavaScript,HTML%20form%20contains%20only%20letters.&text=To%20get%20a%20string%20contains,%2F)%20which%20allows%20only%20letters.
+https://www.w3schools.com/jsref/jsref_regexp_test.asp
 
 modals and dialogues - https://blog.webdevsimplified.com/2023-04/html-dialog/
 
@@ -12,3 +13,5 @@ choose showModal() not just show() so that the rest of the page becomes inert. w
 click to close dialogue by button or escape
 
 bug : double listening of handle event where it was in the input HTML and again in the JS
+:upper and lower case
+if don't delete although it listens for the letter keeps the letter recorded in the box that was first typed
