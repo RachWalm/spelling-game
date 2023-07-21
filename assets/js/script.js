@@ -102,9 +102,9 @@ function firstBox() {
 
 function disableArrayBoxes() {
     for (let i = 0; i < currentWord.length; i++) {
-        console.log(whichBoxInput());
+        //console.log(whichBoxInput());
         let imp = 'input' + i;
-        console.log('imp equals ', imp);
+        //console.log('imp equals ', imp);
         if (i === whichBoxNumber()) {
             document.getElementById(`${imp}`).disabled = false;
         } else {
@@ -120,18 +120,24 @@ function handleKeys(event) {
     //  return false;
     //} else 
     //console.log('output of lettersOnly is ' + lettersOnly(event.key))
-    if (lettersOnly(event.key) === false) {
-        alert('you must insert a letter, numbers and special characters are not accepted'); //need an else if for weird characters
-    } else if (lettersOnly(event.key) === true) {
-        //console.log(event);
-        //console.log(event.getModifierState("CapsLock")); //NumLock ScrollLock
-        //console.log(event.key);
-        guess.push(event.key);
-        console.log('guess array contains ' + guess);
-        console.log('length of guess array is' + guess.length)
-        isLetterCorrect();
-    } else {
-        //console.log('problem in lettersOnly possibly');
+    if (event.type === 'keydown') {
+        console.log('keydown')
+        if (lettersOnly(event.key) === false) {
+            alert('you must insert a letter, numbers and special characters are not accepted'); //need an else if for weird characters
+        } else if (lettersOnly(event.key) === true) {
+            //console.log(event);
+            //console.log(event.getModifierState("CapsLock")); //NumLock ScrollLock
+            //console.log(event.key);
+            guess.push(event.key);
+            console.log('guess array contains ' + guess);
+            console.log('length of guess array is' + guess.length)
+            isLetterCorrect();
+        } else {
+            //console.log('problem in lettersOnly possibly');
+        }
+    } else if (event.type === 'keyup') {
+        console.log('keyup')
+        moveOn()
     }
 }
 
@@ -147,7 +153,6 @@ function isLetterCorrect() {
         //console.log('correct letter match')
         console.log('to choose colour of box ' + whichBoxInputMinusOne());
         document.getElementById(whichBoxInputMinusOne()).style.color = "green";
-        moveOn();
     } else {
         //console.log('not correct letter match')
         document.getElementById(whichBoxInputMinusOne()).style.color = "red";
