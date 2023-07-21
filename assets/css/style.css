@@ -47,6 +47,20 @@ button {
     width: auto;
 }
 
+/*actual game styling*/
+
+input {
+    width: 20px;
+    height: 20px;
+}
+
+.gameBox {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
 .front--box {
     border: 1px solid black;
     border-radius: 5%;
