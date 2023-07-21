@@ -198,5 +198,9 @@ function isLetterCorrect() {
 
 function moveOn() {
     console.log('move on activated');
-    disableArrayBoxes();
+    if (whichBoxNumber() < currentWord.length) {
+        disableArrayBoxes();
+    } else {
+        console.log('time for next word')
+    }
 }
