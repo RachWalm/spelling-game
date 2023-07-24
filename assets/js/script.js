@@ -80,6 +80,7 @@ let pick = rand();
 let currentWord = wordData[pick].word;
 console.log(currentWord);
 let guess = [];
+let currentScore = 0;
 
 function rand() {
     let rndm = Math.floor(Math.random() * wordData.length);
@@ -203,6 +204,7 @@ function isLetterCorrect() {
         //console.log('correct letter match')
         console.log('to choose colour of box ' + whichBoxInputMinusOne());
         document.getElementById(whichBoxInputMinusOne()).style.color = "green";
+        currentScore = scores(currentScore);
     } else {
         //console.log('not correct letter match')
         document.getElementById(whichBoxInputMinusOne()).style.color = "red";
@@ -242,4 +244,10 @@ function empty() {
     emphint.removeChild(emphint.firstElementChild);
     guess = [];
     console.log(guess);
+}
+
+function scores(last) {
+    let area = document.getElementById("score");
+    area.innerHTML = last + 1;
+    return last + 1;
 }
