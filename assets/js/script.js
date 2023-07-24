@@ -43,7 +43,7 @@ modal.addEventListener("click", e => {
  * Javascript required to play the game
  */
 
-const wordData = [{
+let wordData = [{
         'word': 'elephant',
         'image': 'src="assets/images/elephant.png" alt"cartoon elephant"',
         'decs': 'large animal often found in Africa or Asia',
@@ -215,6 +215,17 @@ function moveOn() {
     if (whichBoxNumber() < currentWord.length) {
         disableArrayBoxes();
     } else {
-        console.log('time for next word')
+        console.log('time for next word');
+        let rm = pick;
+        wordData.splice((rm), 1);
+        skipped = wordData.splice((rm), 1); // for skip function
+        console.log(wordData);
+        empty();
+        //buildGameArea();
     }
+}
+
+function empty() {
+    console.log('empty activated');
+    document.getElementsByClassName("goodbye").innerHTML = `<p></p>`;
 }
