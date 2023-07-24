@@ -227,6 +227,16 @@ function moveOn() {
 
 function empty() {
     console.log('empty activated');
-    const emp = document.getElementById("dataFromArray");
-    emp.removeChild(emp.firstElementChild);
+    const empimg = document.getElementById("image");
+    empimg.removeChild(empimg.firstElementChild);
+    const empDesc = document.getElementById("description");
+    empDesc.removeChild(empDesc.firstElementChild);
+    const letterRemove = document.getElementById("actualGame");
+    for (let i = 0; i < currentWord.length; i++) {
+        letterRemove.removeChild(letterRemove.firstElementChild);
+    }
+    const emphint = document.getElementById("hints");
+    emphint.removeChild(emphint.firstElementChild);
+    guess = [];
+    console.log(guess);
 }
