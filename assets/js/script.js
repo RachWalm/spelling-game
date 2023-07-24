@@ -221,6 +221,7 @@ function moveOn() {
         skipped = wordData.splice((rm), 1); // for skip function
         console.log(wordData);
         empty();
+        pick = rand()
         buildGameArea();
     }
 }
