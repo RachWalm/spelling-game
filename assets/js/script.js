@@ -221,11 +221,12 @@ function moveOn() {
         skipped = wordData.splice((rm), 1); // for skip function
         console.log(wordData);
         empty();
-        //buildGameArea();
+        buildGameArea();
     }
 }
 
 function empty() {
     console.log('empty activated');
-    document.getElementsByClassName("goodbye").innerHTML = `<p></p>`;
+    const emp = document.getElementById("dataFromArray");
+    emp.removeChild(emp.firstElementChild);
 }
