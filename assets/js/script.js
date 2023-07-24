@@ -83,7 +83,7 @@ let guess = [];
 
 function rand() {
     let rndm = Math.floor(Math.random() * wordData.length);
-    console.log(wordData.length);
+    //console.log(wordData.length);
     console.log('random array number is ' + rndm);
     return rndm;
 }
@@ -92,8 +92,9 @@ function buildGameArea() {
     let imge = `<img ${wordData[pick].image}>`;
     let des = `<p>${wordData[pick].decs}</p>`;
     let hinty = `<p>${wordData[pick].hint}</p>`
-    console.log(imge);
-    console.log(des)
+    currentWord = wordData[pick].word;
+    //console.log(imge);
+    //console.log(des)
     document.getElementById("image").innerHTML += imge;
     document.getElementById("description").innerHTML += des;
     buildLetters();
@@ -169,7 +170,7 @@ function handleKeys(event) {
     //} else 
     //console.log('output of lettersOnly is ' + lettersOnly(event.key))
     if (event.type === 'keydown') {
-        console.log('keydown')
+        //console.log('keydown')
         if (lettersOnly(event.key) === false) {
             alert('You must insert a letter. As numbers and special characters are not accepted'); //need an else if for weird characters
         } else if (lettersOnly(event.key) === true) {
@@ -178,13 +179,13 @@ function handleKeys(event) {
             //console.log(event.key);
             guess.push(event.key);
             console.log('guess array contains ' + guess);
-            console.log('length of guess array is' + guess.length)
+            //console.log('length of guess array is' + guess.length)
             isLetterCorrect();
         } else {
             //console.log('problem in lettersOnly possibly');
         }
     } else if (event.type === 'keyup') {
-        console.log('keyup')
+        //console.log('keyup')
         moveOn()
     }
 }
@@ -194,9 +195,10 @@ function isLetterCorrect() {
     let boxContent = guess[whichNumber];
     let actualLetter = currentWord[whichNumber];
     let isCorrect = boxContent === actualLetter;
-    //console.log('is my letter correct' + isCorrect)
-    //console.log('the letter from the current word array is ' + actualLetter);
-    //console.log('the box content is ' + boxContent);
+    console.log('is my letter correct' + isCorrect)
+    console.log('the letter from the current word array is ' + actualLetter);
+    console.log('current word array ' + currentWord);
+    console.log('the box content is ' + boxContent);
     if (isCorrect) {
         //console.log('correct letter match')
         console.log('to choose colour of box ' + whichBoxInputMinusOne());
@@ -205,20 +207,20 @@ function isLetterCorrect() {
         //console.log('not correct letter match')
         document.getElementById(whichBoxInputMinusOne()).style.color = "red";
         guess.pop(); //this will need to empty the incorrect answer out of the array
-        console.log(guess);
+        //console.log(guess);
         //see modifier state in handlekey events
     }
 }
 
 function moveOn() {
-    console.log('move on activated');
+    //console.log('move on activated');
     if (whichBoxNumber() < currentWord.length) {
         disableArrayBoxes();
     } else {
         console.log('time for next word');
         let rm = pick;
         wordData.splice((rm), 1);
-        skipped = wordData.splice((rm), 1); // for skip function
+        //skipped = wordData.splice((rm), 1); // for skip function
         console.log(wordData);
         empty();
         pick = rand()
