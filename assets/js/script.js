@@ -194,9 +194,11 @@ function handleKeys(event) {
         //console.log('keydown')
         if (lettersOnly(event.key) === false) {
             alert('You must insert a letter. As numbers and special characters are not accepted'); //need an else if for weird characters
+        } else if (letter2notInput(event) === true) {
+            console.log('letters to not input');
+            document.getElementById(whichBoxInput()).value = '-';
         } else if (lettersOnly(event.key) === true) {
             //console.log(event);
-            //console.log(event.getModifierState("CapsLock")); //NumLock ScrollLock
             //console.log(event.key);
             let low = lowerCase(event.key);
             letter2input(low);
@@ -238,6 +240,18 @@ function isLetterCorrect() {
 
 function letter2input(typed) {
     document.getElementById(whichBoxInput()).value = typed;
+}
+
+function letter2notInput(typed) {
+    let shift = typed.getModifierState("Shift");
+    let meta = typed.getModifierState("Meta");
+    let control = typed.getModifierState("Control");
+    let altg = typed.getModifierState("AltGraph");
+    let alt = typed.getModifierState("Alt");
+    let wrong = shift || meta || control || altg || alt;
+    console.log(shift);
+    console.log(wrong);
+    return wrong;
 }
 
 function moveOn() {
