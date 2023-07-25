@@ -287,3 +287,7 @@ function lowerCase(letter) {
     let lower = letter.toLowerCase();
     return lower;
 }
+
+window.onbeforeunload = function (event) {
+    event.returnValue = "leaving site";
+};

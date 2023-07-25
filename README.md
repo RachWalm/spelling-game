@@ -19,3 +19,7 @@ if don't delete although it listens for the letter keeps the letter recorded in 
 changed colours from red and green to red and blue
 
 capitals to lower case
+
+redirect to antoher page W3
+
+https://www.w3schools.com/jsref/event_onbeforeunload.asp to give alert when someone tries to leave the site.
