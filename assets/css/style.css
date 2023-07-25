@@ -85,3 +85,7 @@ input {
 #score {
     visibility: hidden;
 }
+
+.in--game {
+    visibility: hidden;
+}

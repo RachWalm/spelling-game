@@ -17,6 +17,10 @@ function hideFront() {
     first.style.display = "none";
     let last = document.getElementById("score");
     last.style.visibility = "visible";
+    let buttonA = document.getElementById("skip");
+    buttonA.style.visibility = "visible";
+    let buttonB = document.getElementById("quit");
+    buttonB.style.visibility = "visible";
 }
 
 /**
@@ -186,8 +190,9 @@ function handleKeys(event) {
             //console.log(event);
             //console.log(event.getModifierState("CapsLock")); //NumLock ScrollLock
             //console.log(event.key);
-            letter2input(event.key);
-            guess.push(event.key);
+            let low = lowerCase(event.key);
+            letter2input(low);
+            guess.push(low);
             console.log('guess array contains ' + guess);
             //console.log('length of guess array is' + guess.length)
             isLetterCorrect();
@@ -263,4 +268,9 @@ function scores(last) {
     let area = document.getElementById("score");
     area.innerHTML = `Your Score is : ${last + 1}`;
     return last + 1;
+}
+
+function lowerCase(letter) {
+    let lower = letter.toLowerCase();
+    return lower;
 }

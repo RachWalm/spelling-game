@@ -14,6 +14,8 @@ click to close dialogue by button or escape
 
 bug : double listening of handle event where it was in the input HTML and again in the JS
 :upper and lower case
-if don't delete although it listens for the letter keeps the letter recorded in the box that was first typed
+if don't delete although it listens for the letter keeps the letter recorded in the box that was first typed - solved letter2input
 
 changed colours from red and green to red and blue
+
+capitals to lower case
