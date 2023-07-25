@@ -186,6 +186,7 @@ function handleKeys(event) {
             //console.log(event);
             //console.log(event.getModifierState("CapsLock")); //NumLock ScrollLock
             //console.log(event.key);
+            letter2input(event.key);
             guess.push(event.key);
             console.log('guess array contains ' + guess);
             //console.log('length of guess array is' + guess.length)
@@ -204,14 +205,14 @@ function isLetterCorrect() {
     let boxContent = guess[whichNumber];
     let actualLetter = currentWord[whichNumber];
     let isCorrect = boxContent === actualLetter;
-    console.log('is my letter correct' + isCorrect)
-    console.log('the letter from the current word array is ' + actualLetter);
-    console.log('current word array ' + currentWord);
-    console.log('the box content is ' + boxContent);
+    //console.log('is my letter correct' + isCorrect)
+    //console.log('the letter from the current word array is ' + actualLetter);
+    //console.log('current word array ' + currentWord);
+    //console.log('the box content is ' + boxContent);
     if (isCorrect) {
         //console.log('correct letter match')
         console.log('to choose colour of box ' + whichBoxInputMinusOne());
-        document.getElementById(whichBoxInputMinusOne()).style.color = "green";
+        document.getElementById(whichBoxInputMinusOne()).style.color = "lightblue";
         currentScore = scores(currentScore);
     } else {
         //console.log('not correct letter match')
@@ -220,6 +221,10 @@ function isLetterCorrect() {
         //console.log(guess);
         //see modifier state in handlekey events
     }
+}
+
+function letter2input(typed) {
+    document.getElementById(whichBoxInput()).value = typed;
 }
 
 function moveOn() {
