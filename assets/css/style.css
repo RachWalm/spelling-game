@@ -8,6 +8,10 @@
 
 body {
     background: orange;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
 }
 
 /* dialog box*/
@@ -28,7 +32,7 @@ dialog {
 
 button {
     display: flex;
-    font-size: 100px;
+    font-size: 80px;
     justify-content: center;
     align-content: center;
     width: 40rem;
@@ -50,22 +54,34 @@ button {
 /*actual game styling*/
 
 input {
-    width: 20px;
-    height: 20px;
+    width: 40px;
+    height: 40px;
 }
 
 .gameBox {
     display: flex;
     justify-content: center;
-    align-content: center;
+    align-items: center;
     flex-direction: column;
+    align-content: center;
 }
 
-.front--box {
-    border: 1px solid black;
-    border-radius: 5%;
-    width: 300px;
-    height: 500px;
-    background-color: lightcyan;
-    padding-left: 5px;
+#images {
+    max-width: 30vw;
+    max-height: 20vh;
+    padding: 5px;
+}
+
+#dess {
+    font-size: 150%;
+    padding: 5px;
+}
+
+#hintys {
+    font-size: 150%;
+    padding: 5px;
+}
+
+#score {
+    visibility: hidden;
 }

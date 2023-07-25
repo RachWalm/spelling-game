@@ -8,8 +8,16 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("startGame").addEventListener("click", function () {
         //console.log("go to start game");
         buildGameArea();
+        hideFront();
     });
 })
+
+function hideFront() {
+    let first = document.getElementById("front");
+    first.style.display = "none";
+    let last = document.getElementById("score");
+    last.style.visibility = "visible";
+}
 
 /**
  * build instructions dialogue box
@@ -90,9 +98,9 @@ function rand() {
 }
 
 function buildGameArea() {
-    let imge = `<img ${wordData[pick].image}>`;
-    let des = `<p>${wordData[pick].decs}</p>`;
-    let hinty = `<p>${wordData[pick].hint}</p>`
+    let imge = `<img id="images" ${wordData[pick].image}>`;
+    let des = `<div id="dess"><p>${wordData[pick].decs}</p> </div>`;
+    let hinty = `<div id="hintys"> <p>${wordData[pick].hint}</p> </div>`
     currentWord = wordData[pick].word;
     //console.log(imge);
     //console.log(des)
@@ -248,6 +256,6 @@ function empty() {
 
 function scores(last) {
     let area = document.getElementById("score");
-    area.innerHTML = last + 1;
+    area.innerHTML = `Your Score is : ${last + 1}`;
     return last + 1;
 }

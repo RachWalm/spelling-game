@@ -17,7 +17,7 @@
     <!--logo and heading-->
     <h1> logo and title Spelling!</h1>
     <!--Start view loading with buttons to instructions and game-->
-    <div>
+    <div id="front">
         <div id="instructions">
             <button data-open-modal>Instructions</button>
             <dialog data-modal>
@@ -54,8 +54,7 @@
         </div>
     </div>
     <!--Game view-->
-    <div class="gameBox front--box" onkeyup="handleKeys(event)" onkeydown="handleKeys(event);">
-        <h2>actual game</h2>
+    <div class="gameBox" onkeyup="handleKeys(event)" onkeydown="handleKeys(event);">
         <div id="dataFromArray">
             <div id="image">
             </div>
@@ -68,7 +67,7 @@
         </div>
     </div>
     <div id="score">
-        <p>Score</p>
+        <p>Your Score is: </p>
     </div>
 
     <script src="assets/js/script.js"></script>
