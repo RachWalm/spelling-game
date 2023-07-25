@@ -12,12 +12,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     document.getElementById("skip").addEventListener("click", function () {
         console.log("skip function needed");
-    })
+    });
     document.getElementById("quit").addEventListener("click", function () {
         window.location.replace("score.html");
-        finalScores(currentScore);
-        console.log = ("currentScore")
-    })
+        //finalScores(currentScore);
+        //console.log = ("currentScore")
+    });
 })
 
 function hideFront() {
@@ -246,13 +246,19 @@ function moveOn() {
         disableArrayBoxes();
     } else {
         console.log('time for next word');
-        let rm = pick;
-        wordData.splice((rm), 1);
-        //skipped = wordData.splice((rm), 1); // for skip function
-        console.log(wordData);
-        empty();
-        pick = rand()
-        buildGameArea();
+        if (wordData.length != 1) {
+            let rm = pick;
+            wordData.splice((rm), 1);
+            //skipped = wordData.splice((rm), 1); // for skip function
+            console.log(wordData);
+            empty();
+            pick = rand()
+            buildGameArea();
+        } else {
+            console.log('out of words');
+            window.location.replace("score.html");
+
+        }
     }
 }
 

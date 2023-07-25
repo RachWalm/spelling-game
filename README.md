@@ -23,3 +23,5 @@ capitals to lower case
 redirect to antoher page W3
 
 https://www.w3schools.com/jsref/event_onbeforeunload.asp to give alert when someone tries to leave the site.
+
+second page doesn't need any javascript so removed it from the html so as to not create errors and add to confusion.
