@@ -10,6 +10,14 @@ document.addEventListener("DOMContentLoaded", function () {
         buildGameArea();
         hideFront();
     });
+    document.getElementById("skip").addEventListener("click", function () {
+        console.log("skip function needed");
+    })
+    document.getElementById("quit").addEventListener("click", function () {
+        window.location.replace("score.html");
+        finalScores(currentScore);
+        console.log = ("currentScore")
+    })
 })
 
 function hideFront() {
@@ -268,6 +276,11 @@ function scores(last) {
     let area = document.getElementById("score");
     area.innerHTML = `Your Score is : ${last + 1}`;
     return last + 1;
+}
+
+function finalScores(last) {
+    let area = document.getElementById("finalScore");
+    area.innerHTML = `Your Score was : ${last}`;
 }
 
 function lowerCase(letter) {
