@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     document.getElementById("skip").addEventListener("click", function () {
         console.log("skip function needed");
+        skip();
     });
     document.getElementById("quit").addEventListener("click", function () {
         window.location.replace("score.html");
@@ -67,31 +68,36 @@ let wordData = [{
         'word': 'elephant',
         'image': 'src="assets/images/elephant.png" alt"cartoon elephant"',
         'decs': 'large animal often found in Africa or Asia',
-        'hint': 'f and ph often sound the same'
+        'hint': 'f and ph often sound the same',
+        'complete': ['k,j']
     },
     {
         'word': 'station',
         'image': 'src="assets/images/station.png" alt"cartoon station"',
         'decs': 'place where trains or buses stop for passengers',
-        'hint': 'tion sounds like shun'
+        'hint': 'tion sounds like shun',
+        'complete': ['k,j']
     },
     {
         'word': 'pharaoh',
         'image': 'src="assets/images/pharoah.png" alt"cartoon pharoah"',
         'decs': 'egyptian king',
-        'hint': 'f and ph often sound the same'
+        'hint': 'f and ph often sound the same',
+        'complete': ['k,j']
     },
     {
         'word': 'quarter',
         'image': 'src="assets/images/quarter.png" alt"cartoon quarter pie chart"',
         'decs': '1/4 of something',
-        'hint': 'q usually has a u after it'
+        'hint': 'q usually has a u after it',
+        'complete': ['k,j']
     },
     {
         'word': 'incense',
         'image': 'src="assets/images/incense.png" alt"cartoon incense"',
         'decs': 'burnt to give a smell',
-        'hint': 's and c are difficult to place in this word'
+        'hint': 's and c are difficult to place in this word',
+        'complete': ['k,j']
     },
 
 ]
@@ -100,6 +106,7 @@ let pick = rand();
 let currentWord = wordData[pick].word;
 console.log(currentWord);
 let guess = [];
+let skipped = [];
 let currentScore = 0;
 
 function rand() {
@@ -260,20 +267,23 @@ function moveOn() {
         disableArrayBoxes();
     } else {
         console.log('time for next word');
-        if (wordData.length != 1) {
+        if (wordData.length != 0) {
             let rm = pick;
             wordData.splice((rm), 1);
-            //skipped = wordData.splice((rm), 1); // for skip function
             console.log(wordData);
-            empty();
-            pick = rand()
-            buildGameArea();
+            clearRestart();
         } else {
-            console.log('out of words');
+            console.log('out of words return to skipped if any');
             window.location.replace("score.html");
 
         }
     }
+}
+
+function clearRestart() {
+    empty();
+    pick = rand()
+    buildGameArea();
 }
 
 function empty() {
@@ -306,6 +316,17 @@ function finalScores(last) {
 function lowerCase(letter) {
     let lower = letter.toLowerCase();
     return lower;
+}
+
+function skip() {
+    let rm = pick;
+    addOld = wordData.splice((rm), 1);
+    console.log(addOld);
+    skipped.push(addOld);
+    let final = (skipped.length) - 1;
+    skipped[final].complete = [guess];
+    console.log(skipped[final]);
+    clearRestart();
 }
 
 window.onbeforeunload = function (event) {
