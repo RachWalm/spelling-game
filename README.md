@@ -25,3 +25,24 @@ redirect to antoher page W3
 https://www.w3schools.com/jsref/event_onbeforeunload.asp to give alert when someone tries to leave the site.
 
 second page doesn't need any javascript so removed it from the html so as to not create errors and add to confusion.
+
+##Deployment to Github
+
+The site was deployed to GitHub pages. It was deployed by the following actions:
+
+1. In the git hub repository, the settings tab was selected.
+2. 'Pages' was selected from the left hand side menu.
+3. Under Build and deployment Source section had 'Deploy from Branch' and the 'main' branch was selected.
+4. Save was selected.
+
+Here is the link https://rachwalm.github.io/spelling-game/ to the deployed page.
+
+##Local deployment
+
+1. In the git hub repository, code button clicked
+2. clicked local
+3. choose HTTPS
+4. link copied
+5. went to terminal (version control) and input the following :git clone https://github.com/RachWalm/spelling-game.git
+
+The project was be cloned.
