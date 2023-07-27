@@ -17,67 +17,78 @@
     <!--logo and heading-->
     <h1> logo and title Spelling!</h1>
     <!--Start view loading with buttons to instructions and game-->
-    <div id="front">
-        <div id="instructions">
-            <button data-open-modal>Instructions</button>
-            <dialog data-modal>
-                <h2>Instructions</h2>
-                <p>
-                    <ol>
-                        <li>
-                            An image and definition will appear on the screen with the number of letter of the word
-                        </li>
-                        <li>
-                            Fill in the letters one by one and they will go green if correct and red if you need to try
-                            again
-                        </li>
-                        <li>
-                            If red delete the letter and try again
-                        </li>
-                        <li>
-                            The hint will tell you the odd thing about the spelling if you click on it
-                        </li>
-                        <li>
-                            Do as many words as possible before the timer runs out
-                        </li>
-                        <li>If you do all the words .......</li>
-                        <li>
-                            You can skip if you can't work it out and if there is time you will be taken back to it
-                        </li>
-                    </ol>
-                </p>
-                <button class="close" data-close-modal>Close</button>
-            </dialog>
-        </div>
-        <div id="startGame">
-            <button>Start game</button>
-        </div>
-    </div>
-    <!--Game view-->
-    <div class="gameBox" onkeyup="handleKeys(event)" onkeydown="handleKeys(event);">
-        <div id="dataFromArray">
-            <div id="image">
-            </div>
-            <div id="description">
-            </div>
-            <div id="actualGame">
-            </div>
-            <div id="hints">
+    <div class="split">
+        <div class="split3">
+            <div id="score">
+                <p>Your Score is: </p>
             </div>
         </div>
+        <div class="split3" id="front">
+            <div id="instructions">
+                <button data-open-modal>Instructions</button>
+                <dialog data-modal>
+                    <h2>Instructions</h2>
+                    <p>
+                        <ul>
+                            <li>
+                                An image and definition will appear on the screen with the number of letter of the word
+                            </li>
+                            <li>
+                                Fill in the letters one by one and they will go green if correct and red if you need to
+                                try
+                                again
+                            </li>
+                            <li>
+                                If red delete the letter and try again
+                            </li>
+                            <li>
+                                The hint will tell you the odd thing about the spelling if you click on it
+                            </li>
+                            <li>
+                                Do as many words as possible before the timer runs out
+                            </li>
+                            <li>
+                                If you do all the words .......
+                            </li>
+                            <li>
+                                You can skip if you can't work it out and if there is time you will be taken back to it
+                            </li>
+                        </ul>
+                    </p>
+                    <button class="close" data-close-modal>Close</button>
+                </dialog>
+            </div>
+            <div id="startGame">
+                <button>Start game</button>
+            </div>
+        </div>
+        <!--Game view-->
+        <div class="gameBox" onkeyup="handleKeys(event)" onkeydown="handleKeys(event);">
+            <div id="dataFromArray">
+                <div id="image">
+                </div>
+                <div id="description">
+                </div>
+                <div id="actualGame">
+                </div>
+                <div id="hints">
+                </div>
+            </div>
+        </div>
+        <div class="split3">
+            <div>
+                <button id="skip" class="in--game">
+                    skip
+                </button>
+                <button id="quit" class="in--game">
+                    quit
+                </button>
+            </div>
+        </div>
     </div>
-    <div>
-        <button id="skip" class="in--game">
-            skip
-        </button>
-        <button id="quit" class="in--game">
-            quit
-        </button>
-    </div>
-    <div id="score">
-        <p>Your Score is: </p>
-    </div>
-    <img id="foxleft" src="assets/images/foxleft.png" alt="fox sat on a bush">
+    <footer>
+        <img id="foxleft" src="assets/images/foxleft.png" alt="fox sat on a bush">
+    </footer>
     <script src="assets/js/script.js"></script>
 </body>
 
