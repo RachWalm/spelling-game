@@ -37,10 +37,18 @@ Repeat users should also get a random order to the words so should get different
 
 ### Features
 
+#### Functions Flow Chart
+
+#### Features to ensure game played correctly
+
 letters only
 blue and red
 
 ### Colour Design
+
+The colour scheme was created to be gentle with clear bright colours where actions was required such as buttons. It was supposed to be reminisent of the sky as we has a fox woodland at the bottom. the BOE2F5 needed to be changed to rgba so that we could introduce a certain amount of opalescence (rgba = 176, 226, 245, 0.7).
+
+![colour scheme](documents/colourscheme.png)
 
 ### Font
 
