@@ -1,5 +1,4 @@
-//console.log("connected yah")
-
+/* jshint esversion: 8 */
 /**
  * On DOM load sends it to the game or gives the instructions pop up
  */
@@ -11,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
         hideFront();
     });
     document.getElementById("skip").addEventListener("click", function () {
-        console.log("skip function needed");
+        //console.log("skip function needed");
         skip();
     });
     document.getElementById("quit").addEventListener("click", function () {
@@ -69,35 +68,35 @@ let wordData = [{
         'image': 'src="assets/images/elephant.png" alt"cartoon elephant"',
         'decs': 'large animal often found in Africa or Asia',
         'hint': 'f and ph often sound the same',
-        'complete': ['k,j']
+        'complete': []
     },
     {
         'word': 'station',
         'image': 'src="assets/images/station.png" alt"cartoon station"',
         'decs': 'place where trains or buses stop for passengers',
         'hint': 'tion sounds like shun',
-        'complete': ['k,j']
+        'complete': []
     },
     {
         'word': 'pharaoh',
         'image': 'src="assets/images/pharoah.png" alt"cartoon pharoah"',
         'decs': 'egyptian king',
         'hint': 'f and ph often sound the same',
-        'complete': ['k,j']
+        'complete': []
     },
     {
         'word': 'quarter',
         'image': 'src="assets/images/quarter.png" alt"cartoon quarter pie chart"',
         'decs': '1/4 of something',
         'hint': 'q usually has a u after it',
-        'complete': ['k,j']
+        'complete': []
     },
     {
         'word': 'incense',
         'image': 'src="assets/images/incense.png" alt"cartoon incense"',
         'decs': 'burnt to give a smell',
         'hint': 's and c are difficult to place in this word',
-        'complete': ['k,j']
+        'complete': []
     },
 
 ]
@@ -267,24 +266,28 @@ function moveOn() {
         disableArrayBoxes();
     } else {
         console.log('time for next word');
-        if (wordData.length != 0) {
+        if (wordData.length != 1) {
             let rm = pick;
             wordData.splice((rm), 1);
             console.log(wordData);
             clearRestart();
-        } else {
+        } else if (wordData.length = 1) {
             console.log('out of words return to skipped if any');
-            window.location.replace("score.html");
-
+            wordData = skipped;
+            skipped = [];
+            console.log(wordData[0].complete)
+            clearRestart();
+        } else {
+            console.log('wordData less than 1')
         }
     }
 }
 
 function clearRestart() {
     empty();
-    pick = rand()
     buildGameArea();
 }
+
 
 function empty() {
     console.log('empty activated');

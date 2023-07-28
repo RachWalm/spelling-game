@@ -61,6 +61,7 @@ levels by theme
 more words
 different durations on the TIMER
 Option to add your name
+choose whether you want the first letter of word provided.
 
 ## Development Bugs
 
@@ -93,6 +94,8 @@ Here is the link https://rachwalm.github.io/spelling-game/ to the deployed page.
 The project was be cloned.
 
 ## Atribution
+
+mentor /* jshint esversion: 8 */
 
 key up and down from the CI javascript& the dom > handling DOM events > keyboard events to stop repeat event.repeat
 
