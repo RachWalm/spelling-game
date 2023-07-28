@@ -4,6 +4,10 @@ This spelling game for children was designed so that they can play from an image
 
 The site can be accessed by this [link](https://rachwalm.github.io/spelling-game/).
 
+## How to play
+Once you start the game it will provide you with an image, description and boxes to spell out the word that is required. There will be one box for each letter and the focus will start on the first letter. As each letter is typed if you have the correct letter for spelling the word it will go blue and move you to the next box. Otherwise, the letter will go red and you will have to keep trying till you get the correct letter / skip the word or quit. As score will increment with each correct letter entered. 
+When you have completed the word it will provide you with an new image and description for a new word.
+
 ## User Experience
 
 ### Initial Design
@@ -51,6 +55,10 @@ The colour scheme was created to be gentle with clear bright colours where actio
 ![colour scheme](documents/colourscheme.png)
 
 ### Font
+
+For the font Poppins was chosen for the bulk of the text with Quicksand being chosen for the title.
+
+The title using Quicksand is a slightly rounder font which is similar to a lot of fonts used in a lot material aimed at children. The Poppins as choice for the bulk of it is extremely simple as a font to make it easy to read for children without any serif or handwriting or gothic styling that could be difficult and therefore detract from a child's experience.
 
 ## Future improvements
 

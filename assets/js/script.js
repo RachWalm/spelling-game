@@ -21,14 +21,14 @@ document.addEventListener("DOMContentLoaded", function () {
 })
 
 function hideFront() {
-    let first = document.getElementById("front");
+    const first = document.getElementById("front");
     first.style.display = "none";
-    let last = document.getElementById("score");
+    const last = document.getElementById("score");
     last.style.visibility = "visible";
     last.innerHTML = `Your Score is : ` + 0;
-    let buttonA = document.getElementById("skip");
+    const buttonA = document.getElementById("skip");
     buttonA.style.visibility = "visible";
-    let buttonB = document.getElementById("quit");
+    const buttonB = document.getElementById("quit");
     buttonB.style.visibility = "visible";
 }
 
@@ -272,7 +272,7 @@ function moveOn() {
             wordData.splice((rm), 1);
             console.log(wordData);
             clearRestart();
-        } else if (wordData.length = 1) {
+        } else if (wordData.length = 0) {
             console.log('out of words return to skipped if any');
             wordData = skipped;
             skipped = [];
@@ -307,13 +307,13 @@ function empty() {
 }
 
 function scores(last) {
-    let area = document.getElementById("score");
+    const area = document.getElementById("score");
     area.innerHTML = `Your Score is : ${last + 1}`;
     return last + 1;
 }
 
 function finalScores(last) {
-    let area = document.getElementById("finalScore");
+    const area = document.getElementById("finalScore");
     area.innerHTML = `Your Score was : ${last}`;
 }
 
