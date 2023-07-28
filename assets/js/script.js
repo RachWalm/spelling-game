@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
         skip();
     });
     document.getElementById("quit").addEventListener("click", function () {
-        window.location.replace("leave.html");
+        window.location.replace("index.html");
         //finalScores(currentScore);
         //console.log = ("currentScore")
     });

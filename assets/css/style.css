@@ -8,6 +8,8 @@
     padding: 0;
 }
 
+/* main overall styling across all screens*/
+
 body {
     background: #D8F5FF;
     display: flex;
@@ -17,6 +19,10 @@ body {
     width: 100%;
     height: 100%;
     font-family: Poppins, sans-serif;
+}
+
+main {
+    height: 80vh;
 }
 
 footer {
@@ -31,20 +37,22 @@ h1 {
     font-size: 500%;
 }
 
+/* next two functions keep screen split in two consistently*/
+
 .split {
     display: flex;
     flex-direction: row;
-    width: 98vw;
-    /*justify-content: center;
-    align-content: center;*/
+    width: 100vw;
+    height: 80%;
 }
 
 .split3 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-content: center;
-    min-width: 30%;
+    align-self: center;
+    min-width: 33%;
+    padding: 5px;
 }
 
 /* dialog box*/
@@ -54,18 +62,19 @@ dialog::backdrop {
 }
 
 dialog {
-    position: relative;
-    top: 20vh;
-    left: 20vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background-color: #D0D1F1;
     padding: 5px;
 }
 
-/*main page*/
+/*first page*/
 
-#front {
+/*#front {
     margin-top: 20vh;
-}
+}*/
 
 button {
     display: flex;
@@ -88,11 +97,6 @@ button {
     width: auto;
 }
 
-.fox {
-    max-width: 45vw;
-    max-height: 30vh;
-}
-
 /*actual game styling*/
 
 input {
@@ -100,17 +104,39 @@ input {
     height: 40px;
 }
 
-.gameBox {
+#dataFromArray {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
     align-content: center;
+
+}
+
+#rightButtons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.smallCircle {
+    width: 150px;
+    height: 150 px;
+    border-radius: 50%;
+    font-size: 40px;
+}
+
+#image {
+    height: 40vh;
+}
+
+.gameColumn {
+    height: 15vh;
 }
 
 #images {
-    max-width: 30vw;
-    max-height: 20vh;
+    max-width: 35vw;
+    max-height: 40vh;
     padding: 5px;
 }
 
@@ -132,6 +158,12 @@ input {
 .in--game {
     visibility: hidden;
 }
+
+.fox {
+    max-width: 45vw;
+    max-height: 30vh;
+}
+
 
 footer {
     position: fixed;
