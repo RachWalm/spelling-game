@@ -131,7 +131,11 @@ input {
 }
 
 .gameColumn {
-    height: 15vh;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    align-items: center;
+    height: 10vh;
 }
 
 #images {
@@ -142,12 +146,12 @@ input {
 
 #dess {
     font-size: 150%;
-    padding: 5px;
+    top: 5px;
 }
 
 #hintys {
     font-size: 150%;
-    padding: 5px;
+    top: 5px;
 }
 
 #score {
