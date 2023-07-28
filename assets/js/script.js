@@ -25,6 +25,7 @@ function hideFront() {
     first.style.display = "none";
     let last = document.getElementById("score");
     last.style.visibility = "visible";
+    last.innerHTML = `Your Score is : ` + 0;
     let buttonA = document.getElementById("skip");
     buttonA.style.visibility = "visible";
     let buttonB = document.getElementById("quit");
