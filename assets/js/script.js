@@ -15,6 +15,12 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("quit").addEventListener("click", function () {
         window.location.replace("index.html");
     });
+    document.onkeydown = function (e) {
+        handleKeys(e);
+    }
+    document.onkeyup = function (e) {
+        handleKeys(e);
+    }
 })
 
 function hideFront() {
@@ -159,7 +165,7 @@ function buildGameArea() {
 function buildLetters() {
     //console.log("buildLetters activated");
     for (let i = 0; i < currentWord.length; i++) {
-        let ltr = `<input type=text id=input${i} placeholder=- maxlength=1;>`;
+        let ltr = `<input class="inputs" type=text id=input${i} placeholder=- maxlength=1;>`;
         document.getElementById("actualGame").innerHTML += ltr;
         //console.log(i);
         //console.log(ltr);
@@ -242,6 +248,7 @@ function handleKeys(event) {
     }
 }
 
+
 function isLetterCorrect() {
     let whichNumber = whichBoxNumber() - 1;
     let boxContent = guess[whichNumber];
@@ -273,7 +280,6 @@ function letter2notInput(typed) {
 }
 
 function moveOn() {
-    //console.log('move on activated');
     if (whichBoxNumber() < currentWord.length) {
         disableArrayBoxes();
     } else {

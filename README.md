@@ -121,6 +121,8 @@ bug : double listening of handle event where it was in the input HTML and again 
 :upper and lower case
 if don't delete although it listens for the letter keeps the letter recorded in the box that was first typed - solved letter2input
 
+taking onkeyup and onkeydown out of html into Javascript came from slack entry on 31st July 2021 AnthonyK in the project-milestone-2 under code institute.
+
 capitals to lower case
 
 https://pythontutor.com/render.html#mode=edit
