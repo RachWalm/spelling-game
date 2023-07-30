@@ -1,22 +1,19 @@
 /* jshint esversion: 8 */
+
 /**
  * On DOM load sends it to the game or gives the instructions pop up
  */
-
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("startGame").addEventListener("click", function () {
-        //console.log("go to start game");
         buildGameArea();
         hideFront();
     });
     document.getElementById("skip").addEventListener("click", function () {
-        //console.log("skip function needed");
+
         skip();
     });
     document.getElementById("quit").addEventListener("click", function () {
         window.location.replace("index.html");
-        //finalScores(currentScore);
-        //console.log = ("currentScore")
     });
 })
 
@@ -146,9 +143,9 @@ function buildGameArea() {
         console.log('wordData refilled from skipped now' + wordData)
         console.log('wordData refilled from skipped now')
         console.log(wordData)
-        //skipped = [];
-        //console.log('skipped emptied now ')
-        //console.log(skipped);
+        skipped = [];
+        console.log('skipped emptied now ')
+        console.log(skipped);
         pick = rand();
         console.log(pick);
         currentWord = wordData[0].word;
@@ -167,7 +164,7 @@ function buildLetters() {
         //console.log(i);
         //console.log(ltr);
     };
-    firstBox();
+    disableArrayBoxes();
 }
 
 function lettersOnly(l) {
@@ -179,37 +176,38 @@ function lettersOnly(l) {
 
 }
 
+/**
+ * Provides the number of the box that is currently in focus to have a letter added
+ */
 function whichBoxNumber() {
     let guessLen = parseInt(guess.length);
     let len = guessLen;
-    //console.log('box number  equals ' + len);
     return len;
 }
 
+/**
+ * Provides the id 'input'number of the box that is currently in focus to have a letter added
+ */
 function whichBoxInput() {
     let num = 'input' + whichBoxNumber();
-    //console.log('input equals ' + num);
     return num;
 }
 
+/**
+ * Provides the id 'input'number of the box that is currently in focus to have a letter added so that it can be matched to the number in the array
+ */
 function whichBoxInputMinusOne() {
-    let math = whichBoxNumber() - 1;
-    let out = 'input' + math;
-    //console.log('input equals ' + out);
+    let minus = whichBoxNumber() - 1;
+    let out = 'input' + minus;
     return out;
 }
 
-function firstBox() {
-    document.getElementById('input0').value.length == 0 ? disableArrayBoxes() : console.log('box full');
-    //console.log(document.getElementById('input0').value.length)
-}
-
-
+/**
+ * disables all the letter input boxes except the one in focus
+ */
 function disableArrayBoxes() {
     for (let i = 0; i < currentWord.length; i++) {
-        //console.log(whichBoxInput());
         let imp = 'input' + i;
-        //console.log('imp equals ', imp);
         if (i === whichBoxNumber()) {
             document.getElementById(`${imp}`).disabled = false;
             document.getElementById(whichBoxInput()).focus();
@@ -225,28 +223,21 @@ function handleKeys(event) {
     //if (event.repeat) {
     //  return false;
     //} else 
-    //console.log('output of lettersOnly is ' + lettersOnly(event.key))
     if (event.type === 'keydown') {
         //console.log('keydown')
         if (lettersOnly(event.key) === false) {
             alert('You must insert a letter. As numbers and special characters are not accepted'); //need an else if for weird characters
         } else if (letter2notInput(event) === true) {
-            //console.log('letters to not input');
             document.getElementById(whichBoxInput()).value = '-';
         } else if (lettersOnly(event.key) === true) {
-            //console.log(event);
-            //console.log(event.key);
             let low = lowerCase(event.key);
             letter2input(low);
             guess.push(low);
-            //console.log('guess array contains ' + guess);
-            //console.log('length of guess array is' + guess.length)
             isLetterCorrect();
         } else {
             //console.log('problem in lettersOnly possibly');
         }
     } else if (event.type === 'keyup') {
-        //console.log('keyup')
         moveOn()
     }
 }
@@ -256,21 +247,12 @@ function isLetterCorrect() {
     let boxContent = guess[whichNumber];
     let actualLetter = currentWord[whichNumber];
     let isCorrect = boxContent === actualLetter;
-    //console.log('is my letter correct' + isCorrect)
-    //console.log('the letter from the current word array is ' + actualLetter);
-    //console.log('current word array ' + currentWord);
-    //console.log('the box content is ' + boxContent);
-    if (isCorrect) {
-        //console.log('correct letter match')
-        //console.log('to choose colour of box ' + whichBoxInputMinusOne());
+    if (isCorrect) { //if isCorrect = true
         document.getElementById(whichBoxInputMinusOne()).style.color = "blue";
         currentScore = scores(currentScore);
     } else {
-        //console.log('not correct letter match')
         document.getElementById(whichBoxInputMinusOne()).style.color = "red";
-        guess.pop(); //this will need to empty the incorrect answer out of the array
-        //console.log(guess);
-        //see modifier state in handlekey events
+        guess.pop(); //this need to empty the incorrect answer out of the array
     }
 }
 
@@ -345,20 +327,13 @@ function lowerCase(letter) {
 }
 
 function skip() {
-    //let addOld = JSON.parse(JSON.stringify(wordData.splice((pick), 1)));
     let addOld = structuredClone(wordData[pick]);
     console.log('structured clone is ')
     console.log(addOld);
-    //let final = parseInt((skipped.length) - 1);
     skipped.push(addOld);
     wordData.splice((pick), 1);
-    //skipped[final].word = addOld[word];
-    //console.log(skipped[final].word)
-    //skipped[final].complete = [guess];
     console.log('skipped equals ');
     console.log(skipped);
-    //console.log('skipped final equals' + skipped[final]);
-    //console.log(skipped[final])
     clearRestart();
 }
 

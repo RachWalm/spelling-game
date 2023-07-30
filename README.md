@@ -127,7 +127,8 @@ https://pythontutor.com/render.html#mode=edit
 
 https://www.geeksforgeeks.org/how-to-clone-an-array-in-javascript/ - skipped back into word array
 
-shallow copy vs deep copy
+shallow copy vs deep copy  - tried concat push '=' etc but didn't get the copy that I wanted. putting things in indexed places or taking from indexed places.
+//let addOld = JSON.parse(JSON.stringify(wordData.splice((pick), 1)));
 https://www.youtube.com/watch?v=E3dboLSBeJc
 https://www.youtube.com/shorts/XK0V0E3bA-M 
 
