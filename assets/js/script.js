@@ -233,11 +233,11 @@ function handleKeys(event) {
         //console.log('keydown')
         if (lettersOnly(event.key) === false) {
             alert('You must insert a letter. As numbers and special characters are not accepted'); //need an else if for weird characters
-        } else if (letter2notInput(event) === true) {
+        } else if (lettersnotInput(event) === true) {
             document.getElementById(whichBoxInput()).value = '-';
         } else if (lettersOnly(event.key) === true) {
             let low = lowerCase(event.key);
-            letter2input(low);
+            lettersinput(low);
             guess.push(low);
             isLetterCorrect();
         } else {
@@ -263,11 +263,11 @@ function isLetterCorrect() {
     }
 }
 
-function letter2input(typed) {
+function lettersinput(typed) {
     document.getElementById(whichBoxInput()).value = typed;
 }
 
-function letter2notInput(typed) {
+function lettersnotInput(typed) {
     let shift = typed.getModifierState("Shift");
     let meta = typed.getModifierState("Meta");
     let control = typed.getModifierState("Control");
