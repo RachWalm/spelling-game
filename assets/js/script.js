@@ -69,14 +69,14 @@ let wordData = [{
         'image': 'src="assets/images/elephant.png" alt"cartoon elephant"',
         'decs': 'large animal often found in Africa or Asia',
         'hint': 'f and ph often sound the same',
-        'complete': []
+        'complete': ['e']
     },
     {
         'word': 'station',
         'image': 'src="assets/images/station.png" alt"cartoon station"',
         'decs': 'place where trains or buses stop for passengers',
         'hint': 'tion sounds like shun',
-        'complete': []
+        'complete': ['s']
     },
     {
         'word': 'pharaoh',
@@ -102,32 +102,61 @@ let wordData = [{
 
 ]
 
+let blankEntry = {
+    'word': '',
+    'image': '',
+    'decs': '',
+    'hint': '',
+    'complete': []
+}
 let pick = rand();
 let currentWord = wordData[pick].word;
-console.log(currentWord);
+//console.log(currentWord);
 let guess = [];
 let skipped = [];
 let currentScore = 0;
 
+
 function rand() {
     let rndm = Math.floor(Math.random() * wordData.length);
     //console.log(wordData.length);
-    console.log('random array number is ' + rndm);
+    //console.log('random array number is ' + rndm);
     return rndm;
 }
 
 function buildGameArea() {
-    let imge = `<img id="images" ${wordData[pick].image}>`;
-    let des = `<div id="dess"><p>${wordData[pick].decs}</p> </div>`;
-    let hinty = `<div id="hintys"> <p>${wordData[pick].hint}</p> </div>`
-    currentWord = wordData[pick].word;
-    //console.log(imge);
-    //console.log(des)
-    document.getElementById("image").innerHTML += imge;
-    document.getElementById("description").innerHTML += des;
-    buildLetters();
-    document.getElementById("hints").innerHTML += hinty;
-
+    if (wordData.length != 0) {
+        pick = rand();
+        console.log(wordData)
+        let imge = `<img id="images" ${wordData[pick].image}>`;
+        let des = `<div id="dess"><p>${wordData[pick].decs}</p> </div>`;
+        let hinty = `<div id="hintys"> <p>${wordData[pick].hint}</p> </div>`
+        currentWord = wordData[pick].word;
+        //console.log(imge);
+        //console.log(des)
+        document.getElementById("image").innerHTML += imge;
+        document.getElementById("description").innerHTML += des;
+        buildLetters();
+        document.getElementById("hints").innerHTML += hinty;
+    } else if (wordData.length = 1) {
+        //console.log('out of words return to skipped if any');
+        //wordData = skipped.concat(wordData);
+        //wordData = wordData.shift()
+        wordData = Array.from(skipped, x => x);
+        console.log('wordData refilled from skipped now' + wordData)
+        console.log('wordData refilled from skipped now')
+        console.log(wordData)
+        //skipped = [];
+        //console.log('skipped emptied now ')
+        //console.log(skipped);
+        pick = rand();
+        console.log(pick);
+        currentWord = wordData[0].word;
+        console.log(currentWord);
+        buildGameArea();
+    } else {
+        console.log('wordData less than 0')
+    }
 }
 
 function buildLetters() {
@@ -202,7 +231,7 @@ function handleKeys(event) {
         if (lettersOnly(event.key) === false) {
             alert('You must insert a letter. As numbers and special characters are not accepted'); //need an else if for weird characters
         } else if (letter2notInput(event) === true) {
-            console.log('letters to not input');
+            //console.log('letters to not input');
             document.getElementById(whichBoxInput()).value = '-';
         } else if (lettersOnly(event.key) === true) {
             //console.log(event);
@@ -210,7 +239,7 @@ function handleKeys(event) {
             let low = lowerCase(event.key);
             letter2input(low);
             guess.push(low);
-            console.log('guess array contains ' + guess);
+            //console.log('guess array contains ' + guess);
             //console.log('length of guess array is' + guess.length)
             isLetterCorrect();
         } else {
@@ -233,8 +262,8 @@ function isLetterCorrect() {
     //console.log('the box content is ' + boxContent);
     if (isCorrect) {
         //console.log('correct letter match')
-        console.log('to choose colour of box ' + whichBoxInputMinusOne());
-        document.getElementById(whichBoxInputMinusOne()).style.color = "lightblue";
+        //console.log('to choose colour of box ' + whichBoxInputMinusOne());
+        document.getElementById(whichBoxInputMinusOne()).style.color = "blue";
         currentScore = scores(currentScore);
     } else {
         //console.log('not correct letter match')
@@ -256,8 +285,8 @@ function letter2notInput(typed) {
     let altg = typed.getModifierState("AltGraph");
     let alt = typed.getModifierState("Alt");
     let wrong = shift || meta || control || altg || alt;
-    console.log(shift);
-    console.log(wrong);
+    //console.log(shift);
+    //console.log(wrong);
     return wrong;
 }
 
@@ -267,20 +296,13 @@ function moveOn() {
         disableArrayBoxes();
     } else {
         console.log('time for next word');
-        if (wordData.length != 1) {
-            let rm = pick;
-            wordData.splice((rm), 1);
-            console.log(wordData);
-            clearRestart();
-        } else if (wordData.length = 0) {
-            console.log('out of words return to skipped if any');
-            wordData = skipped;
-            skipped = [];
-            console.log(wordData[0].complete)
-            clearRestart();
-        } else {
-            console.log('wordData less than 1')
-        }
+        //if (wordData.length != 0) {
+        console.log('wordData items left' + wordData.length);
+        wordData.splice((pick), 1);
+        console.log('wordData equals : ');
+        console.log(wordData);
+        clearRestart();
+
     }
 }
 
@@ -303,7 +325,7 @@ function empty() {
     const emphint = document.getElementById("hints");
     emphint.removeChild(emphint.firstElementChild);
     guess = [];
-    console.log(guess);
+    //console.log(guess);
 }
 
 function scores(last) {
@@ -323,16 +345,25 @@ function lowerCase(letter) {
 }
 
 function skip() {
-    let rm = pick;
-    addOld = wordData.splice((rm), 1);
+    //let addOld = JSON.parse(JSON.stringify(wordData.splice((pick), 1)));
+    let addOld = structuredClone(wordData[pick]);
+    console.log('structured clone is ')
     console.log(addOld);
+    //let final = parseInt((skipped.length) - 1);
     skipped.push(addOld);
-    let final = (skipped.length) - 1;
-    skipped[final].complete = [guess];
-    console.log(skipped[final]);
+    wordData.splice((pick), 1);
+    //skipped[final].word = addOld[word];
+    //console.log(skipped[final].word)
+    //skipped[final].complete = [guess];
+    console.log('skipped equals ');
+    console.log(skipped);
+    //console.log('skipped final equals' + skipped[final]);
+    //console.log(skipped[final])
     clearRestart();
 }
 
-window.onbeforeunload = function (event) {
-    event.returnValue = "leaving site";
-};
+
+
+//window.onbeforeunload = function (event) {
+//    event.returnValue = "leaving site";
+//};

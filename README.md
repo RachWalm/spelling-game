@@ -123,6 +123,14 @@ if don't delete although it listens for the letter keeps the letter recorded in 
 
 capitals to lower case
 
+https://pythontutor.com/render.html#mode=edit
+
+https://www.geeksforgeeks.org/how-to-clone-an-array-in-javascript/ - skipped back into word array
+
+shallow copy vs deep copy
+https://www.youtube.com/watch?v=E3dboLSBeJc
+https://www.youtube.com/shorts/XK0V0E3bA-M 
+
 redirect to antoher page W3
 
 https://www.w3schools.com/jsref/event_onbeforeunload.asp to give alert when someone tries to leave the site.
