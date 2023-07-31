@@ -118,6 +118,7 @@ let guess = [];
 let skipped = [];
 let currentScore = 0;
 let wantFirstLetter = false;
+let repeat = false;
 
 
 function rand() {
@@ -150,7 +151,8 @@ function buildGameArea() {
         console.log('wordData refilled from skipped now')
         console.log(wordData)
         skipped = [];
-        console.log('skipped emptied now ')
+        console.log('skipped emptied now ');
+        repeat = true;
         console.log(skipped);
         pick = rand();
         console.log(pick);
@@ -167,23 +169,35 @@ function buildLetters() {
     for (let i = 0; i < currentWord.length; i++) {
         let ltr = `<input class="inputs" type=text id=input${i} placeholder=- maxlength=1;>`;
         document.getElementById("actualGame").innerHTML += ltr;
-        //whatComplete();
         //console.log(i);
         //console.log(ltr);
     };
     disableArrayBoxes();
     wantedFirstLetter();
+    whatComplete();
 }
 
 function wantedFirstLetter() {
     if (wantFirstLetter) {
-        console.log(wordData[pick].firstLetter);
-        console.log(wordData[pick].firstLetter[0]);
+        //console.log(wordData[pick].firstLetter);
+        //console.log(wordData[pick].firstLetter[0]);
         document.getElementById('input0').value = wordData[pick].firstLetter[0];
         guess = wordData[pick].firstLetter;
         disableArrayBoxes();
     } else {
         console.log('don"t include first letter')
+    }
+}
+
+function whatComplete() {
+    console.log(wordData[pick].complete);
+    for (i = 0; i < wordData[pick].complete.length; i++) {
+        console.log(wordData[pick].complete[i]);
+        let letter = `input${i}`;
+        console.log(letter);
+        document.getElementById(letter).value = wordData[pick].complete[i];
+        guess = wordData[pick].complete;
+        disableArrayBoxes();
     }
 }
 
