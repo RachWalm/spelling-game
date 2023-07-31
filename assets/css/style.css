@@ -78,13 +78,18 @@ dialog {
 
 button {
     display: flex;
-    font-size: 80px;
+    font-size: 60px;
     justify-content: center;
     align-content: center;
     width: 28rem;
     background-color: #CCFFC2;
     border-radius: 8%;
     margin: 5px;
+}
+
+#wantFirstTick {
+    width: 25px;
+    height: 25px;
 }
 
 #instructions {
