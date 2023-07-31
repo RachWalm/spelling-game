@@ -72,35 +72,40 @@ let wordData = [{
         'image': 'src="assets/images/elephant.png" alt"cartoon elephant"',
         'decs': 'large animal often found in Africa or Asia',
         'hint': 'f and ph often sound the same',
-        'complete': ['e']
+        'complete': [],
+        'firstLetter': ['e']
     },
     {
         'word': 'station',
         'image': 'src="assets/images/station.png" alt"cartoon station"',
         'decs': 'place where trains or buses stop for passengers',
         'hint': 'tion sounds like shun',
-        'complete': ['s']
+        'complete': [],
+        'firstLetter': ['s']
     },
     {
         'word': 'pharaoh',
         'image': 'src="assets/images/pharoah.png" alt"cartoon pharoah"',
         'decs': 'egyptian king',
         'hint': 'f and ph often sound the same',
-        'complete': ['p']
+        'complete': [],
+        'firstLetter': ['p']
     },
     {
         'word': 'quarter',
         'image': 'src="assets/images/quarter.png" alt"cartoon quarter pie chart"',
         'decs': '1/4 of something',
         'hint': 'q usually has a u after it',
-        'complete': ['q']
+        'complete': [],
+        'firstLetter': ['q']
     },
     {
         'word': 'incense',
         'image': 'src="assets/images/incense.png" alt"cartoon incense"',
         'decs': 'burnt to give a smell',
         'hint': 's and c are difficult to place in this word',
-        'complete': ['i']
+        'complete': [],
+        'firstLetter': ['i']
     },
 
 ]
@@ -111,6 +116,7 @@ let currentWord = wordData[pick].word;
 let guess = [];
 let skipped = [];
 let currentScore = 0;
+let wantFirstLetter = false;
 
 
 function rand() {
@@ -147,7 +153,7 @@ function buildGameArea() {
         console.log(skipped);
         pick = rand();
         console.log(pick);
-        currentWord = wordData[0].word;
+        currentWord = wordData[pick].word;
         console.log(currentWord);
         buildGameArea();
     } else {
@@ -165,17 +171,19 @@ function buildLetters() {
         //console.log(ltr);
     };
     disableArrayBoxes();
+    wantedFirstLetter();
 }
 
-function whatComplete() {
-    let letters = [];
-    skipped.forEach(function (object) {
-        letters.push(object.complete[0]);
-    })
-    console.log(skipped);
-    console.log(wordData);
-    console.log(letters);
-    //console.log(letters.length);
+function wantedFirstLetter() {
+    if (wantFirstLetter) {
+        console.log(wordData[pick].firstLetter);
+        console.log(wordData[pick].firstLetter[0]);
+        document.getElementById('input0').value = wordData[pick].firstLetter[0];
+        guess = wordData[pick].firstLetter;
+        disableArrayBoxes();
+    } else {
+        console.log('don"t include first letter')
+    }
 }
 
 function lettersOnly(l) {
@@ -350,10 +358,10 @@ function skip() {
 }
 
 function guessToComplete(got) {
-    console.log('into guess to complete.complete is and should be first letter')
-    console.log(got.complete)
+    //console.log('into guess to complete.complete is and should be first letter')
+    //console.log(got.complete)
     got.complete = guess;
-    console.log(got);
+    //console.log(got);
     return got;
 }
 
