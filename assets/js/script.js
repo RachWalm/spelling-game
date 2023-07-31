@@ -86,32 +86,25 @@ let wordData = [{
         'image': 'src="assets/images/pharoah.png" alt"cartoon pharoah"',
         'decs': 'egyptian king',
         'hint': 'f and ph often sound the same',
-        'complete': []
+        'complete': ['p']
     },
     {
         'word': 'quarter',
         'image': 'src="assets/images/quarter.png" alt"cartoon quarter pie chart"',
         'decs': '1/4 of something',
         'hint': 'q usually has a u after it',
-        'complete': []
+        'complete': ['q']
     },
     {
         'word': 'incense',
         'image': 'src="assets/images/incense.png" alt"cartoon incense"',
         'decs': 'burnt to give a smell',
         'hint': 's and c are difficult to place in this word',
-        'complete': []
+        'complete': ['i']
     },
 
 ]
 
-let blankEntry = {
-    'word': '',
-    'image': '',
-    'decs': '',
-    'hint': '',
-    'complete': []
-}
 let pick = rand();
 let currentWord = wordData[pick].word;
 //console.log(currentWord);
@@ -167,10 +160,22 @@ function buildLetters() {
     for (let i = 0; i < currentWord.length; i++) {
         let ltr = `<input class="inputs" type=text id=input${i} placeholder=- maxlength=1;>`;
         document.getElementById("actualGame").innerHTML += ltr;
+        //whatComplete();
         //console.log(i);
         //console.log(ltr);
     };
     disableArrayBoxes();
+}
+
+function whatComplete() {
+    let letters = [];
+    skipped.forEach(function (object) {
+        letters.push(object.complete[0]);
+    })
+    console.log(skipped);
+    console.log(wordData);
+    console.log(letters);
+    //console.log(letters.length);
 }
 
 function lettersOnly(l) {
@@ -334,16 +339,23 @@ function lowerCase(letter) {
 
 function skip() {
     let addOld = structuredClone(wordData[pick]);
-    console.log('structured clone is ')
-    console.log(addOld);
-    skipped.push(addOld);
+    //console.log('structured clone is ')
+    //console.log(addOld);
+    guessToComplete(addOld);
+    skipped.push(guessToComplete(addOld));
     wordData.splice((pick), 1);
     console.log('skipped equals ');
     console.log(skipped);
     clearRestart();
 }
 
-
+function guessToComplete(got) {
+    console.log('into guess to complete.complete is and should be first letter')
+    console.log(got.complete)
+    got.complete = guess;
+    console.log(got);
+    return got;
+}
 
 //window.onbeforeunload = function (event) {
 //    event.returnValue = "leaving site";
