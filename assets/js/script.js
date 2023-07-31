@@ -34,10 +34,14 @@ function hideFront() {
     buttonA.style.visibility = "visible";
     const buttonB = document.getElementById("quit");
     buttonB.style.visibility = "visible";
+    const gameBox = document.getElementById("gameBox");
+    gameBox.style.visibility = "visible";
+    gameBox.style.height = "80%";
 }
 
+
 /**
- * build instructions dialogue box
+ * build instructions for the dialogue box
  */
 
 const openButton = document.querySelector("[data-open-modal]");

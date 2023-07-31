@@ -22,78 +22,81 @@
     <main>
         <!--left side div not visible on initial load but provides consistent spacing-->
         <div class="split">
-            <div class="split3">
+            <div id="split1">
                 <div id="score">
                     <p>Your Score is: </p>
                 </div>
             </div>
             <!--center div - focus of activity-->
             <!--visible on initial load then hidden during game-->
-            <div class="split3" id="front">
-                <div id="instructions">
-                    <button data-open-modal>Instructions</button>
-                    <dialog data-modal>
-                        <h2>Instructions</h2>
-                        <p>
-                            <ul>
-                                <li>
-                                    An image and definition will appear on the screen with enough boxes for the letters
-                                    of
-                                    the word
-                                </li>
-                                <li>
-                                    Fill in the letters one by one and they will go blue if correct and red if you need
-                                    to
-                                    try again
-                                </li>
-                                <li>
-                                    If red - try again
-                                </li>
-                                <li>
-                                    The hint will tell you the odd thing about the spelling
-                                </li>
-                                <li>
-                                    Do as many words as possible before the timer runs out
-                                </li>
-                                <li>
-                                    You can skip. If you can't work it out, then skip. If there is time you will be
-                                    taken
-                                    back to it
-                                </li>
-                                <li>
-                                    If you do all the words .......
-                                </li>
-                            </ul>
-                        </p>
-                        <button class="close" data-close-modal>Close</button>
-                    </dialog>
-                </div>
-                <div id="startGame">
-                    <button>Start game</button>
-                </div>
-                <div>
-                    <input type="checkbox" id="wantFirstTick" name="firstTick" value="firstLetterInc">
-                    <label for="wantFirstTick"> Click box for first letter given</label>
-                </div>
-            </div>
-            <!--Center of screen main activity game view - arrives when start game clicked-->
-            <div id="gameBox">
-                <div id="dataFromArray">
-                    <div id="image">
+            <div id="split2">
+                <div id="front">
+                    <div id="instructions">
+                        <button data-open-modal>Instructions</button>
+                        <dialog data-modal>
+                            <h2>Instructions</h2>
+                            <p>
+                                <ul>
+                                    <li>
+                                        An image and definition will appear on the screen with enough boxes for the
+                                        letters
+                                        of the word
+                                    </li>
+                                    <li>
+                                        Fill in the letters one by one and they will go blue if correct and red if you
+                                        need
+                                        to
+                                        try again
+                                    </li>
+                                    <li>
+                                        If red - try again
+                                    </li>
+                                    <li>
+                                        The hint will tell you the odd thing about the spelling
+                                    </li>
+                                    <li>
+                                        Do as many words as possible before the timer runs out
+                                    </li>
+                                    <li>
+                                        You can skip. If you can't work it out, then skip. If there is time you will be
+                                        taken back to it
+                                    </li>
+                                    <li>
+                                        If you do all the words .......
+                                    </li>
+                                </ul>
+                            </p>
+                            <button class="close" data-close-modal>Close</button>
+                        </dialog>
                     </div>
-                    <div class="gameColumn" id="description">
+                    <div id="startGame">
+                        <button>Start game</button>
                     </div>
-                    <div class="gameColumn" id="actualGame">
-                    </div>
-                    <div class="gameColumn" id="hints">
+                    <div>
+                        <input type="checkbox" id="wantFirstTick" name="firstTick" value="firstLetterInc">
+                        <label for="wantFirstTick"> Click box for first letter given</label>
                     </div>
                 </div>
-            </div>
-            <div id="finalScore">
-                <h2>Your Final Score was :</h2>
+                <!--Center of screen main activity game view - arrives when start game clicked-->
+                <div id="gameBox">
+                    <div id="dataFromArray">
+                        <div id="image">
+                        </div>
+                        <div class="gameColumn" id="description">
+                        </div>
+                        <div class="gameColumn" id="actualGame">
+                        </div>
+                        <div class="gameColumn" id="hints">
+                        </div>
+                    </div>
+                </div>
+                <!--When the game is finished it clears the screen and gives the final score-->
+                <div id="finalScore">
+                    <h2>Your Final Score was :</h2>
+                </div>
             </div>
             <!--right side div not visible on initial load but provides consistent spacing-->
-            <div class="split3">
+            <div id="split3">
                 <!--action buttons during the game-->
                 <div id="rightButtons">
                     <button id="skip" class="in--game smallCircle">
