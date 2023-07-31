@@ -146,19 +146,23 @@ function buildGameArea() {
         //console.log('out of words return to skipped if any');
         //wordData = skipped.concat(wordData);
         //wordData = wordData.shift()
-        wordData = Array.from(skipped, x => x);
-        console.log('wordData refilled from skipped now' + wordData)
-        console.log('wordData refilled from skipped now')
-        console.log(wordData)
-        skipped = [];
-        console.log('skipped emptied now ');
-        repeat = true;
-        console.log(skipped);
-        pick = rand();
-        console.log(pick);
-        currentWord = wordData[pick].word;
-        console.log(currentWord);
-        buildGameArea();
+        if (skipped.length > 0) {
+            wordData = Array.from(skipped, x => x);
+            console.log('wordData refilled from skipped now' + wordData)
+            console.log('wordData refilled from skipped now')
+            console.log(wordData)
+            skipped = [];
+            console.log('skipped emptied now ');
+            repeat = true;
+            console.log(skipped);
+            pick = rand();
+            console.log(pick);
+            currentWord = wordData[pick].word;
+            console.log(currentWord);
+            buildGameArea();
+        } else {
+            theEnd();
+        }
     } else {
         console.log('wordData less than 0')
     }
@@ -387,6 +391,19 @@ function booFirstLetter() {
     } else {
         wantFirstLetter = false;
     }
+}
+
+function theEnd() {
+    const end = document.getElementById("gameBox");
+    end.style.display = "none";
+    const last = document.getElementById("score");
+    last.style.display = "none";
+    last.innerHTML = `Your Score is : ` + 0;
+    const buttonA = document.getElementById("skip");
+    buttonA.style.display = "none";
+    const first = document.getElementById("finalScore");
+    first.style.visibility = "visible";
+    finalScores(currentScore);
 }
 
 //window.onbeforeunload = function (event) {
