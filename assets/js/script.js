@@ -5,6 +5,7 @@
  */
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("startGame").addEventListener("click", function () {
+        booFirstLetter();
         buildGameArea();
         hideFront();
     });
@@ -363,6 +364,15 @@ function guessToComplete(got) {
     got.complete = guess;
     //console.log(got);
     return got;
+}
+
+function booFirstLetter() {
+    let checkBox = document.getElementById('wantFirstTick');
+    if (checkBox.checked == true) {
+        wantFirstLetter = true;
+    } else {
+        wantFirstLetter = false;
+    }
 }
 
 //window.onbeforeunload = function (event) {
