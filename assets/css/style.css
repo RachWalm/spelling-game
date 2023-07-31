@@ -45,7 +45,7 @@ h1 {
     font-size: 400%;
 }
 
-/* next two functions keep screen split in two consistently*/
+/* next four functions keep screen split consistently*/
 
 .split {
     display: flex;
