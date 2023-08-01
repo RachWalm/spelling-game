@@ -39,9 +39,13 @@ Repeat users should also get a random order to the words so should get different
 - If you skip the game view will be retained with the next word replacing the current display.
 - If you quit it will check that you want to leave the page and take you to a leave page which says it is sorry you are leaving and gives you the opportunity to return to the start of the game.
 
-### Features
+## Features
 
-#### Functions Flow Chart
+### Functions Flow Chart
+
+#### Initial Plan for Flow Chart
+
+#### Final Flow Chart
 
 #### Features to ensure game played correctly
 

@@ -47,7 +47,7 @@ let wordData = [{
         'complete': [],
         'firstLetter': ['i']
     },
-]
+];
 
 /**
  * global game variables
@@ -88,38 +88,38 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     document.onkeydown = function (e) {
         handleKeys(e); //allows user to enter a letter into the word
-    }
+    };
     document.onkeyup = function (e) {
         handleKeys(e); //moves letter focus onto the next word
-    }
-})
+    };
+});
 
 /**
  * dialogue box see README for code origin
  */
 openButton.addEventListener("click", () => {
-    modal.showModal()
-})
+    modal.showModal();
+});
 
 /**dialogue box see README for code origin */
 closeButton.addEventListener("click", () => {
-    modal.close()
-})
+    modal.close();
+});
 
 /**
  * dialogue box see README for code origin to allow click outside modal close
  */
 modal.addEventListener("click", e => {
-    const dialogDimensions = modal.getBoundingClientRect()
+    const dialogDimensions = modal.getBoundingClientRect();
     if (
         e.clientX < dialogDimensions.left ||
         e.clientX > dialogDimensions.right ||
         e.clientY < dialogDimensions.top ||
         e.clientY > dialogDimensions.bottom
     ) {
-        modal.close()
+        modal.close();
     }
-})
+});
 
 /**
  * removes initial screen functionality and replaces it with the game
@@ -159,7 +159,7 @@ function buildGameArea() {
         pick = rand();
         let imge = `<img id="images" ${wordData[pick].image}>`;
         let des = `<div id="dess"><p>${wordData[pick].decs}</p> </div>`;
-        let hinty = `<div id="hintys"> <p>${wordData[pick].hint}</p> </div>`
+        let hinty = `<div id="hintys"> <p>${wordData[pick].hint}</p> </div>`;
         currentWord = wordData[pick].word;
         //console.log(imge);
         //console.log(des)
@@ -181,7 +181,7 @@ function buildGameArea() {
             theEnd();
         }
     } else {
-        console.log('wordData less than 0')
+        console.log('wordData less than 0');
     }
 }
 
@@ -195,7 +195,7 @@ function buildLetters() {
         document.getElementById("actualGame").innerHTML += ltr;
         //console.log(i);
         //console.log(ltr);
-    };
+    }
     disableArrayBoxes(); //focus to correct letter
     wantedFirstLetter(); //checks if user has asked to receive first letter, if so provides
     whatComplete(); //checks if user has put letter in on a previous time then skipped to put back those letters
@@ -212,7 +212,7 @@ function wantedFirstLetter() {
         guess = wordData[pick].firstLetter; //puts first letter in guess array to align with screen
         disableArrayBoxes(); //puts focus on second/correct letter
     } else {
-        console.log('don"t include first letter')
+        console.log('don"t include first letter');
     }
 }
 
@@ -308,7 +308,7 @@ function handleKeys(event) {
             //console.log('problem in lettersOnly possibly');
         }
     } else if (event.type === 'keyup') {
-        moveOn()
+        moveOn();
     }
 }
 
