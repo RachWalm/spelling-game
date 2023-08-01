@@ -40,7 +40,7 @@ Repeat users should also get a random order to the words so should get different
 - If you quit it will check that you want to leave the page and take you back to the beginning, which gives you the opportunity to return to the start of the game.
 - If you try to leave the page it will check that is what you intended so you don't loose your score.
 
-## Features
+## Functions
 
 ### Functions Flow Chart
 
@@ -70,10 +70,12 @@ which lead us to draw up this flow chart:
 
 #### Final Flow Chart
 
-#### Features to ensure game played correctly
+#### Functions to ensure game played correctly
 
 letters only
 blue and red
+
+## Features
 
 ### Colour Design
 
