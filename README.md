@@ -5,8 +5,8 @@ This spelling game for children was designed so that they can play from an image
 The site can be accessed by this [link](https://rachwalm.github.io/spelling-game/).
 
 ## How to play
-Once you start the game it will provide you with an image, description and boxes to spell out the word that is required. There will be one box for each letter and the focus will start on the first letter. As each letter is typed if you have the correct letter for spelling the word it will go blue and move you to the next box. Otherwise, the letter will go red and you will have to keep trying till you get the correct letter / skip the word or quit. As score will increment with each correct letter entered. 
-When you have completed the word it will provide you with an new image and description for a new word.
+Once you start the game it will provide you with an image, description and boxes to fill out to spell out the word that is required. There will be one box for each letter and the focus will start on the first letter required. As each letter is typed if you have the correct letter for spelling the word it will go blue and move you to the next box. Otherwise, the letter will go red and you will have to keep trying till you get the correct letter / skip the word or quit. As score will increment with each correct letter entered. 
+When you have completed the word it will provide you with an new image and description for a new word. Till you have completed all the words or quit.
 
 ## User Experience
 
@@ -16,7 +16,7 @@ When you have completed the word it will provide you with an new image and descr
 
 The idea is to help children improve the spelling of unusual or particularly difficult to spell words. There are certain conventions or exceptions in English that make the spelling particularly difficult. This is often a long process for children at school and a game that helps them should speed up their learning.
 
-It is not possible to write the word that they have to spell on the screen or they would just copy it. Therefore, the word will be portrayed using an image and a description. If the user cannot figure out the word or spelling their will be a skip button to avoid frustration.
+It is not possible to write the word that they have to spell on the screen or they would just copy it. Therefore, the word will be portrayed using an image and a description. If the user cannot figure out the word or spelling there will be a skip word button to avoid frustration.
 
 The hint information should help to teach them the rules or exceptions in English spelling that are relevant to that word. Also if unable to spell the word this may give them the information that they require to complete the spelling.
 
@@ -26,24 +26,47 @@ It is out of scope to actually teach children spelling - this is just a fun game
 
 ### User Stories
 
-First time users will be able to play a selection of words and test themselves against the selection to see how good they are at spelling and learn some rules and exceptions or new spellings.
+First time users will be able to play a selection of words and test themselves against the selection to see how good they are at spelling and learn some rules and exceptions for new spellings.
 
 Repeat users may find that they are coming across some of the same words so can feel an achievement at learning these words or completing them quicker a second time as well as doing a new selection of words. Eventually becoming proficient at recognising the images and descriptions and knowing the correct spelling.
 
-Repeat users should also get a random order to the words so should get different words frequently until they have exhausted the database of words.
+Repeat users should also get a random order to the words so should get different words frequently until they have exhausted the database of words, or at least in a different order to last time.
 
 ### Skeleton
 
 - Landing view will contain the general background and title/logo. Also two buttons to either get instructions and the point of the game (which will appear in a pop up box) or to start the game.
-- Game view will contain the general background and title/logo. Additionally there will be the functionality of the game. This will include relevant image, description, box for each letter of the word and a hint. This screen will also contain a skip and quit button AS WELL AS A TIMER. As each word is completed the screen will clear of the old word information and be replaced with the next word.
-- If you skip the game view will be retained with the next word replacing the current display.
-- If you quit it will check that you want to leave the page and take you to a leave page which says it is sorry you are leaving and gives you the opportunity to return to the start of the game.
+- Game view will contain the general background and title/logo. Additionally there will be the functionality of the game. This will include relevant image, description, box for each letter of the word and a hint. This screen will also contain a skip and quit button as well as a timer (timer feature later decided against after discussion with potential users). As each word is completed the screen will clear of the old word information and be replaced with the next word.
+- If you skip the word the game view will be retained with the next word replacing the current display. The skipped word will be saved for if words are run out of or if user just keeps skipping.
+- If you quit it will check that you want to leave the page and take you back to the beginning, which gives you the opportunity to return to the start of the game.
+- If you try to leave the page it will check that is what you intended so you don't loose your score.
 
 ## Features
 
 ### Functions Flow Chart
 
 #### Initial Plan for Flow Chart
+
+As I initially proposed my plans to my mentor I provided some images (I was unaware at this time I could do it all on one page) to show my thoughts and intentions:
+
+pages
+
+-[landing page](documents/page1.png)
+
+-[instructions page](documents/page2.png)
+
+-[game page](documents/page3.png)
+
+-[score page](documents/page4.png)
+
+-[thank you page](documents/page5.png)
+
+written thoughts/explanations:
+
+-[explanation](documents/first-thoughts.png)
+
+which lead us to draw up this flow chart:
+
+![initial flow chart](documents/first-flow-chart.png)
 
 #### Final Flow Chart
 
@@ -158,3 +181,5 @@ My Partner - Ian Harris who has been extremely supportive while I have been work
 Code institute - For all the information and course content that has contributed to the creation of this project.
 
 ## Testing
+
+For testing, validators and accessibility see [Testing](TESTING.md)
