@@ -229,6 +229,8 @@ Option to add your name
 
 ## Development Bugs
 
+
+
 # letters input if don't delete although it listens for the letter keeps the letter recorded in the box that was first typed - solved letter2input
 
 https://www.geeksforgeeks.org/how-to-clone-an-array-in-javascript/ - skipped back into word array
@@ -243,6 +245,10 @@ https://www.youtube.com/shorts/XK0V0E3bA-M
 All detected bugs were solved.
 
 ### Human Errors
+
+Many spelling mistakes, all rectified.
+
+Due to unfamiliarity with some of the syntax and functions that are available, there was a great deal of experimentation that took place to get the correct function or syntax that output my anticipated results.
 
 One error that required the assistance of the tutors at code institute was that an event listener was calling 'handleKeys' function where it appeared that an input was occurring twice. After watching many tutorials and trying various fixes nothing worked when I changed the function. The tutor quickly spotted I was calling the function in the handleKeys function and right at the top of the code when I was calling the 'handleKeys' function. Unfortunately, I had got too focused on the function to look at whole code. This is a learning experience to take a look at the whole process, not just what you are currently doing.
 
@@ -269,6 +275,87 @@ The project was be cloned.
 
 ## Atribution
 
+### Array of words
+
+#### Initial development array - five words only
+
+```JS
+let wordData = [{
+        'word': 'elephant',
+        'image': 'src="assets/images/elephant.png" alt"cartoon elephant"',
+        'decs': 'large animal often found in Africa or Asia',
+        'hint': 'f and ph often sound the same',
+        'complete': [],
+        'firstLetter': ['e']
+    },
+    {
+        'word': 'station',
+        'image': 'src="assets/images/station.png" alt"cartoon station"',
+        'decs': 'place where trains or buses stop for passengers',
+        'hint': 'tion sounds like shun',
+        'complete': [],
+        'firstLetter': ['s']
+    },
+    {
+        'word': 'pharaoh',
+        'image': 'src="assets/images/pharoah.png" alt"cartoon pharoah"',
+        'decs': 'egyptian king',
+        'hint': 'f and ph often sound the same',
+        'complete': [],
+        'firstLetter': ['p']
+    },
+    {
+        'word': 'quarter',
+        'image': 'src="assets/images/quarter.png" alt"cartoon quarter pie chart"',
+        'decs': '1/4 of something',
+        'hint': 'q usually has a u after it',
+        'complete': [],
+        'firstLetter': ['q']
+    },
+    {
+        'word': 'incense',
+        'image': 'src="assets/images/incense.png" alt"cartoon incense"',
+        'decs': 'burnt to give a smell',
+        'hint': 's and c are difficult to place in this word',
+        'complete': [],
+        'firstLetter': ['i']
+    },
+];
+```
+This was generated from my head and the images were:
+
+- [elephant](https://pixabay.com/vectors/elephant-animal-jungle-savannah-1598359/) (Image by <a href="https://pixabay.com/users/andremsantana-61090/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1598359">André Santana AndreMS</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1598359">Pixabay</a>)
+
+- [station](https://pixabay.com/vectors/clock-departure-destination-display-1293899/) (Image by <a href="https://pixabay.com/users/openclipart-vectors-30363/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1293899">OpenClipart-Vectors</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1293899">Pixabay</a>)
+
+- [pharaoh](https://pixabay.com/vectors/egyptian-egypt-ancient-historic-311457/) (Image by <a href="https://pixabay.com/users/clker-free-vector-images-3736/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=311457">Clker-Free-Vector-Images</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=311457">Pixabay</a>)
+
+- [quarter](https://pixabay.com/vectors/pie-chart-icon-data-chart-7128354/) (Image by <a href="https://pixabay.com/users/krzysztof-m-1363864/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=7128354">krzysztof-m</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=7128354">Pixabay</a>)
+
+- [incense](https://pixabay.com/vectors/pie-chart-icon-data-chart-7128354/) (Image by <a href="https://pixabay.com/users/20259794-20259794/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=7790187">nuri gogoi</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=7790187">Pixabay</a>)
+
+When the game had most of the functionality so needed more words to play with then I asked chatGPT to suggest a [list](documents/chatGPT.pdf) of nouns and descriptions.
+
+Now I searched the list for appropriate images to put in the game.
+
+- [dinosaur](https://www.freepnglogos.com/images/dinosaur-18676.html) (<a href="https://www.freepnglogos.com/pics/dinosaur">Dinosaur from freepnglogos.com</a>)
+
+- [giraffe](https://www.freepnglogos.com/images/giraffe-24961.html) (<a href="https://www.freepnglogos.com/pics/giraffe">Giraffe from freepnglogos.com</a>)
+
+- [butterfly](https://www.freepnglogos.com/images/butterfly-10115.html) (<a href="https://www.freepnglogos.com/pics/butterfly">Butterfly from freepnglogos.com</a>)
+
+- [cucumber](https://www.freepnglogos.com/images/cucumber-26791.html) (<a href="https://www.freepnglogos.com/pics/cucumber">Cucumber from freepnglogos.com</a>)
+
+- [astronaut](https://www.freepnglogos.com/images/astronaut-24400.html) (<a href="https://www.freepnglogos.com/pics/astronaut">Astronaut from freepnglogos.com</a>)
+
+- [ambulance](https://www.freepnglogos.com/images/ambulance-35597.html) (<a href="https://www.freepnglogos.com/pics/ambulance">Ambulance from freepnglogos.com</a>)
+
+- [scissors](https://www.freepnglogos.com/images/scissors-23226.html) (<a href="https://www.freepnglogos.com/pics/scissors">Scissors from freepnglogos.com</a>)
+
+## software used
+
+ChatGPT
+
 mentor /* jshint esversion: 8 */
 
 https://www.w3schools.com/jsref/jsref_regexp_test.asp
@@ -281,7 +368,7 @@ My Mentor - Juliia Konn has been enthusiastic and provided encouragement and a g
 
 My family - Pat Walmsley and Sarah Walmsley have tested the site on their personal devices and given very useful feedback.
 
-Children testers - Ben Cowking and Storm Cowking who have given me a great deal of insight into thier perspective.
+Children testers - Ben Cowking and Storm Cowking who have given me a great deal of insight into their perspective.
 
 My Partner - Ian Harris who has been extremely supportive while I have been working on this project.
 
