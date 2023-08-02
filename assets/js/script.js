@@ -125,6 +125,7 @@ const modal = document.querySelector("[data-modal]");
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("startGame").addEventListener("click", function () {
         booFirstLetter(); //Player decides if they want the first letter provided
+        howDifficult();
         buildGameArea();
         hideFront(); //Removes the initial screen features and replaces them with the game
     });
@@ -542,6 +543,11 @@ function addLetter() {
     guess.push(wordData[pick].word[guess.length]); //puts  letter in guess array to align with screen
     console.log(guess);
     disableArrayBoxes(); //puts focus on correct letter
+}
+
+function howDifficult() {
+    let skillLevel = document.getElementById("difficult").value;
+    console.log(skillLevel);
 }
 
 /**
