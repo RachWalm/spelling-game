@@ -337,7 +337,7 @@ function disableArrayBoxes() {
  * deals with each key press to put item in box if it is a letter and calls functions to determine if it is correct
  */
 function handleKeys(event) {
-    //event.preventDefault();
+    event.preventDefault();
     //if (event.repeat) {
     //  return false;
     //} else 
@@ -391,9 +391,18 @@ function lettersnotInput(typed) {
     let control = typed.getModifierState("Control");
     let altg = typed.getModifierState("AltGraph");
     let alt = typed.getModifierState("Alt");
+    if (typed.keyCode < 58) {
+        console.log('outside');
+        return true;
+    } else if (typed.keyCode > 90) {
+        console.log('outside 2');
+        return true;
+    } else {
+        console.log('should be legitimate letter')
+    }
     let wrong = shift || meta || control || altg || alt;
-    //console.log(shift);
-    //console.log(wrong);
+    console.log(shift);
+    console.log(wrong);
     return wrong;
 }
 
