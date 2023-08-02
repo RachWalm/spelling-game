@@ -134,6 +134,9 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("quit").addEventListener("click", function () {
         window.location.replace("index.html"); //takes user back to the beginning
     });
+    document.getElementById("buy").addEventListener("click", function () {
+        addLetter();
+    })
     document.onkeydown = function (e) {
         handleKeys(e); //allows user to enter a letter into the word
     };
@@ -182,6 +185,8 @@ function hideFront() {
     buttonA.style.visibility = "visible";
     const buttonB = document.getElementById("quit");
     buttonB.style.visibility = "visible";
+    const buttonC = document.getElementById("buy");
+    buttonC.style.visibility = "visible";
     const gameBox = document.getElementById("gameBox");
     gameBox.style.visibility = "visible";
     gameBox.style.height = "80%";
@@ -528,6 +533,15 @@ function theEnd() {
     const first = document.getElementById("finalScore");
     first.style.visibility = "visible";
     finalScores(currentScore);
+}
+
+function addLetter() {
+    nextLetter = wordData[pick].word[guess.length]; //provides user next
+    console.log(nextLetter);
+    document.getElementById(whichBoxInput()).value = wordData[pick].word[guess.length]; //provides user next
+    guess.push(wordData[pick].word[guess.length]); //puts  letter in guess array to align with screen
+    console.log(guess);
+    disableArrayBoxes(); //puts focus on correct letter
 }
 
 /**

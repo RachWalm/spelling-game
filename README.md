@@ -74,6 +74,8 @@ As the development progressed there it evolved to include the below decision tre
 
 ![current flow chart](documents/current-flow-chart.png)
 
+There is also features that allow the player to ask for the first letter that aren't critical to play that haven't been included in this flow chart to keep it simple.
+
 #### Functions to ensure game played correctly
 
 The first function that the user will access will be front screen with the instructions button. This leads to a dialogue box containing all the instructions. This was something that I was unfamiliar with and used the code from this :
@@ -193,6 +195,8 @@ Several functions were used to assess the if the letter was correct. It needed t
 
 # skip
 
+# buy letter
+
 # guess to complete
 
 # wantedFirst letter and boofirst letter
@@ -226,6 +230,9 @@ levels by theme
 more words
 different durations on the TIMER
 Option to add your name
+
+only have one way of picking if it is a letter.
+Be more efficent and not put it in guess then take it out.
 
 ## Development Bugs
 
