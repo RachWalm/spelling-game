@@ -47,6 +47,54 @@ let wordData = [{
         'complete': [],
         'firstLetter': ['i']
     },
+    {
+        'word': 'ambulance',
+        'image': 'src="assets/images/ambulance.png" alt"cartoon ambulance"',
+        'decs': 'A vehicle used to transport sick or injured people to a hospital',
+        'hint': 'is it s or c',
+        'complete': [],
+        'firstLetter': ['a']
+    },
+    {
+        'word': 'astronaut',
+        'image': 'src="assets/images/astronaut.png" alt"astronaut"',
+        'decs': 'A person who travels to space and beyond Earth',
+        'hint': 'a different spelling of nought',
+        'complete': [],
+        'firstLetter': ['a']
+    },
+    {
+        'word': 'cucumber',
+        'image': 'src="assets/images/cucumber.png" alt"cucumber"',
+        'decs': 'A long, green vegetable commonly used in salads and sandwiches',
+        'hint': 'cu has different sounds',
+        'complete': [],
+        'firstLetter': ['c']
+    },
+    {
+        'word': 'butterfly',
+        'image': 'src="assets/images/butterfly.png" alt"butterfly cartoon"',
+        'decs': 'A flying insect with delicate, colorful wings that transforms from a caterpillar',
+        'hint': 'double ll in two syllables',
+        'complete': [],
+        'firstLetter': ['b']
+    },
+    {
+        'word': 'giraffe',
+        'image': 'src="assets/images/giraffe.png" alt"giraffe"',
+        'decs': 'A long-necked mammal with distinct patches of color from African savannas',
+        'hint': 'double ff not heard',
+        'complete': [],
+        'firstLetter': ['g']
+    },
+    {
+        'word': 'dinosaur',
+        'image': 'src="assets/images/dinosaur.png" alt"dinosaur cartoon"',
+        'decs': 'An extinct reptile that lived millions of years ago',
+        'hint': 'saw can be spelt differently',
+        'complete': [],
+        'firstLetter': ['d']
+    },
 ];
 
 /**
