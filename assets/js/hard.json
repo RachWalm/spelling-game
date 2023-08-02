@@ -1,0 +1,17 @@
+[{
+        "word": "elephant",
+        "image": "src='assets / images / elephant.png ' alt'cartoon elephant '",
+        "decs": "large animal often found in Africa or Asia",
+        "hint": "f and ph often sound the same",
+        "complete": [],
+        "firstLetter": ["e"]
+    },
+    {
+        "word": "station",
+        "image": "src='assets/images/station.png' alt'cartoon station'",
+        "decs": "place where trains or buses stop for passengers",
+        "hint": "tion sounds like shun",
+        "complete": [],
+        "firstLetter": ["s"]
+    }
+]

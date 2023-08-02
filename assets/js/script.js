@@ -95,29 +95,7 @@ let wordData = [{
         'complete': [],
         'firstLetter': ['d']
     },
-];
-
-/**
- * global game variables
- */
-let pick = rand(); //allows word order to be random
-let currentWord = wordData[pick].word; //provides a location for the word in use
-let guess = []; //array for letters of this word already guessed
-let skipped = []; //words that have been skipped
-let currentScore = 0;
-let wantFirstLetter = false; //player choice of wanting to receive first letter or not
-let repeat = false; //allows program to know if we are rerunning words to include already guessed letters
-
-/**
- * build instructions for the dialogue box see README for code origin
- */
-const openButton = document.querySelector("[data-open-modal]");
-const closeButton = document.querySelector("[data-close-modal]");
-const modal = document.querySelector("[data-modal]");
-
-/**
- * DOM selectors???
- */
+]
 
 /**
  * On DOM load sets up the listeners sends it to the game or gives the instructions pop up, then game interactivity
@@ -145,6 +123,29 @@ document.addEventListener("DOMContentLoaded", function () {
         handleKeys(e); //moves letter focus onto the next word
     };
 });
+
+/**
+ * global game variables
+ */
+let pick = rand(); //allows word order to be random
+let currentWord = wordData[pick].word; //provides a location for the word in use
+let guess = []; //array for letters of this word already guessed
+let skipped = []; //words that have been skipped
+let currentScore = 0;
+let wantFirstLetter = false; //player choice of wanting to receive first letter or not
+let repeat = false; //allows program to know if we are rerunning words to include already guessed letters
+
+/**
+ * build instructions for the dialogue box see README for code origin
+ */
+const openButton = document.querySelector("[data-open-modal]");
+const closeButton = document.querySelector("[data-close-modal]");
+const modal = document.querySelector("[data-modal]");
+
+/**
+ * DOM selectors???
+ */
+
 
 /**
  * dialogue box see README for code origin
@@ -431,7 +432,7 @@ function moveOn() {
 }
 
 /**
- * calls functiosn to clear screen/guess array and starts next word build
+ * calls functions to clear screen/guess array and starts next word build
  */
 function clearRestart() {
     empty();
@@ -548,6 +549,15 @@ function addLetter() {
 function howDifficult() {
     let skillLevel = document.getElementById("difficult").value;
     console.log(skillLevel);
+    //let data = ['assets/js/hard.json'];
+    //console.log(data);
+    fetch('assets/js/hard.json') //get from server
+        .then((response) => response.json())
+        .then(hard => {
+            wordData = Array.from(hard, x => x)
+        })
+    //wordData = Array.from(response, x => x);
+    console.log(wordData);
 }
 
 /**
