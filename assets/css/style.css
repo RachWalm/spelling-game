@@ -247,3 +247,33 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+@media screen and (max-width:1024px) {
+
+    footer {
+        display: hidden;
+    }
+
+    .split {
+        flex-direction: column;
+    }
+
+    input {
+        width: 30px;
+        height: 30px;
+        font-size: 100%;
+    }
+
+    #dess {
+        font-size: 100%;
+    }
+
+    #hintys {
+        font-size: 100%;
+    }
+
+    .fox {
+        max-width: 25vw;
+        max-height: 28vh;
+    }
+}
