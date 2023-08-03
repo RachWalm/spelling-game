@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location.replace("index.html"); //takes user back to the beginning
     });
     document.getElementById("buy").addEventListener("click", function () {
-        document.getElementById(whichBoxInputMinusOne()).style.color = "black";
+        document.getElementById(whichBoxInput()).style.color = "black";
         addLetter();
     })
     document.onkeydown = function (e) {
@@ -452,6 +452,8 @@ function theEnd() {
     last.innerHTML = `Your Score is : ` + 0;
     const buttonA = document.getElementById("skip");
     buttonA.style.display = "none";
+    const buttonC = document.getElementById("buy");
+    buttonC.style.display = "none";
     const first = document.getElementById("finalScore");
     first.style.visibility = "visible";
     finalScores(currentScore);
@@ -463,7 +465,7 @@ function addLetter() {
     document.getElementById(whichBoxInput()).value = wordData[pick].word[guess.length]; //provides user next
     guess.push(wordData[pick].word[guess.length]); //puts  letter in guess array to align with screen
     console.log(guess);
-    disableArrayBoxes(); //puts focus on correct letter
+    moveOn(); //puts focus on correct letter or changes to new word if letters run out
 }
 
 function howDifficult() {
