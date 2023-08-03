@@ -8,12 +8,12 @@
  * Array of words and information first iteration
  */
 let wordData = [{
-    "word": "incense",
-    "image": "src='assets/images/incense.png' alt'cartoon incense'",
-    "decs": "burnt to give a smell",
-    "hint": "s and c are difficult to place in this word",
+    "word": "fox",
+    "image": "src='assets/images/fox.png' alt'cartoon incense'",
+    "decs": "woodland creature",
+    "hint": "x sounds like s",
     "complete": [],
-    "firstLetter": ["i"]
+    "firstLetter": ["f"]
 }]
 
 /**
@@ -102,7 +102,7 @@ function hideFront() {
     first.style.display = "none";
     const last = document.getElementById("score");
     last.style.visibility = "visible";
-    last.innerHTML = `Your Score is : ` + 0;
+    last.innerHTML = `Your Score is : <br>` + 0;
     const buttonA = document.getElementById("skip");
     buttonA.style.visibility = "visible";
     const buttonB = document.getElementById("quit");
@@ -392,7 +392,7 @@ function scores(last) {
  */
 function finalScores(last) {
     const area = document.getElementById("finalScore");
-    area.innerHTML = `Your Score was : ${last}`;
+    area.innerHTML = `Your <br>Score <br>was : ${last}`;
 }
 
 /**
@@ -447,6 +447,7 @@ function booFirstLetter() {
 function theEnd() {
     const end = document.getElementById("gameBox");
     end.style.display = "none";
+    end.style.height = "1px";
     const last = document.getElementById("score");
     last.style.display = "none";
     last.innerHTML = `Your Score is : ` + 0;
@@ -456,6 +457,7 @@ function theEnd() {
     buttonC.style.display = "none";
     const first = document.getElementById("finalScore");
     first.style.visibility = "visible";
+    first.style.height = "auto";
     finalScores(currentScore);
 }
 
@@ -471,15 +473,11 @@ function addLetter() {
 function howDifficult() {
     let skillLevel = document.getElementById("difficult").value;
     console.log(skillLevel);
-    //wordData = [];
-    //let data = ['assets/js/hard.json'];
-    //console.log(data);
     fetch('assets/js/hard.json') //get from server
         .then((response) => response.json())
         .then(hard => {
             wordData = Array.from(hard, x => x)
         })
-    //wordData = Array.from(response, x => x);
     console.log(wordData);
 }
 

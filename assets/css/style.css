@@ -22,7 +22,7 @@ body {
 }
 
 main {
-    height: 80vh;
+    height: 70vh;
 }
 
 footer {
@@ -35,6 +35,11 @@ h1 {
     justify-content: center;
     font-family: Quicksand, sans-serif;
     font-size: 500%;
+}
+
+div {
+    display: flex;
+    align-content: center;
 }
 
 #finalScore {
@@ -63,6 +68,7 @@ h1 {
     justify-content: center;
     align-content: left;
     width: 19vw;
+    margin-top: 120px;
 }
 
 #split2 {
@@ -72,6 +78,7 @@ h1 {
     align-self: center;
     align-items: center;
     width: 59vw;
+    margin-top: 120px;
 }
 
 split3 {
@@ -80,6 +87,7 @@ split3 {
     justify-content: center;
     align-content: right;
     width: 19vw;
+    margin-top: 120px;
 }
 
 /* dialog box*/
@@ -97,26 +105,35 @@ dialog {
     padding: 5px;
 }
 
-/*first page*/
-
-/*#front {
-    margin-top: 20vh;
-}*/
-
 button {
     display: flex;
-    font-size: 60px;
+    font-size: 50px;
     justify-content: center;
     align-content: center;
-    width: 28rem;
+    width: 18rem;
     background-color: #CCFFC2;
     border-radius: 8%;
-    margin: 5px;
+    margin: 15px;
+}
+
+label {
+    font-size: 140%;
+    margin: 8px;
+}
+
+select {
+    height: 25px
 }
 
 #wantFirstTick {
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
+    font-size: 150%;
+    margin: 10px
+}
+
+#difficult {
+    margin-top: 30px;
 }
 
 #instructions {
@@ -156,10 +173,11 @@ input {
     display: flex;
     justify-content: center;
     align-content: center;
-    width: 200px;
-    height: 140px;
+    align-items: center;
+    width: 100px;
+    height: 60px;
     border-radius: 50%;
-    font-size: 40px;
+    font-size: 20px;
 }
 
 #image {
@@ -192,6 +210,7 @@ input {
 
 #score {
     visibility: hidden;
+    font-size: 150%;
 }
 
 #gameBox {
@@ -213,6 +232,10 @@ input {
     max-height: 30vh;
 }
 
+#front {
+    display: flex;
+    flex-direction: column;
+}
 
 footer {
     position: fixed;
