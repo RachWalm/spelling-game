@@ -62,12 +62,17 @@ div {
     height: 80%;
 }
 
+.space {
+    min-width: 20vw;
+}
+
 #split1 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-content: left;
-    width: 19vw;
+    align-content: center;
+    align-items: center;
+    min-width: 25vw;
     margin-top: 120px;
 }
 
@@ -78,15 +83,15 @@ div {
     align-self: center;
     align-items: center;
     width: 59vw;
-    margin-top: 120px;
+    margin-top: 10rem;
 }
 
 split3 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-content: right;
-    width: 19vw;
+    align-content: center;
+    width: 20%;
     margin-top: 120px;
 }
 
