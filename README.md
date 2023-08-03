@@ -233,6 +233,7 @@ Option to add your name
 
 only have one way of picking if it is a letter.
 Be more efficent and not put it in guess then take it out.
+NOT PUT FIRST LETTER INI ARRAY
 
 ## Development Bugs
 

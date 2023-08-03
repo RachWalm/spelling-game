@@ -8,94 +8,13 @@
  * Array of words and information first iteration
  */
 let wordData = [{
-        'word': 'elephant',
-        'image': 'src="assets/images/elephant.png" alt"cartoon elephant"',
-        'decs': 'large animal often found in Africa or Asia',
-        'hint': 'f and ph often sound the same',
-        'complete': [],
-        'firstLetter': ['e']
-    },
-    {
-        'word': 'station',
-        'image': 'src="assets/images/station.png" alt"cartoon station"',
-        'decs': 'place where trains or buses stop for passengers',
-        'hint': 'tion sounds like shun',
-        'complete': [],
-        'firstLetter': ['s']
-    },
-    {
-        'word': 'pharaoh',
-        'image': 'src="assets/images/pharoah.png" alt"cartoon pharoah"',
-        'decs': 'egyptian king',
-        'hint': 'f and ph often sound the same',
-        'complete': [],
-        'firstLetter': ['p']
-    },
-    {
-        'word': 'quarter',
-        'image': 'src="assets/images/quarter.png" alt"cartoon quarter pie chart"',
-        'decs': '1/4 of something',
-        'hint': 'q usually has a u after it',
-        'complete': [],
-        'firstLetter': ['q']
-    },
-    {
-        'word': 'incense',
-        'image': 'src="assets/images/incense.png" alt"cartoon incense"',
-        'decs': 'burnt to give a smell',
-        'hint': 's and c are difficult to place in this word',
-        'complete': [],
-        'firstLetter': ['i']
-    },
-    {
-        'word': 'ambulance',
-        'image': 'src="assets/images/ambulance.png" alt"cartoon ambulance"',
-        'decs': 'A vehicle used to transport sick or injured people to a hospital',
-        'hint': 'is it s or c',
-        'complete': [],
-        'firstLetter': ['a']
-    },
-    {
-        'word': 'astronaut',
-        'image': 'src="assets/images/astronaut.png" alt"astronaut"',
-        'decs': 'A person who travels to space and beyond Earth',
-        'hint': 'a different spelling of nought',
-        'complete': [],
-        'firstLetter': ['a']
-    },
-    {
-        'word': 'cucumber',
-        'image': 'src="assets/images/cucumber.png" alt"cucumber"',
-        'decs': 'A long, green vegetable commonly used in salads and sandwiches',
-        'hint': 'cu has different sounds',
-        'complete': [],
-        'firstLetter': ['c']
-    },
-    {
-        'word': 'butterfly',
-        'image': 'src="assets/images/butterfly.png" alt"butterfly cartoon"',
-        'decs': 'A flying insect with delicate, colorful wings that transforms from a caterpillar',
-        'hint': 'double ll in two syllables',
-        'complete': [],
-        'firstLetter': ['b']
-    },
-    {
-        'word': 'giraffe',
-        'image': 'src="assets/images/giraffe.png" alt"giraffe"',
-        'decs': 'A long-necked mammal with distinct patches of color from African savannas',
-        'hint': 'double ff not heard',
-        'complete': [],
-        'firstLetter': ['g']
-    },
-    {
-        'word': 'dinosaur',
-        'image': 'src="assets/images/dinosaur.png" alt"dinosaur cartoon"',
-        'decs': 'An extinct reptile that lived millions of years ago',
-        'hint': 'saw can be spelt differently',
-        'complete': [],
-        'firstLetter': ['d']
-    },
-]
+    "word": "incense",
+    "image": "src='assets/images/incense.png' alt'cartoon incense'",
+    "decs": "burnt to give a smell",
+    "hint": "s and c are difficult to place in this word",
+    "complete": [],
+    "firstLetter": ["i"]
+}]
 
 /**
  * On DOM load sets up the listeners sends it to the game or gives the instructions pop up, then game interactivity
@@ -114,6 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location.replace("index.html"); //takes user back to the beginning
     });
     document.getElementById("buy").addEventListener("click", function () {
+        document.getElementById(whichBoxInputMinusOne()).style.color = "black";
         addLetter();
     })
     document.onkeydown = function (e) {
@@ -549,6 +469,7 @@ function addLetter() {
 function howDifficult() {
     let skillLevel = document.getElementById("difficult").value;
     console.log(skillLevel);
+    //wordData = [];
     //let data = ['assets/js/hard.json'];
     //console.log(data);
     fetch('assets/js/hard.json') //get from server
