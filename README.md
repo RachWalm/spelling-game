@@ -250,6 +250,8 @@ https://www.youtube.com/shorts/XK0V0E3bA-M
 
 ### Unsolved Bugs
 
+As this game is based on keyboard events, it may not work properly without a physical keyboard. Onscreen keyboards might cause problems.
+
 All detected bugs were solved.
 
 ### Human Errors

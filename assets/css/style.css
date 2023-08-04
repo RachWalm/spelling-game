@@ -145,8 +145,12 @@ select {
     font-size: 16px;
 }
 
+ul {
+    list-style-position: inside;
+}
+
 .close {
-    font-size: 30px;
+    font-size: 16px;
     padding: 1em;
     width: auto;
 }
