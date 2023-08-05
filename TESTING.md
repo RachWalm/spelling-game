@@ -8,7 +8,21 @@ The younger child liked getting a score per letter and the buy a letter function
 
 The words the younger child couldn't identify from the picture and they didn't know were : pharaoh, quarter and incense. The pictures they chose a different word for were : dinosaur was T-rex and station was subway and they did get cucumber but also thought it might be a pickle. Due to their level of education I didn't ask them to try to spell any of the words that were longer than 3 letters, but they enjoyed that.
 
+As the younger child and two of my adult testers didn't get incense I have removed this word from the list.
+
 ## User stories
+
+race through all on buy letter
+
+race through all on skip word
+
+every x skip word every y skip letter ultimately complete
+
+easy hard
+
+first letter
+
+random order
 
 ## Validators and accessibility
 

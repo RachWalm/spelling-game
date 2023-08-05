@@ -254,24 +254,25 @@ function disableArrayBoxes() {
  */
 function handleKeys(event) {
     event.preventDefault();
-    //if (event.repeat) {
-    //  return false;
-    //} else 
-    if (event.type === 'keydown') {
-        if (lettersOnly(event.key) === false) {
-            alert('You must insert a letter. As numbers and special characters are not accepted'); //need an else if for weird characters
-        } else if (lettersnotInput(event) === true) {
-            document.getElementById(whichBoxInput()).value = '-';
-        } else if (lettersOnly(event.key) === true) {
-            let low = lowerCase(event.key);
-            lettersinput(low);
-            guess.push(low);
-            isLetterCorrect();
-        } else {
-            console.log('problem in lettersOnly possibly');
+    if (event.repeat) {
+        return false;
+    } else {
+        if (event.type === 'keydown') {
+            if (lettersOnly(event.key) === false) {
+                alert('You must insert a letter. As numbers and special characters are not accepted'); //need an else if for weird characters
+            } else if (lettersnotInput(event) === true) {
+                document.getElementById(whichBoxInput()).value = '-';
+            } else if (lettersOnly(event.key) === true) {
+                let low = lowerCase(event.key);
+                lettersinput(low);
+                guess.push(low);
+                isLetterCorrect();
+            } else {
+                console.log('problem in lettersOnly possibly');
+            }
+        } else if (event.type === 'keyup') {
+            moveOn();
         }
-    } else if (event.type === 'keyup') {
-        moveOn();
     }
 }
 
