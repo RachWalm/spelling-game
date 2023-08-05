@@ -5,8 +5,8 @@ This spelling game for children was designed so that they can play from an image
 The site can be accessed by this [link](https://rachwalm.github.io/spelling-game/).
 
 ## How to play
-Once you start the game it will provide you with an image, description and boxes to fill out to spell out the word that is required. There will be one box for each letter and the focus will start on the first letter required. As each letter is typed if you have the correct letter for spelling the word it will go blue and move you to the next box. Otherwise, the letter will go red and you will have to keep trying till you get the correct letter / skip the word or quit. As score will increment with each correct letter entered. 
-When you have completed the word it will provide you with an new image and description for a new word. Till you have completed all the words or quit.
+Once you start the game it will provide you with an image, description and boxes to fill out to spell out the word that is required. There will be one box for each letter and the focus will start on the first letter required. As each letter is typed if you have the correct letter for spelling the word it will go blue and move you to the next box. Otherwise, the letter will go red and you will have to keep trying till you get the correct letter / skip the word or quit. Score will increment with each correct letter entered. 
+When you have completed the word it will provide you with an new image and description for a new word. Till you have completed all the words or quit. If you complete all the words it will give you a final score.
 
 ## User Experience
 
@@ -26,18 +26,18 @@ It is out of scope to actually teach children spelling - this is just a fun game
 
 ### User Stories
 
-First time users will be able to play a selection of words and test themselves against the selection to see how good they are at spelling and learn some rules and exceptions for new spellings.
+First time users will be able to play a selection of words and test themselves against the selection to see how good they are at spelling and learn some rules and exceptions for new spellings, if they use the hints.
 
-Repeat users may find that they are coming across some of the same words so can feel an achievement at learning these words or completing them quicker a second time as well as doing a new selection of words. Eventually becoming proficient at recognising the images and descriptions and knowing the correct spelling.
+Repeat users may find that they are coming across some of the same words so can feel an achievement at learning these words or completing them more easily or without buying letters a second time. If they didn't complete all the words last time or new ones have been added then they can also do a new selection of words. Eventually becoming proficient at recognising the images and descriptions and knowing the correct spelling.
 
-Repeat users should also get a random order to the words so should get different words frequently until they have exhausted the database of words, or at least in a different order to last time.
+Repeat users should also get a random order to the words so it shouldn't become repetitive too quickly as they will at least be in a different order to last time.
 
 ### Skeleton
 
-- Landing view will contain the general background and title/logo. Also two buttons to either get instructions and the point of the game (which will appear in a pop up box) or to start the game.
-- Game view will contain the general background and title/logo. Additionally there will be the functionality of the game. This will include relevant image, description, box for each letter of the word and a hint. This screen will also contain a skip and quit button as well as a timer (timer feature later decided against after discussion with potential users). As each word is completed the screen will clear of the old word information and be replaced with the next word.
+- Landing view will contain the general background and title/fox logo at bottom. Also two buttons to either get instructions (instructions and the point of the game information will appear in a pop up box) or to start the game. They can also pick between doing an easy level or hard level.
+- Game view will contain the general background and title/fox logo at bottom. Additionally there will be the functionality of the game. This will include relevant image, description, box for each letter of the word and a hint (that can be turned on and off). This screen will also contain a skip word and and restart button as well as a timer (timer feature later decided against after discussion with potential users). As each word is completed the screen will clear of the old word information and be replaced with the next word.
 - If you skip the word the game view will be retained with the next word replacing the current display. The skipped word will be saved for if words are run out of or if user just keeps skipping.
-- If you quit it will check that you want to leave the page and take you back to the beginning, which gives you the opportunity to return to the start of the game.
+- If you restart it will check that you want to leave the page and take you back to the beginning, this gives you the opportunity to return to the start of the game.
 - If you try to leave the page it will check that is what you intended so you don't loose your score.
 
 ## Functions
@@ -74,11 +74,13 @@ As the development progressed there it evolved to include the below decision tre
 
 ![current flow chart](documents/current-flow-chart.png)
 
-There is also features that allow the player to ask for the first letter that aren't critical to play that haven't been included in this flow chart to keep it simple.
+There is also features that allow the player to ask for the first letter/buy a letter or see the hint that aren't critical to play that haven't been included in this flow chart to keep it simple.
 
 #### Functions to ensure game played correctly
 
-The first function that the user will access will be front screen with the instructions button. This leads to a dialogue box containing all the instructions. This was something that I was unfamiliar with and used the code from this :
+The first function that the user will access will be front screen with the start game and instructions buttons. 
+
+The instructions button leads to a dialogue box containing all the instructions. This was something that I was unfamiliar with and used the code from this :
 
 [modal vs dialogue blog](https://blog.webdevsimplified.com/2023-04/html-dialog/)
 
@@ -143,9 +145,9 @@ function rand() {
 
 This number could then be used to pick from the array at random using indexing.
 
-Three arrays are used to hold information, wordData - holds the words yet to be used, skipped - holds the words that were skipped (therefore incomplete) and finally guess - holds the letters of the current word that have been correctly guessed.
+Three arrays are used to hold information once the game has started, wordData - holds the words yet to be used, skipped - holds the words that were skipped (therefore incomplete) and finally guess - holds the letters of the current word that have been correctly guessed.
 
-It was necessary to write functions to link the point that we wanted to access of the array and the input boxes that were on the screen for the user. These functions were whichBoxNumber (output int), whichBoxInput (output 'input'int as these were the id's of the inputs in HTML), and whichBoxInputMinusOne (output 'input'int to align id's with the correct box at certain points in the code). These function linked the array indexes and text on screen to allow various other functions to operate on the correct bit of code.
+It was necessary to write functions to link the index that we wanted to access of the array and the input boxes that were on the screen for the user. These functions were whichBoxNumber (output int), whichBoxInput (output 'input'int as these were the id's of the inputs in HTML), and whichBoxInputMinusOne (output 'input'int to align id's with the correct box at certain points in the code). These function linked the array indexes and text on screen to allow various other functions to operate on the correct bit of code.
 
 As keyboard entries had to be manipulated, it was essential to utilise the keyboard events, onkeydown and onkeyup.
 
@@ -162,9 +164,12 @@ As my mentor said that it would be better practise for HTML to contain HTML only
 This lead to the addition of the code:
 
 ```JS
-<body onkeypress="handleKeys(event);"
-        onkeydown="handleKeys(event);"
-        onkeyup="handleKeys(event);">
+document.onkeydown = function (e) {
+        handleKeys(e); //allows user to enter a letter into the word
+    };
+    document.onkeyup = function (e) {
+        handleKeys(e); //moves letter focus onto the next word
+    };
 ```
 
 To avoid bugs that would cause the user inconvenience or confusion, it was necessary to eliminate the code accepting the wrong key entries and performing tasks. Therefore the onkeydown was used to assess the key pressed and if correct then the onkeyup would allow the user to progress to the next letter.
@@ -232,8 +237,12 @@ different durations on the TIMER
 Option to add your name
 
 only have one way of picking if it is a letter.
-Be more efficent and not put it in guess then take it out.
+Be more efficient and not put it in guess then take it out.
 NOT PUT FIRST LETTER INI ARRAY
+
+have full word stay on screen for a moment
+
+restart goes via a score page
 
 ## Development Bugs
 
