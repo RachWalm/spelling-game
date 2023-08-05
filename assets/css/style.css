@@ -127,7 +127,8 @@ label {
 }
 
 select {
-    height: 25px
+    height: 25px;
+    width: fit-content;
 }
 
 #wantFirstTick {
@@ -215,6 +216,7 @@ input {
 #hintys {
     font-size: 150%;
     top: 5px;
+    visibility: hidden;
 }
 
 #score {
@@ -233,6 +235,10 @@ input {
 }
 
 .in--game {
+    visibility: hidden;
+}
+
+#hintButton {
     visibility: hidden;
 }
 

@@ -30,12 +30,13 @@ document.addEventListener("DOMContentLoaded", function () {
         skip(); // allows player to skip a word and it will be repeated at the end
     });
     document.getElementById("quit").addEventListener("click", function () {
+        console.log('clicked quit button');
         window.location.replace("index.html"); //takes user back to the beginning
     });
     document.getElementById("buy").addEventListener("click", function () {
         document.getElementById(whichBoxInput()).style.color = "black";
         addLetter();
-    })
+    });
     document.onkeydown = function (e) {
         handleKeys(e); //allows user to enter a letter into the word
     };
@@ -109,6 +110,8 @@ function hideFront() {
     buttonB.style.visibility = "visible";
     const buttonC = document.getElementById("buy");
     buttonC.style.visibility = "visible";
+    const buttonD = document.getElementById("hintButton");
+    buttonD.style.visibility = "visible";
     const gameBox = document.getElementById("gameBox");
     gameBox.style.visibility = "visible";
     gameBox.style.height = "80%";
@@ -134,13 +137,12 @@ function buildGameArea() {
         pick = rand();
         let imge = `<img id="images" ${wordData[pick].image}>`;
         let des = `<div id="dess"><p>${wordData[pick].decs}</p> </div>`;
-        let hinty = `<div id="hintys"> <p>${wordData[pick].hint}</p> </div>`;
+        let hinty = `<div id="hintys"><p>${wordData[pick].hint}</p> </div>`;
         currentWord = wordData[pick].word;
-        //console.log(imge);
-        //console.log(des)
         document.getElementById("image").innerHTML += imge;
         document.getElementById("description").innerHTML += des;
         buildLetters();
+        showHint();
         document.getElementById("hints").innerHTML += hinty;
     } else if (wordData.length = 1) {
         if (skipped.length > 0) {
@@ -148,9 +150,7 @@ function buildGameArea() {
             skipped = [];
             repeat = true;
             pick = rand();
-            console.log(pick);
             currentWord = wordData[pick].word;
-            console.log(currentWord);
             buildGameArea();
         } else {
             theEnd();
@@ -164,12 +164,9 @@ function buildGameArea() {
  * for each letter in the current word provides a box to put the letter in
  */
 function buildLetters() {
-    //console.log("buildLetters activated");
     for (let i = 0; i < currentWord.length; i++) {
         let ltr = `<input class="inputs" type=text id=input${i} placeholder=- maxlength=1;>`;
         document.getElementById("actualGame").innerHTML += ltr;
-        //console.log(i);
-        //console.log(ltr);
     }
     disableArrayBoxes(); //focus to correct letter
     wantedFirstLetter(); //checks if user has asked to receive first letter, if so provides
@@ -181,8 +178,6 @@ function buildLetters() {
  */
 function wantedFirstLetter() {
     if (wantFirstLetter) {
-        //console.log(wordData[pick].firstLetter);
-        //console.log(wordData[pick].firstLetter[0]);
         document.getElementById('input0').value = wordData[pick].firstLetter[0]; //provides user first letter
         guess = wordData[pick].firstLetter; //puts first letter in guess array to align with screen
         disableArrayBoxes(); //puts focus on second/correct letter
@@ -195,11 +190,8 @@ function wantedFirstLetter() {
  * uses letters user provided in last iteration before skip and puts them on screen and in guess aligned
  */
 function whatComplete() {
-    console.log(wordData[pick].complete);
     for (i = 0; i < wordData[pick].complete.length; i++) {
-        console.log(wordData[pick].complete[i]);
         let letter = `input${i}`; //selects onscreen box to put letter
-        console.log(letter);
         document.getElementById(letter).value = wordData[pick].complete[i]; //adds letter to box
         guess = wordData[pick].complete; //aligns guess array
         disableArrayBoxes(); // puts focus on the correct / next letter
@@ -211,9 +203,6 @@ function whatComplete() {
  */
 function lettersOnly(l) {
     let matcher = /^[A-Za-z]+$/;
-    //console.log('letters only in ' + l);
-    //console.log('lettersonly input type is' + (typeof (l)));
-    //console.log('matcher test is ' + matcher.test(l));
     return matcher.test(l);
 
 }
@@ -269,7 +258,6 @@ function handleKeys(event) {
     //  return false;
     //} else 
     if (event.type === 'keydown') {
-        //console.log('keydown')
         if (lettersOnly(event.key) === false) {
             alert('You must insert a letter. As numbers and special characters are not accepted'); //need an else if for weird characters
         } else if (lettersnotInput(event) === true) {
@@ -280,7 +268,7 @@ function handleKeys(event) {
             guess.push(low);
             isLetterCorrect();
         } else {
-            //console.log('problem in lettersOnly possibly');
+            console.log('problem in lettersOnly possibly');
         }
     } else if (event.type === 'keyup') {
         moveOn();
@@ -319,17 +307,13 @@ function lettersnotInput(typed) {
     let altg = typed.getModifierState("AltGraph");
     let alt = typed.getModifierState("Alt");
     if (typed.keyCode < 58) {
-        console.log('outside');
         return true;
     } else if (typed.keyCode > 90) {
-        console.log('outside 2');
         return true;
     } else {
         console.log('should be legitimate letter')
     }
     let wrong = shift || meta || control || altg || alt;
-    console.log(shift);
-    console.log(wrong);
     return wrong;
 }
 
@@ -340,12 +324,7 @@ function moveOn() {
     if (whichBoxNumber() < currentWord.length) {
         disableArrayBoxes();
     } else {
-        console.log('time for next word');
-        //if (wordData.length != 0) {
-        console.log('wordData items left' + wordData.length);
         wordData.splice((pick), 1); //word completed correctly and removed from array
-        console.log('wordData equals : ');
-        console.log(wordData);
         clearRestart(); // calls functions to clear the screen and calls the function to build next word
 
     }
@@ -363,7 +342,6 @@ function clearRestart() {
  * clears screen and guess array
  */
 function empty() {
-    console.log('empty activated');
     const empimg = document.getElementById("image");
     empimg.removeChild(empimg.firstElementChild);
     const empDesc = document.getElementById("description");
@@ -375,7 +353,6 @@ function empty() {
     const emphint = document.getElementById("hints");
     emphint.removeChild(emphint.firstElementChild);
     guess = [];
-    //console.log(guess);
 }
 
 /**
@@ -396,7 +373,7 @@ function finalScores(last) {
 }
 
 /**
- * allows uppercase letters to be typed but changed to lower for display and recognition as correct against array - returns lower case
+ * allows uppercase letters typed but changed to lower for display and recognition as correct against array - returns lower case
  */
 function lowerCase(letter) {
     let lower = letter.toLowerCase();
@@ -408,13 +385,9 @@ function lowerCase(letter) {
  */
 function skip() {
     let addOld = structuredClone(wordData[pick]); //deep copy
-    //console.log('structured clone is ')
-    //console.log(addOld);
     guessToComplete(addOld);
     skipped.push(guessToComplete(addOld)); //adds word to skipped array for later
     wordData.splice((pick), 1); //removes word from current array
-    console.log('skipped equals ');
-    console.log(skipped);
     clearRestart(); //sets up for next word
 }
 
@@ -422,10 +395,7 @@ function skip() {
  * puts the guess array into the complete : key pair of the skipped array
  */
 function guessToComplete(got) {
-    //console.log('into guess to complete.complete is and should be first letter')
-    //console.log(got.complete)
     got.complete = guess;
-    //console.log(got);
     return got;
 }
 
@@ -455,6 +425,8 @@ function theEnd() {
     buttonA.style.display = "none";
     const buttonC = document.getElementById("buy");
     buttonC.style.display = "none";
+    const buttonD = document.getElementById("hintButton");
+    buttonD.style.display = "none";
     const first = document.getElementById("finalScore");
     first.style.visibility = "visible";
     first.style.height = "auto";
@@ -463,22 +435,33 @@ function theEnd() {
 
 function addLetter() {
     nextLetter = wordData[pick].word[guess.length]; //provides user next
-    console.log(nextLetter);
     document.getElementById(whichBoxInput()).value = wordData[pick].word[guess.length]; //provides user next
     guess.push(wordData[pick].word[guess.length]); //puts  letter in guess array to align with screen
-    console.log(guess);
     moveOn(); //puts focus on correct letter or changes to new word if letters run out
 }
 
 function howDifficult() {
     let skillLevel = document.getElementById("difficult").value;
-    console.log(skillLevel);
     fetch('assets/js/hard.json') //get from server
         .then((response) => response.json())
         .then(hard => {
             wordData = Array.from(hard, x => x)
         })
-    console.log(wordData);
+}
+
+function showHint() {
+    const selectHint = document.getElementById("hintButton");
+    selectHint.addEventListener("change", function () {
+        let show = selectHint.value;
+        console.log(show);
+        if (show === 'hint') {
+            hintys.style.visibility = "visible";
+        } else if (show === 'no--hint') {
+            hintys.style.visibility = "hidden";
+        } else {
+            console.log('no hint')
+        }
+    });
 }
 
 /**
