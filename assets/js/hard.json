@@ -85,5 +85,93 @@
         "hint": "saw can be spelt differently",
         "complete": [],
         "firstLetter": ["d"]
+    },
+    {
+        "word": "scissors",
+        "image": "src='assets/images/scissors.png' alt'scissors'",
+        "decs": "used to cut things like paper",
+        "hint": "s and c are difficult to place in this word",
+        "complete": [],
+        "firstLetter": ["s"]
+    },
+    {
+        "word": "cat",
+        "image": "src='assets/images/cat.png' alt'cat'",
+        "decs": "feline often kept as a pet",
+        "hint": "c or k",
+        "complete": [],
+        "firstLetter": ["c"]
+    },
+    {
+        "word": "bat",
+        "image": "src='assets/images/bat.png' alt'bat'",
+        "decs": "flying creature out at night",
+        "hint": "at ending",
+        "complete": [],
+        "firstLetter": ["b"]
+    },
+    {
+        "word": "dog",
+        "image": "src='assets/images/dog.png' alt'dog'",
+        "decs": "friendly pet",
+        "hint": "og ending",
+        "complete": [],
+        "firstLetter": ["d"]
+    },
+    {
+        "word": "wolf",
+        "image": "src='assets/images/wolf.png' alt'wolf'",
+        "decs": "wild animal similar to a dog",
+        "hint": "f or ph",
+        "complete": [],
+        "firstLetter": ["w"]
+    },
+    {
+        "word": "house",
+        "image": "src='assets/images/house.png' alt'house cartoon'",
+        "decs": "a place that people live",
+        "hint": "ous or ows",
+        "complete": [],
+        "firstLetter": ["h"]
+    },
+    {
+        "word": "owl",
+        "image": "src='assets/images/owl.png' alt'owl'",
+        "decs": "a bird usually flying about at night",
+        "hint": "long l",
+        "complete": [],
+        "firstLetter": ["o"]
+    },
+    {
+        "word": "rainbow",
+        "image": "src='assets/images/rainbow.png' alt'rainbow'",
+        "decs": "appears in the sky when it is wet",
+        "hint": "split it into two words",
+        "complete": [],
+        "firstLetter": ["r"]
+    },
+    {
+        "word": "rose",
+        "image": "src='assets/images/rose.png' alt'rose'",
+        "decs": "a type of flower that is a symbol of love",
+        "hint": "s or c",
+        "complete": [],
+        "firstLetter": ["r"]
+    },
+    {
+        "word": "moon",
+        "image": "src='assets/images/moon.png' alt'moon'",
+        "decs": "seen in the sky at night",
+        "hint": "how many o's",
+        "complete": [],
+        "firstLetter": ["m"]
+    },
+    {
+        "word": "penguin",
+        "image": "src='assets/images/penguin.png' alt'penguin'",
+        "decs": "animal that lives in the snow and sea",
+        "hint": "ui are unusual together",
+        "complete": [],
+        "firstLetter": ["p"]
     }
 ]

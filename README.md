@@ -237,6 +237,7 @@ NOT PUT FIRST LETTER INI ARRAY
 
 ## Development Bugs
 
+changing word at wrong point, reading from data rather than current word
 
 
 # letters input if don't delete although it listens for the letter keeps the letter recorded in the box that was first typed - solved letter2input
@@ -361,6 +362,28 @@ Now I searched the list for appropriate images to put in the game.
 - [ambulance](https://www.freepnglogos.com/images/ambulance-35597.html) (<a href="https://www.freepnglogos.com/pics/ambulance">Ambulance from freepnglogos.com</a>)
 
 - [scissors](https://www.freepnglogos.com/images/scissors-23226.html) (<a href="https://www.freepnglogos.com/pics/scissors">Scissors from freepnglogos.com</a>)
+
+- [cat](https://www.freepnglogos.com/images/cat-9145.html) (<a href="https://www.freepnglogos.com/pics/cat">Cat from freepnglogos.com</a>)
+
+- [bat](https://www.freepnglogos.com/images/bat-20405.html) (<a href="https://www.freepnglogos.com/pics/bat">Bat from freepnglogos.com</a>)
+
+- [dog](https://www.freepnglogos.com/images/dog-11367.html) (<a href="https://www.freepnglogos.com/pics/dog">Dog from freepnglogos.com</a>)
+
+- [wolf](https://www.freepnglogos.com/images/wolf-19435.html) (<a href="https://www.freepnglogos.com/pics/wolf">Wolf from freepnglogos.com</a>)
+
+- [bone](https://www.freepnglogos.com/images/bone-29548.html) (<a href="https://www.freepnglogos.com/pics/bone">Bone from freepnglogos.com</a>)
+
+- [house](https://www.freepnglogos.com/images/house-11149.html) (<a href="https://www.freepnglogos.com/pics/house">House from freepnglogos.com</a>)
+
+- [owl](https://www.freepnglogos.com/images/owl-31624.html) (<a href="https://www.freepnglogos.com/pics/owl">Owl from freepnglogos.com</a>)
+
+- [rainbow](https://www.freepnglogos.com/images/rainbow-12564.html) (<a href="https://www.freepnglogos.com/pics/rainbow">Rainbow from freepnglogos.com</a>)
+
+- [rose](https://www.freepnglogos.com/images/rose-40624.html) (<a href="https://www.freepnglogos.com/pics/rose">Rose from freepnglogos.com</a>)
+
+- [moon](https://www.freepnglogos.com/images/moon-10192.html) (<a href="https://www.freepnglogos.com/pics/moon">Moon from freepnglogos.com</a>)
+
+- [penguin](https://www.freepnglogos.com/images/linux-22631.html) (<a href="https://www.freepnglogos.com/pics/linux">Linux from freepnglogos.com</a>)
 
 ## software used
 
