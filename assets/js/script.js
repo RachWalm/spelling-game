@@ -434,8 +434,8 @@ function theEnd() {
 }
 
 function addLetter() {
-    nextLetter = wordData[pick].word[guess.length]; //provides user next
-    document.getElementById(whichBoxInput()).value = wordData[pick].word[guess.length]; //provides user next
+    nextLetter = currentWord[guess.length]; //provides user next
+    document.getElementById(whichBoxInput()).value = nextLetter; //provides user next
     guess.push(wordData[pick].word[guess.length]); //puts  letter in guess array to align with screen
     moveOn(); //puts focus on correct letter or changes to new word if letters run out
 }
