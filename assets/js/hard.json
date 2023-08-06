@@ -2,7 +2,7 @@
         "word": "elephant",
         "image": "src='assets/images/elephant.png ' alt'cartoon elephant '",
         "decs": "large animal often found in Africa or Asia",
-        "hint": "f and ph often sound the same",
+        "hint": "f and ph sound the same",
         "complete": [],
         "firstLetter": ["e"]
     },
@@ -18,7 +18,7 @@
         "word": "pharaoh",
         "image": "src='assets/images/pharoah.png' alt'cartoon pharoah'",
         "decs": "egyptian king",
-        "hint": "f and ph often sound the same",
+        "hint": "f and ph sound the same and o can be oh",
         "complete": [],
         "firstLetter": ["p"]
     },
@@ -55,18 +55,10 @@
         "firstLetter": ["c"]
     },
     {
-        "word": "butterfly",
-        "image": "src='assets/images/butterfly.png' alt'butterfly cartoon'",
-        "decs": "A flying insect with delicate, colorful wings that transforms from a caterpillar",
-        "hint": "double ll in two syllables",
-        "complete": [],
-        "firstLetter": ["b"]
-    },
-    {
         "word": "giraffe",
         "image": "src='assets/images/giraffe.png' alt'giraffe'",
         "decs": "A long-necked mammal with distinct patches of color from African savannas",
-        "hint": "double ff not heard",
+        "hint": "double ff makes a long f",
         "complete": [],
         "firstLetter": ["g"]
     },
@@ -87,84 +79,12 @@
         "firstLetter": ["s"]
     },
     {
-        "word": "cat",
-        "image": "src='assets/images/cat.png' alt'cat'",
-        "decs": "feline often kept as a pet",
-        "hint": "c or k",
-        "complete": [],
-        "firstLetter": ["c"]
-    },
-    {
-        "word": "bat",
-        "image": "src='assets/images/bat.png' alt'bat'",
-        "decs": "flying creature out at night",
-        "hint": "at ending",
-        "complete": [],
-        "firstLetter": ["b"]
-    },
-    {
-        "word": "dog",
-        "image": "src='assets/images/dog.png' alt'dog'",
-        "decs": "friendly pet",
-        "hint": "og ending",
-        "complete": [],
-        "firstLetter": ["d"]
-    },
-    {
-        "word": "wolf",
-        "image": "src='assets/images/wolf.png' alt'wolf'",
-        "decs": "wild animal similar to a dog",
-        "hint": "f or ph",
-        "complete": [],
-        "firstLetter": ["w"]
-    },
-    {
-        "word": "house",
-        "image": "src='assets/images/house.png' alt'house cartoon'",
-        "decs": "a place that people live",
-        "hint": "ous or ows",
-        "complete": [],
-        "firstLetter": ["h"]
-    },
-    {
         "word": "owl",
         "image": "src='assets/images/owl.png' alt'owl'",
         "decs": "a bird usually flying about at night",
         "hint": "long l",
         "complete": [],
         "firstLetter": ["o"]
-    },
-    {
-        "word": "rainbow",
-        "image": "src='assets/images/rainbow.png' alt'rainbow'",
-        "decs": "appears in the sky when it is wet",
-        "hint": "split it into two words",
-        "complete": [],
-        "firstLetter": ["r"]
-    },
-    {
-        "word": "rose",
-        "image": "src='assets/images/rose.png' alt'rose'",
-        "decs": "a type of flower that is a symbol of love",
-        "hint": "s or c",
-        "complete": [],
-        "firstLetter": ["r"]
-    },
-    {
-        "word": "moon",
-        "image": "src='assets/images/moon.png' alt'moon'",
-        "decs": "seen in the sky at night",
-        "hint": "how many o's",
-        "complete": [],
-        "firstLetter": ["m"]
-    },
-    {
-        "word": "fish",
-        "image": "src='assets/images/fish.png' alt'moon'",
-        "decs": "swims in water",
-        "hint": "f not ph",
-        "complete": [],
-        "firstLetter": ["f"]
     },
     {
         "word": "penguin",
@@ -174,5 +94,4 @@
         "complete": [],
         "firstLetter": ["p"]
     }
-
 ]

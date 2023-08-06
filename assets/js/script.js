@@ -443,15 +443,23 @@ function addLetter() {
 
 function howDifficult() {
     let skillLevel = document.getElementById("difficult").value;
-    fetch('assets/js/hard.json') //get from server
-        .then((response) => response.json())
-        .then(hard => {
-            wordData = Array.from(hard, x => x)
-        })
+    if (skillLevel === 'hard') {
+        fetch('assets/js/hard.json') //get from server
+            .then((response) => response.json())
+            .then(harder => {
+                wordData = Array.from(harder, x => x)
+            })
+    } else {
+        fetch('assets/js/easy.json') //get from server
+            .then((response) => response.json())
+            .then(easy => {
+                wordData = Array.from(easy, x => x)
+            });
+    }
 }
 
 function showHint() {
-    const selectHint = document.getElementById("hintButton");
+    let selectHint = document.getElementById("hintButton");
     selectHint.addEventListener("change", function () {
         let show = selectHint.value;
         console.log(show);
