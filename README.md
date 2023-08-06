@@ -254,7 +254,7 @@ function empty() {
 }
 ```
 
-The next features that help to improve engagement and interest of the user are the scores and finalScore. These used a global variable to hold the score and then .innerHTML to include it on the screen. They were separate functions and scores also incremented the score.
+The next features that help to improve engagement and interest of the user are the scores and finalScore. These used a global variable to hold the score and then .innerHTML to include it on the screen. They were separate functions as scores also incremented the score.
 
 # skip
 
@@ -451,6 +451,8 @@ Now I searched the list for appropriate images to put in the game.
 - [moon](https://www.freepnglogos.com/images/moon-10192.html) (<a href="https://www.freepnglogos.com/pics/moon">Moon from freepnglogos.com</a>)
 
 - [penguin](https://www.freepnglogos.com/images/linux-22631.html) (<a href="https://www.freepnglogos.com/pics/linux">Linux from freepnglogos.com</a>)
+
+- [fish](https://www.freepnglogos.com/images/fish-11970.html) (<a href="https://www.freepnglogos.com/pics/fish">Fish from freepnglogos.com</a>)
 
 ## software used
 

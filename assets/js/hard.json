@@ -31,14 +31,6 @@
         "firstLetter": ["q"]
     },
     {
-        "word": "incense",
-        "image": "src='assets/images/incense.png' alt'cartoon incense'",
-        "decs": "burnt to give a smell",
-        "hint": "s and c are difficult to place in this word",
-        "complete": [],
-        "firstLetter": ["i"]
-    },
-    {
         "word": "ambulance",
         "image": "src='assets/images/ambulance.png' alt'cartoon ambulance'",
         "decs": "A vehicle used to transport sick or injured people to a hospital",
@@ -167,6 +159,14 @@
         "firstLetter": ["m"]
     },
     {
+        "word": "fish",
+        "image": "src='assets/images/fish.png' alt'moon'",
+        "decs": "swims in water",
+        "hint": "f not ph",
+        "complete": [],
+        "firstLetter": ["f"]
+    },
+    {
         "word": "penguin",
         "image": "src='assets/images/penguin.png' alt'penguin'",
         "decs": "animal that lives in the snow and sea",
@@ -174,4 +174,5 @@
         "complete": [],
         "firstLetter": ["p"]
     }
+
 ]

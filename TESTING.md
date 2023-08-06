@@ -6,9 +6,13 @@ Prior to completing the coding, I asked children whether they could identify som
 
 The younger child liked getting a score per letter and the buy a letter function (although after starting to use this function just used that and raced through them). We discussed scores and they didn't like to have points taken off them for mistakes, buying letters or skipping words. They thought that it needed easy vs hard so that they didn't have to do the difficult words. I asked what they thought of a timer and they said it would be stressful.
 
-The words the younger child couldn't identify from the picture and they didn't know were : pharaoh, quarter and incense. The pictures they chose a different word for were : dinosaur was T-rex and station was subway and they did get cucumber but also thought it might be a pickle. Due to their level of education I didn't ask them to try to spell any of the words that were longer than 3 letters, but they enjoyed that.
+The words the younger child couldn't identify from the picture and they didn't know were : pharaoh, quarter and incense. The pictures they chose a different word for were : dinosaur was T-rex, but when told that it was a longer word got dinosaur, and station was subway and they did get cucumber but also thought it might be a pickle. Due to their level of education I didn't ask them to try to spell any of the words that were longer than 3 letters, but they enjoyed that.
 
 As the younger child and two of my adult testers didn't get incense I have removed this word from the list.
+
+The older child played very easily through the words (which at the time were mingled easy and hard) and said they understood what they were doing. The two words that they struggled with were incense and pharaoh (the 'oh' of pharaoh but could identify the picture). In general they enjoyed the game. Liking the scoring and not liking the idea of a timer.
+
+As adults have also had problems with incense this shall be removed from the list. Pharaoh will be kept and the hint improved - as the game needs to be challenging to get them to return.
 
 ## User stories
 
