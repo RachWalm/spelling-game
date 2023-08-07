@@ -102,7 +102,7 @@ modal.addEventListener("click", e => {
 function hideFront() {
     first.style.display = "none";
     last.style.visibility = "visible";
-    last.innerHTML = `Your Score is : <br>` + 0;
+    last.innerHTML = `Your Score is :   <br>` + `<strong>0</strong>`;
     buttonA.style.visibility = "visible";
     buttonB.style.visibility = "visible";
     buttonC.style.visibility = "visible";
@@ -344,7 +344,7 @@ function empty() {
  * increments and displays score 
  */
 function scores(score) {
-    last.innerHTML = `Your Score is : ${score + 1}`;
+    last.innerHTML = `Your Score is : <strong>${score + 1}</strong>`;
     return score + 1;
 }
 
@@ -451,7 +451,7 @@ function showHint() {
  */
 function finalScores(score) {
     const area = document.getElementById("finalScore");
-    area.innerHTML = `Your <br>Score <br>was : ${score}`;
+    area.innerHTML = `Your Score was : <strong>${score}</strong>`;
 }
 
 /**
