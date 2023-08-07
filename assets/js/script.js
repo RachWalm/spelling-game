@@ -455,7 +455,7 @@ function finalScores(score) {
 }
 
 /**
- * switches to final screen and calls final score
+ * switches to final screen by display none for game features and calls final score
  */
 function theEnd() {
     const end = document.getElementById("gameBox");
