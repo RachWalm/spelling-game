@@ -70,11 +70,6 @@ const closeButton = document.querySelector("[data-close-modal]");
 const modal = document.querySelector("[data-modal]");
 
 /**
- * DOM selectors???
- */
-
-
-/**
  * dialogue box see README for code origin
  */
 openButton.addEventListener("click", () => {
@@ -144,16 +139,16 @@ function buildGameArea() {
         buildLetters();
         showHint();
         document.getElementById("hints").innerHTML += hinty;
-    } else if (wordData.length = 1) {
+    } else if (wordData.length = 1) { //no words available so looks in skipped array
         if (skipped.length > 0) {
-            wordData = Array.from(skipped, x => x);
+            wordData = Array.from(skipped, x => x); //gets words from skipped array
             skipped = [];
             repeat = true;
             pick = rand();
             currentWord = wordData[pick].word;
             buildGameArea();
         } else {
-            theEnd();
+            theEnd(); // no words in array or skipped so have to finish
         }
     } else {
         console.log('wordData less than 0');
@@ -186,17 +181,6 @@ function wantedFirstLetter() {
     }
 }
 
-/**
- * uses letters user provided in last iteration before skip and puts them on screen and in guess aligned
- */
-function whatComplete() {
-    for (i = 0; i < wordData[pick].complete.length; i++) {
-        let letter = `input${i}`; //selects onscreen box to put letter
-        document.getElementById(letter).value = wordData[pick].complete[i]; //adds letter to box
-        guess = wordData[pick].complete; //aligns guess array
-        disableArrayBoxes(); // puts focus on the correct / next letter
-    }
-}
 
 /**
  * checks that the key pressed was not a number or special character
@@ -319,7 +303,7 @@ function lettersnotInput(typed) {
 }
 
 /**
- * if there are more letters in the word it moves the focus to the next letter
+ * if there are more letters for the user to imput in the word it moves the focus to the next letter or clears screen for next word
  */
 function moveOn() {
     if (whichBoxNumber() < currentWord.length) {
@@ -365,19 +349,23 @@ function scores(score) {
 }
 
 /**
- *displays final score at end of game 
- */
-function finalScores(score) {
-    const area = document.getElementById("finalScore");
-    area.innerHTML = `Your <br>Score <br>was : ${score}`;
-}
-
-/**
  * allows uppercase letters typed but changed to lower for display and recognition as correct against array - returns lower case
  */
 function lowerCase(letter) {
     let lower = letter.toLowerCase();
     return lower;
+}
+
+/**
+ * when user skips letters user already provided go from guess into the complete key's pair
+ */
+function whatComplete() {
+    for (i = 0; i < wordData[pick].complete.length; i++) {
+        let letter = `input${i}`; //selects onscreen box to put letter
+        document.getElementById(letter).value = wordData[pick].complete[i]; //adds letter to box
+        guess = wordData[pick].complete; //aligns guess array
+        disableArrayBoxes(); // puts focus on the correct / next letter
+    }
 }
 
 /**
@@ -412,23 +400,8 @@ function booFirstLetter() {
 }
 
 /**
- * switches to final screen and calls final score
+ * allows the next letter to be put in the guess array on on screen
  */
-function theEnd() {
-    const end = document.getElementById("gameBox");
-    end.style.display = "none";
-    end.style.height = "1px";
-    last.style.display = "none";
-    last.innerHTML = `Your Score is : ` + 0;
-    buttonA.style.display = "none";
-    buttonC.style.display = "none";
-    buttonD.style.display = "none";
-    const first = document.getElementById("finalScore");
-    first.style.visibility = "visible";
-    first.style.height = "auto";
-    finalScores(currentScore);
-}
-
 function addLetter() {
     nextLetter = currentWord[guess.length]; //provides user next
     document.getElementById(whichBoxInput()).value = nextLetter; //provides user next
@@ -436,6 +409,9 @@ function addLetter() {
     moveOn(); //puts focus on correct letter or changes to new word if letters run out
 }
 
+/**
+ * decides whether to collect the words for wordData array from the easy or hard JSON
+ */
 function howDifficult() {
     let skillLevel = document.getElementById("difficult").value;
     if (skillLevel === 'hard') {
@@ -453,6 +429,9 @@ function howDifficult() {
     }
 }
 
+/**
+ * makes the hint visible or invisible depending on the option that the user has chosen from the drop down
+ */
 function showHint() {
     buttonD.addEventListener("change", function () {
         let show = buttonD.value;
@@ -468,8 +447,34 @@ function showHint() {
 }
 
 /**
+ *displays final score at end of game 
+ */
+function finalScores(score) {
+    const area = document.getElementById("finalScore");
+    area.innerHTML = `Your <br>Score <br>was : ${score}`;
+}
+
+/**
+ * switches to final screen and calls final score
+ */
+function theEnd() {
+    const end = document.getElementById("gameBox");
+    end.style.display = "none";
+    end.style.height = "1px";
+    last.style.display = "none";
+    last.innerHTML = `Your Score is : ` + 0;
+    buttonA.style.display = "none";
+    buttonC.style.display = "none";
+    buttonD.style.display = "none";
+    const first = document.getElementById("finalScore");
+    first.style.visibility = "visible";
+    first.style.height = "auto";
+    finalScores(currentScore);
+}
+
+/**
  * checks if user wants to leave the page
  */
-//window.onbeforeunload = function (event) {
-//    event.returnValue = "leaving site";
-//};
+window.onbeforeunload = function (event) {
+    event.returnValue = "leaving site";
+};
