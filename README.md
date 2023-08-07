@@ -398,6 +398,15 @@ The project was be cloned.
 
 ### Initial development array - five words only
 
+The key pairs are :
+
+- word: the word to be spelt
+- image: the source and alt for the image to be displayed in HTML
+- decs: description to be provided to the user to help them guess the word
+- hint: if hint requested how the spelling is interesting
+- complete: if viewing the word for the first time it is empty, but if it has been skipped then the letters in complete have been put in from the guess array and ar pre-populated so they can't score twice and don't have the frustration of redoing work.
+- firstLetter: if they have requested the the first letter of each word is pre-populated it is taken from here.
+
 ```JS
 let wordData = [{
         'word': 'elephant',
@@ -441,7 +450,14 @@ let wordData = [{
     },
 ];
 ```
-This was generated from my head and the images were:
+## Images
+
+### Image sites
+
+- [Pixabay](https://pixabay.com/)
+- [freepnglogos](https://www.freepnglogos.com/)
+
+The above array was generated from my head and the images are:
 
 - [elephant](https://pixabay.com/vectors/elephant-animal-jungle-savannah-1598359/) (Image by <a href="https://pixabay.com/users/andremsantana-61090/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1598359">André Santana AndreMS</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1598359">Pixabay</a>)
 
@@ -453,9 +469,7 @@ This was generated from my head and the images were:
 
 - [incense](https://pixabay.com/vectors/pie-chart-icon-data-chart-7128354/) (Image by <a href="https://pixabay.com/users/20259794-20259794/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=7790187">nuri gogoi</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=7790187">Pixabay</a>)
 
-When the game had most of the functionality so needed more words to play with then I asked chatGPT to suggest a [list](documents/chatGPT.pdf) of nouns and descriptions.
-
-Now I searched the list for appropriate images to put in the game.
+Now additional word could be put in the game.
 
 - [dinosaur](https://www.freepnglogos.com/images/dinosaur-18676.html) (<a href="https://www.freepnglogos.com/pics/dinosaur">Dinosaur from freepnglogos.com</a>)
 
@@ -499,19 +513,13 @@ Now I searched the list for appropriate images to put in the game.
 
 - [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) was used for the basics of the site.
 - [CSS](https://developer.mozilla.org/en-US/docs/Web/css) was added to generate the styles and layout of the site.
-- [CSS Flexbox](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox) was used to place objects in the desired location.
 - [JavaScript](https://developer.mozilla.org/en-US/docs/Web/javascript) to produce the functions and interactivity.
 - [VSCode](https://code.visualstudio.com/) was used to create and edit the website.
 - [Canava](https://www.canva.com/) was used to generate the images when thinking about page lay out and flow chart.
 - [Git](https://git-scm.com/) was used for the version control through Git Commit.
 - [GitHub](https://github.com/) was used to host the website.
-- [ChatGPT](https://openai.com/chatgpt) was used to inspire lists of words and their descriptions.
-- [pythontutor] (https://pythontutor.com/render.html#mode=edit) for when my functions were acting unexpectedly and to idenfity where certain array indexes were.
+- [pythontutor] (https://pythontutor.com/render.html#mode=edit) for when my functions were acting unexpectedly and to identify where certain array indexes were.
 
-### Image sites
-
-- [Pixabay](https://pixabay.com/)
-- [freepnglogos](https://www.freepnglogos.com/)
 
 # mentor /* jshint esversion: 8 */
 

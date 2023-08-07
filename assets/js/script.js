@@ -1,19 +1,15 @@
 /* jshint esversion: 8 */
 
-/**
- * constants definition
- */
+//constants definition
+
 const first = document.getElementById("front");
 const last = document.getElementById("score");
-const buttonA = document.getElementById("skip");
+const buttonSkip = document.getElementById("skip");
 const buttonB = document.getElementById("quit");
 const buttonC = document.getElementById("buy");
 const buttonD = document.getElementById("hintButton");
 
-
-/**
- * Array of words and information first iteration
- */
+//Array of words and information first iteration
 let wordData = [{
     "word": "fox",
     "image": "src='assets/images/fox.png' alt'cartoon incense'",
@@ -22,6 +18,16 @@ let wordData = [{
     "complete": [],
     "firstLetter": ["f"]
 }]
+
+//variables
+let pick = rand(); //allows word order to be random
+let currentWord = wordData[pick].word; //provides a location for the word in use
+let guess = []; //array for letters of this word already guessed
+let skipped = []; //words that have been skipped
+let currentScore = 0; //starting score 0
+let wantFirstLetter = false; //player choice of wanting to receive first letter or not
+let repeat = false; //allows program to know if we are rerunning words to include already guessed letters
+
 
 /**
  * On DOM load sets up the listeners sends it to the game or gives the instructions pop up, then game interactivity
@@ -33,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
         buildGameArea();
         hideFront(); //Removes the initial screen features and replaces them with the game
     });
-    buttonA.addEventListener("click", function () {
+    buttonSkip.addEventListener("click", function () {
         skip(); // allows player to skip a word and it will be repeated at the end
     });
     buttonB.addEventListener("click", function () {
@@ -52,37 +58,26 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /**
- * global game variables
- */
-let pick = rand(); //allows word order to be random
-let currentWord = wordData[pick].word; //provides a location for the word in use
-let guess = []; //array for letters of this word already guessed
-let skipped = []; //words that have been skipped
-let currentScore = 0; //starting score 0
-let wantFirstLetter = false; //player choice of wanting to receive first letter or not
-let repeat = false; //allows program to know if we are rerunning words to include already guessed letters
-
-/**
- * build instructions for the dialogue box see README for code origin
+ * build instructions for the dialog box see README for code origin
  */
 const openButton = document.querySelector("[data-open-modal]");
 const closeButton = document.querySelector("[data-close-modal]");
 const modal = document.querySelector("[data-modal]");
 
 /**
- * dialogue box see README for code origin
+ * dialog box see README for code origin
  */
 openButton.addEventListener("click", () => {
     modal.showModal();
 });
 
-/**dialogue box see README for code origin */
+/**dialog box see README for code origin */
 closeButton.addEventListener("click", () => {
     modal.close();
 });
 
 /**
- * dialogue box see README for code origin to allow click outside modal close
+ * dialog box see README for code origin to allow click outside modal close
  */
 modal.addEventListener("click", e => {
     const dialogDimensions = modal.getBoundingClientRect();
@@ -103,7 +98,7 @@ function hideFront() {
     first.style.display = "none";
     last.style.visibility = "visible";
     last.innerHTML = `Your Score is :   <br>` + `<strong>0</strong>`;
-    buttonA.style.visibility = "visible";
+    buttonSkip.style.visibility = "visible";
     buttonB.style.visibility = "visible";
     buttonC.style.visibility = "visible";
     buttonD.style.visibility = "visible";
@@ -188,7 +183,6 @@ function wantedFirstLetter() {
 function lettersOnly(l) {
     let matcher = /^[A-Za-z]+$/;
     return matcher.test(l);
-
 }
 
 /**
@@ -230,7 +224,6 @@ function disableArrayBoxes() {
             document.getElementById(`${imp}`).disabled = true; //box not in focus
         }
     }
-
 }
 
 /**
@@ -463,7 +456,7 @@ function theEnd() {
     end.style.height = "1px";
     last.style.display = "none";
     last.innerHTML = `Your Score is : ` + 0;
-    buttonA.style.display = "none";
+    buttonSkip.style.display = "none";
     buttonC.style.display = "none";
     buttonD.style.display = "none";
     const first = document.getElementById("finalScore");
