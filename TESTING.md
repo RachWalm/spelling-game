@@ -28,7 +28,20 @@ first letter
 
 random order
 
+•	Check all Buttons
+•	Check all functions
+•	All the way through buy
+•	All the way through skip
+•	All the way through correct
+•	All the way through wrong
+•	Intermingle skip, buy, right and wrong,
+•	Check hint for each word hidden and visible.
+•	Check restart at various points
+
+
 ## Validators and accessibility
+
+# mentor /* jshint esversion: 8 */
 
 ## Functions
 

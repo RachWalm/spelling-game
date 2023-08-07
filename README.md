@@ -277,9 +277,13 @@ this code above was taken from [W3](https://www.w3schools.com/howto/howto_js_red
 
  but to do this proved less efficient and time consuming in an unanticipated way.
 
-# the end and redirect to antoher page W3
+A final feature was to warn the user before they left the page as this would incur them loosing their score. This functionality was adapted from [W3](https://www.w3schools.com/jsref/event_onbeforeunload.asp) to give alert when someone tries to leave the site.
 
-# https://www.w3schools.com/jsref/event_onbeforeunload.asp to give alert when someone tries to leave the site.
+```JS
+window.onbeforeunload = function (event) {
+    event.returnValue = "leaving site";
+};
+```
 
 ## Features
 
@@ -325,21 +329,21 @@ With the CSS it took some time to get all the boxes where I wanted them, especia
 
 Having non-letter characters display took some time, and may now have excess functions, but each function only dealt with some of the keys as I built them up. I don't feel that at this point there is value to experimenting with how do decrease the number of functions for efficiency as it works and time is limited (could be improved in the future).
 
-changing word at wrong point, reading from data rather than current word
+# changing word at wrong point, reading from data rather than current word
 
 
 # letters input if don't delete although it listens for the letter keeps the letter recorded in the box that was first typed - solved letter2input
 
-https://www.geeksforgeeks.org/how-to-clone-an-array-in-javascript/ - skipped back into word array
+ # https://www.geeksforgeeks.org/how-to-clone-an-array-in-javascript/ - skipped back into word array
 
-shallow copy vs deep copy  - tried concat push '=' etc but didn't get the copy that I wanted. putting things in indexed places or taking from indexed places.
+# shallow copy vs deep copy  - tried concat push '=' etc but didn't get the copy that I wanted. putting things in indexed places or taking from indexed places.
 //let addOld = JSON.parse(JSON.stringify(wordData.splice((pick), 1)));
 https://www.youtube.com/watch?v=E3dboLSBeJc
 https://www.youtube.com/shorts/XK0V0E3bA-M 
 
 ### Unsolved Bugs
 
-As this game is based on keyboard events, it may not work properly without a physical keyboard. Onscreen keyboards might cause problems. Sometimes people using onscreen keyboards didn't get it registered on the first push. This game was designed to be used on a keyboard, so this is not in the scope of the project.
+As this game is based on keyboard events, it may not work properly without a physical keyboard. Onscreen keyboards might cause problems. Sometimes people using onscreen keyboards didn't get it registered on the first push. This game was designed to be used on a keyboard, so this is not in the scope of the project. As this was only discovered during the testing by external testers on their own devices the time to complete a rectification of this was not available.
 
 All other detected bugs were solved.
 
@@ -372,11 +376,9 @@ Here is the link https://rachwalm.github.io/spelling-game/ to the deployed page.
 
 The project was be cloned.
 
-## Atribution
+## Array of words
 
-### Array of words
-
-#### Initial development array - five words only
+### Initial development array - five words only
 
 ```JS
 let wordData = [{
@@ -475,15 +477,25 @@ Now I searched the list for appropriate images to put in the game.
 
 - [fish](https://www.freepnglogos.com/images/fish-11970.html) (<a href="https://www.freepnglogos.com/pics/fish">Fish from freepnglogos.com</a>)
 
-## software used
+## Software used
 
-ChatGPT
+- [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) was used for the basics of the site.
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/css) was added to generate the styles and layout of the site.
+- [CSS Flexbox](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox) was used to place objects in the desired location.
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/javascript) to produce the functions and interactivity.
+- [VSCode](https://code.visualstudio.com/) was used to create and edit the website.
+- [Canava](https://www.canva.com/) was used to generate the images when thinking about page lay out and flow chart.
+- [Git](https://git-scm.com/) was used for the version control through Git Commit.
+- [GitHub](https://github.com/) was used to host the website.
+- [ChatGPT](https://openai.com/chatgpt) was used to inspire lists of words and their descriptions.
+- [pythontutor] (https://pythontutor.com/render.html#mode=edit) for when my functions were acting unexpectedly and to idenfity where certain array indexes were.
 
-mentor /* jshint esversion: 8 */
+### Image sites
 
-https://www.w3schools.com/jsref/jsref_regexp_test.asp
+- [Pixabay](https://pixabay.com/)
+- [freepnglogos](https://www.freepnglogos.com/)
 
-https://pythontutor.com/render.html#mode=edit
+# mentor /* jshint esversion: 8 */
 
 ## Acknowledgements
 
