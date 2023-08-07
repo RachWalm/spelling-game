@@ -34,6 +34,7 @@ h1 {
     justify-content: center;
     font-family: Quicksand, sans-serif;
     font-size: 500%;
+    height: fit-content;
 }
 
 div {
@@ -205,7 +206,7 @@ input {
 
 /*word associated image*/
 #image {
-    height: 40vh;
+    width: 40vw;
 }
 
 #images {
@@ -272,28 +273,15 @@ footer {
 
 /*responsive interactions change to a column rather than three columns and reduced size and placed appropriately*/
 @media screen and (max-width:1024px) {
-
-    /*three columns to one*/
-    .split {
-        flex-direction: column;
-    }
-
-    #split1 {
-        position: absolute;
-        top: 90px;
-    }
-
-    #split2 {
-        position: absolute;
-        top: 130px;
-    }
-
-    #split3 {
-        position: relative;
-        top: 430px;
+    h1 {
+        font-size: 350%;
     }
 
     /*reduced size of things on screen*/
+    main {
+        height: auto;
+    }
+
     input {
         width: 30px;
         height: 30px;
@@ -323,6 +311,6 @@ footer {
 /*reduced title so it didn't exceed screen*/
 @media screen and (max-width:380px) {
     h1 {
-        font-size: 400%;
+        font-size: 200%;
     }
 }
