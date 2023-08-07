@@ -34,6 +34,7 @@
                 <div id="front">
                     <div id="instructions">
                         <button data-open-modal>Instructions</button>
+                        <!--dialog box for instructions-->
                         <dialog data-modal>
                             <h2>Instructions</h2>
                             <ul>
@@ -74,13 +75,16 @@
                             <button class="close" data-close-modal>Close</button>
                         </dialog>
                     </div>
+                    <!--button to start game and switch to game screen-->
                     <div id="startGame">
                         <button>Start game</button>
                     </div>
+                    <!--want to be given first letter tick box-->
                     <div>
                         <input type="checkbox" id="wantFirstTick" name="firstTick" value="firstLetterInc">
                         <label for="wantFirstTick"> Click box for first letter given</label>
                     </div>
+                    <!--difficulty drop down-->
                     <div>
                         <select id="difficult" name="difficulty">
                             <option value="easy">
@@ -111,7 +115,7 @@
                     <h2>Your Final Score was :</h2>
                 </div>
             </div>
-            <!--right side div not visible on initial load but provides consistent spacing-->
+            <!--right side div not visible on initial load but provides consistent spacing contains all buttons for game play-->
             <div class="space">
                 <div id="split3">
                     <!--action buttons during the game-->
@@ -125,6 +129,7 @@
                         <button id="quit" class="in--game smallCircle">
                             restart game
                         </button>
+                        <!--hint drop down to switch on and off the hint-->
                         <select id="hintButton" name="noHint">
                             <option value="no--hint">
                                 no hint
