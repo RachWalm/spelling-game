@@ -256,13 +256,26 @@ function empty() {
 
 The next features that help to improve engagement and interest of the user are the scores and finalScore. These used a global variable to hold the score and then .innerHTML to include it on the screen. They were separate functions as scores also incremented the score.
 
-# skip
+To avoid frustration of a player that can't guess a word the skip function was added. This allows the player to move to another word without completing all/any or the letters. To avoid running out of words quickly the words are then kept in a separate array to allow them to be run through when the original wordData array has been complete. 
 
-# guess to complete
+This means that during the skip operation it is essential to record the letters that the user has already guessed (if any), to avoid them getting additional score for the letters being put in again and avoid the annoyance of retyping them. As the letters are stored in a guess array during the word this is transferred to complete. Luckily this only required a shallow copy so was simpler than adding the .JSON information as the array could just be added to wordData.complete array.key. 
 
-# buy letter
+Also to make the game less irritating when stuck a buy letter function was devised. Initially the plan was to decrease the score when buying a letter but this was found to be demotivating by the children I talked to so you just don't get a score increment for buying the letter. This function uses the length of the letters in the guess array to say which index is required to take the letter from the word, then inputs it in the screen box and guess array. The colour for these letters was decided as black as a neutral colour but still showed visibly that they hadn't got it right.
 
-# wantedFirst letter and boofirst letter
+Both skip and buy a letter were initiated by Eventlisteners for their relevant buttons identified by ID.
+
+Lots of people on first glance at the game said that they wanted the first letter of the word to already be in place when the user was presented with the information about the word. This was done by putting a dropdown select on the landing page and event listener for that. This then created a constant which was a boolean as wantFirstLetter, then on the calling of the function to set up for a new game this boolean could be checked by the function booFirstLetter and set for the rest of the game. Then at the end of the function building the input boxes on screen the wantedFirstLetter consults the boolean and if required using input0 as the first letter box adds the letter and it is added to the guess array to align all the indexes. The focus and disabled text boxes function disableArrayBoxes puts the first focus on the second box.
+
+When the game was in development the idea was to send the user to another finish page when they had run out of words or if they quit through the javascript :
+
+```JS
+window.location.replace("http://www.w3schools.com");
+```
+
+this code above was taken from [W3](https://www.w3schools.com/howto/howto_js_redirect_webpage.asp#:~:text=There%20are%20a%20couple%20of%20ways%20to%20redirect,%3D%20%22http%3A%2F%2Fwww.w3schools.com%22%3B%20%2F%2F%20Simulate%20an%20HTTP%20redirect%3A%20window.location.replace%28%22http%3A%2F%2Fwww.w3schools.com%22%29%3B)
+
+
+ but to do this proved less efficient and time consuming in an unanticipated way.
 
 # the end and redirect to antoher page W3
 
@@ -294,6 +307,8 @@ more words
 different durations on the TIMER
 Option to add your name
 
+less functions for non-letter character
+
 only have one way of picking if it is a letter.
 Be more efficient and not put it in guess then take it out.
 NOT PUT FIRST LETTER INI ARRAY
@@ -303,6 +318,12 @@ have full word stay on screen for a moment
 restart goes via a score page
 
 ## Development Bugs
+
+Most development bugs centered around getting the indexing matching up to the correct box or point required by the code. Often the wrong letter or word was being used. As I was only using five words this was usually very easy to rectify by counting letters in words and subtracting 1 from the index number etc.
+
+With the CSS it took some time to get all the boxes where I wanted them, especially as I was unfamiliar with the things that were invisible taking space this took me some time. Also dealing with flex box growing and shrinking leaving 'usable' but not used space around the box giving purple areas on the chrome inspect function. The invisible areas was solved by making the boxes extremely small until required then setting them back to suitable areas. The purple box issue was solved by adding extra divs to provide containers for the boxes I was using.
+
+Having non-letter characters display took some time, and may now have excess functions, but each function only dealt with some of the keys as I built them up. I don't feel that at this point there is value to experimenting with how do decrease the number of functions for efficiency as it works and time is limited (could be improved in the future).
 
 changing word at wrong point, reading from data rather than current word
 

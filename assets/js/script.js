@@ -1,8 +1,15 @@
 /* jshint esversion: 8 */
 
 /**
- * constants and variables definition
+ * constants definition
  */
+const first = document.getElementById("front");
+const last = document.getElementById("score");
+const buttonA = document.getElementById("skip");
+const buttonB = document.getElementById("quit");
+const buttonC = document.getElementById("buy");
+const buttonD = document.getElementById("hintButton");
+
 
 /**
  * Array of words and information first iteration
@@ -22,18 +29,17 @@ let wordData = [{
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("startGame").addEventListener("click", function () {
         booFirstLetter(); //Player decides if they want the first letter provided
-        howDifficult();
+        howDifficult(); // easy or hard level
         buildGameArea();
         hideFront(); //Removes the initial screen features and replaces them with the game
     });
-    document.getElementById("skip").addEventListener("click", function () {
+    buttonA.addEventListener("click", function () {
         skip(); // allows player to skip a word and it will be repeated at the end
     });
-    document.getElementById("quit").addEventListener("click", function () {
-        console.log('clicked quit button');
-        window.location.replace("index.html"); //takes user back to the beginning
+    buttonB.addEventListener("click", function () {
+        window.location.replace("index.html"); //takes user back to the beginning as a restart
     });
-    document.getElementById("buy").addEventListener("click", function () {
+    buttonC.addEventListener("click", function () {
         document.getElementById(whichBoxInput()).style.color = "black";
         addLetter();
     });
@@ -52,7 +58,7 @@ let pick = rand(); //allows word order to be random
 let currentWord = wordData[pick].word; //provides a location for the word in use
 let guess = []; //array for letters of this word already guessed
 let skipped = []; //words that have been skipped
-let currentScore = 0;
+let currentScore = 0; //starting score 0
 let wantFirstLetter = false; //player choice of wanting to receive first letter or not
 let repeat = false; //allows program to know if we are rerunning words to include already guessed letters
 
@@ -99,18 +105,12 @@ modal.addEventListener("click", e => {
  * removes initial screen functionality and replaces it with the game
  */
 function hideFront() {
-    const first = document.getElementById("front");
     first.style.display = "none";
-    const last = document.getElementById("score");
     last.style.visibility = "visible";
     last.innerHTML = `Your Score is : <br>` + 0;
-    const buttonA = document.getElementById("skip");
     buttonA.style.visibility = "visible";
-    const buttonB = document.getElementById("quit");
     buttonB.style.visibility = "visible";
-    const buttonC = document.getElementById("buy");
     buttonC.style.visibility = "visible";
-    const buttonD = document.getElementById("hintButton");
     buttonD.style.visibility = "visible";
     const gameBox = document.getElementById("gameBox");
     gameBox.style.visibility = "visible";
@@ -359,18 +359,17 @@ function empty() {
 /**
  * increments and displays score 
  */
-function scores(last) {
-    const area = document.getElementById("score");
-    area.innerHTML = `Your Score is : ${last + 1}`;
-    return last + 1;
+function scores(score) {
+    last.innerHTML = `Your Score is : ${score + 1}`;
+    return score + 1;
 }
 
 /**
  *displays final score at end of game 
  */
-function finalScores(last) {
+function finalScores(score) {
     const area = document.getElementById("finalScore");
-    area.innerHTML = `Your <br>Score <br>was : ${last}`;
+    area.innerHTML = `Your <br>Score <br>was : ${score}`;
 }
 
 /**
@@ -419,14 +418,10 @@ function theEnd() {
     const end = document.getElementById("gameBox");
     end.style.display = "none";
     end.style.height = "1px";
-    const last = document.getElementById("score");
     last.style.display = "none";
     last.innerHTML = `Your Score is : ` + 0;
-    const buttonA = document.getElementById("skip");
     buttonA.style.display = "none";
-    const buttonC = document.getElementById("buy");
     buttonC.style.display = "none";
-    const buttonD = document.getElementById("hintButton");
     buttonD.style.display = "none";
     const first = document.getElementById("finalScore");
     first.style.visibility = "visible";
@@ -459,9 +454,8 @@ function howDifficult() {
 }
 
 function showHint() {
-    let selectHint = document.getElementById("hintButton");
-    selectHint.addEventListener("change", function () {
-        let show = selectHint.value;
+    buttonD.addEventListener("change", function () {
+        let show = buttonD.value;
         console.log(show);
         if (show === 'hint') {
             hintys.style.visibility = "visible";
