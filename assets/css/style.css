@@ -9,7 +9,6 @@
 }
 
 /* main overall styling across all screens*/
-
 body {
     background: #D8F5FF;
     display: flex;
@@ -42,16 +41,7 @@ div {
     align-content: center;
 }
 
-#finalScore {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    font-family: Quicksand, sans-serif;
-    font-size: 400%;
-}
-
-/* next four functions keep screen split consistently*/
-
+/* next functions keep screen split consistently*/
 .split {
     display: flex;
     flex-direction: row;
@@ -96,7 +86,6 @@ split3 {
 }
 
 /* dialog box*/
-
 dialog::backdrop {
     background-color: rgba(176, 226, 245, 0.7);
 }
@@ -110,38 +99,7 @@ dialog {
     padding: 5px;
 }
 
-button {
-    display: flex;
-    font-size: 50px;
-    justify-content: center;
-    align-content: center;
-    width: 18rem;
-    background-color: #CCFFC2;
-    border-radius: 8%;
-    margin: 15px;
-}
-
-label {
-    font-size: 140%;
-    margin: 8px;
-}
-
-select {
-    height: 25px;
-    width: fit-content;
-}
-
-#wantFirstTick {
-    width: 20px;
-    height: 20px;
-    font-size: 150%;
-    margin: 10px
-}
-
-#difficult {
-    margin-top: 30px;
-}
-
+/*dialogue box contents*/
 #instructions {
     font-size: 16px;
 }
@@ -156,8 +114,49 @@ ul {
     width: auto;
 }
 
-/*actual game styling*/
 
+/*buttons*/
+button {
+    display: flex;
+    font-size: 50px;
+    justify-content: center;
+    align-content: center;
+    width: 18rem;
+    background-color: #CCFFC2;
+    border-radius: 8%;
+    margin: 15px;
+}
+
+/*drop down and check box*/
+label {
+    font-size: 140%;
+    margin: 8px;
+}
+
+select {
+    height: 25px;
+    width: fit-content;
+}
+
+/*styling for landing page*/
+#front {
+    display: flex;
+    flex-direction: column;
+}
+
+#wantFirstTick {
+    width: 20px;
+    height: 20px;
+    font-size: 150%;
+    margin: 10px
+}
+
+#difficult {
+    margin-top: 30px;
+}
+
+/*actual game styling*/
+/*boxes to put letters in*/
 input {
     width: 60px;
     height: 60px;
@@ -170,9 +169,9 @@ input {
     justify-content: center;
     align-items: center;
     align-content: center;
-
 }
 
+/*in game buttons*/
 #rightButtons {
     display: flex;
     flex-direction: column;
@@ -190,10 +189,7 @@ input {
     font-size: 20px;
 }
 
-#image {
-    height: 40vh;
-}
-
+/*game area*/
 .gameColumn {
     display: flex;
     justify-content: center;
@@ -202,34 +198,38 @@ input {
     height: 10vh;
 }
 
+/*word associated image*/
+#image {
+    height: 40vh;
+}
+
 #images {
     max-width: 35vw;
     max-height: 40vh;
     padding: 5px;
 }
 
+/*word associated description*/
 #dess {
     font-size: 150%;
     top: 5px;
 }
 
+/*word associated hint*/
 #hintys {
     font-size: 150%;
     top: 5px;
     visibility: hidden;
 }
 
+/*current score - not final score*/
 #score {
     visibility: hidden;
     font-size: 150%;
 }
 
+/*hidden on landing and/or made small so everything was in correct place*/
 #gameBox {
-    visibility: hidden;
-    height: 1px;
-}
-
-#finalScore {
     visibility: hidden;
     height: 1px;
 }
@@ -242,14 +242,21 @@ input {
     visibility: hidden;
 }
 
+/*at game end final score is in the center but hidden and small till needed*/
+#finalScore {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    font-family: Quicksand, sans-serif;
+    font-size: 400%;
+    visibility: hidden;
+    height: 1px;
+}
+
+/*footer images of foxes*/
 .fox {
     max-width: 45vw;
     max-height: 28vh;
-}
-
-#front {
-    display: flex;
-    flex-direction: column;
 }
 
 footer {
@@ -258,12 +265,10 @@ footer {
     width: 100%;
 }
 
+/*responsive interactions change to a column rather than three columns and reduced size and placed appropriately*/
 @media screen and (max-width:1024px) {
 
-    footer {
-        display: hidden;
-    }
-
+    /*three columns to one*/
     .split {
         flex-direction: column;
     }
@@ -283,6 +288,7 @@ footer {
         top: 430px;
     }
 
+    /*reduced size of things on screen*/
     input {
         width: 30px;
         height: 30px;
@@ -309,6 +315,7 @@ footer {
     }
 }
 
+/*reduced title so it didn't exceed screen*/
 @media screen and (max-width:380px) {
     h1 {
         font-size: 400%;
