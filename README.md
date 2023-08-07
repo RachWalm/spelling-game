@@ -76,9 +76,11 @@ As the development progressed there it evolved to include the below decision tre
 
 There is also features that allow the player to ask for the first letter/buy a letter or see the hint that aren't critical to play that haven't been included in this flow chart to keep it simple.
 
-#### Functions to ensure game played correctly
+### Functions to ensure game played correctly
 
 The first function that the user will access will be front screen with the start game and instructions buttons. 
+
+#### Instructions
 
 The instructions button leads to a dialogue box containing all the instructions. This was something that I was unfamiliar with and used the code from this :
 
@@ -111,6 +113,7 @@ dialog::backdrop {
     background-color: rgba(176, 226, 245, 0.7);
 }
 ```
+#### Buttons activation
 
 All the buttons were activated by click event listener functionality which called the relevant function. For example:
 
@@ -118,6 +121,8 @@ All the buttons were activated by click event listener functionality which calle
 document.getElementById("skip").addEventListener("click", function () {
         skip(); // allows player to skip a word and it will be repeated at the end
 ```
+
+#### Progression from one view to next
 
 As everything took place within one page index.html it was necessary to to hide and/or use visibility to only have the current things on the page. This was done through a combination of CSS to set things to their original state then make changes at certain points using JavaScript. Anything not required at time of landing was put as hidden and some elements had to have their areas reduced to very small so they didn't affect the positioning of the currently visible material.
 
@@ -129,6 +134,8 @@ As everything took place within one page index.html it was necessary to to hide 
 ```
 
 The use of the Javascript 'style.display = "none";' could only be used once the area was not to be used again as it removes the item from the page. So this was done to hide the front page buttons once they were no longer required. Most of this was controlled by the function hideFront and theEnd to move from one layout to the next.
+
+#### Picking which word and the associated information
 
 An important piece of functionality that was decided upon was the use of an array and key pairs to store all the data that the game would require to draw upon:
 
@@ -145,9 +152,15 @@ function rand() {
 
 This number could then be used to pick from the array at random using indexing.
 
+#### Arrays used
+
 Three arrays are used to hold information once the game has started, wordData - holds the words yet to be used, skipped - holds the words that were skipped (therefore incomplete) and finally guess - holds the letters of the current word that have been correctly guessed.
 
+#### Linking on screen boxes to arrays
+
 It was necessary to write functions to link the index that we wanted to access of the array and the input boxes that were on the screen for the user. These functions were whichBoxNumber (output int), whichBoxInput (output 'input'int as these were the id's of the inputs in HTML), and whichBoxInputMinusOne (output 'input'int to align id's with the correct box at certain points in the code). These function linked the array indexes and text on screen to allow various other functions to operate on the correct bit of code.
+
+#### Keyboard listening events
 
 As keyboard entries had to be manipulated, it was essential to utilise the keyboard events, onkeydown and onkeyup.
 
@@ -172,6 +185,8 @@ document.onkeydown = function (e) {
     };
 ```
 
+#### Use of onKeyDown and onKeyUp
+
 To avoid bugs that would cause the user inconvenience or confusion, it was necessary to eliminate the code accepting the wrong key entries and performing tasks. Therefore the onkeydown was used to assess the key pressed and if correct then the onkeyup would allow the user to progress to the next letter.
 
 The onkeyup and onkeydown functions were inspired by the  Code Institute javascript& the dom > handling DOM events > keyboard events tutorial which included the stop repeat event code used:
@@ -181,6 +196,8 @@ event.preventDefault();
     if (event.repeat) {
         return false;
 ```
+
+#### Manipulating the DOM by ID
 
 Before any interactivity could be introduced the user interface had be made available, this was done using innerHTML functionality. I was introduced to this functionality in the code insitute tutorial JavaScript & the DOM  Manipulating the DOM  Changing Existing Elements. This allows me to add HTML dependent on the information that I was drawing from the array (later .JSON files). In this way I was able to add the image, description and hint connected with the current word.
 
@@ -192,9 +209,16 @@ let imge = `<img id="images" ${wordData[pick].image}>`;
         document.getElementById("image").innerHTML += imge;
         document.getElementById("description").innerHTML += des;
 ```
+
+#### Put input boxes relating to letters on screen
+
 An additional function was created to do the input boxes correlated with the letters in the word called buildLetters. This required a for loop associated with each letter. This function also called functions to check if the first letter had been requested or if on a repeat through, what letters had already been inserted, wantedFirstLetter and whatComplete respectively. It also called the function disableArrayBoxes.
 
+#### Only allow focused input activity
+
 disableArrayBoxes also used a for loop across the letters in the word but this time to disable the input ability of all but the relevant box and to put focus on the relevant box. The disable input was learnt from [W3](https://www.w3schools.com/jsref/prop_text_disabled.asp).
+
+#### Checking that key pressed was a letter not number, special character etc.
 
 Several functions were used to assess the if the letter was correct. It needed to be a letter or not accepted. Special character, numbers and other keys needed to be avoided. 'lettersOnly' checks if the key relates to a letter, this was adapted from [W3 code to take letter only from](https://www.w3resource.com/javascript/form/all-letters-field.php#:~:text=You%20can%20write%20a%20JavaScript,HTML%20form%20contains%20only%20letters.&text=To%20get%20a%20string%20contains,%2F). This allowed me to identify '/^[A-Za-z]+$/'. If it did not fall into that range then an alert was raised in handleKeys. 
 
@@ -210,6 +234,8 @@ if (typed.keyCode < 58) {
         return true;
 ```
 
+#### Uppercase turned to lowercase
+
 Users also might use upper case letters when typing. But the key pair of word was in lower case. So to solve this problem and make it look nicer and easier to read, the letters were going to be fed in as lower case irrespective of which case they were originally in.
 
 This was easily done with function lowerCase:
@@ -221,6 +247,8 @@ function lowerCase(letter) {
 }
 
 ```
+
+#### Guess array comparison to word spelling
 
 Now we needed to take the input letter that had been process through the above functions to leave it as only a lowercase letter. This could be done by putting the letter into the guess array and then comparing the guess to the corresponding letter in currentWord variable. 
 
@@ -234,7 +262,11 @@ Another signal to people who couldn't distinguish the colour is that it would on
 
 The moveOn function had two options either to move to the next letter or if all the letters in the word had been correctly guessed then it removed the word from the wordData array so it wouldn't be recalled again using splice and called the clearRestart function to clear the user interface.
 
+#### Set up for next word
+
 clearRestart function just called the empty function and the buildGameArea function to start the next word.
+
+#### Clear screen for next word
 
 It is the empty function that uses the DOM remove child to take all the HTML added earlier by Javascript away so it is back to the screen that it was at when the game was started and the new word can be built. It also emptied the guess array so that started fresh for the new word.
 
@@ -254,7 +286,11 @@ function empty() {
 }
 ```
 
+#### Score
+
 The next features that help to improve engagement and interest of the user are the scores and finalScore. These used a global variable to hold the score and then .innerHTML to include it on the screen. They were separate functions as scores also incremented the score.
+
+#### Skip
 
 To avoid frustration of a player that can't guess a word the skip function was added. This allows the player to move to another word without completing all/any or the letters. To avoid running out of words quickly the words are then kept in a separate array to allow them to be run through when the original wordData array has been complete. 
 
