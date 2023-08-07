@@ -327,12 +327,30 @@ Most development bugs centered around getting the indexing matching up to the co
 
 With the CSS it took some time to get all the boxes where I wanted them, especially as I was unfamiliar with the things that were invisible taking space this took me some time. Also dealing with flex box growing and shrinking leaving 'usable' but not used space around the box giving purple areas on the chrome inspect function. The invisible areas was solved by making the boxes extremely small until required then setting them back to suitable areas. The purple box issue was solved by adding extra divs to provide containers for the boxes I was using.
 
-Having non-letter characters display took some time, and may now have excess functions, but each function only dealt with some of the keys as I built them up. I don't feel that at this point there is value to experimenting with how do decrease the number of functions for efficiency as it works and time is limited (could be improved in the future).
+Having non-letter characters display took some time, and may now have excess functions, but each function only dealt with some of the keys as I built them up. I don't feel that at this point there is value to experimenting with how to decrease the number of functions for efficiency as it works and time is limited (could be improved in the future).
 
-# changing word at wrong point, reading from data rather than current word
+There were a couple of times during development when the letters that were being input in the box were not the ones that were intended. This was found to either be because the letter was one out on the indexing between the box number and the current word, or that data was being read from the wordData array instead of the currentWord variable. This was solved by either correcting the indexing for the ones where that was the problem. For the ones that were reading the array or current word at the wrong point, it was either necessary to change which variable was being read or change when the current word was taken from the array so that they each contained the correct information when the functions were called.
 
+Another problem was that as the input was set to only have a max length of 1, the first letter typed was the one that went into the box and then whatever came after that wasn't shown. This was rectified with the function lettersinput.
 
-# letters input if don't delete although it listens for the letter keeps the letter recorded in the box that was first typed - solved letter2input
+```JS
+function lettersinput(typed) {
+    document.getElementById(whichBoxInput()).value = typed;
+}
+```
+This put the letter in that had most recently been typed so that the user could see what was being typed and the outcome.
+
+Something that provided a very interesting solution was cloning arrays. I was unaware of the difference between a shallow copy and a deep copy. Therefore, my initial attempts to just make one array 'equal' another were not producing what I expected. Therefore, I looked at a lot of google information and tried these solutions.
+
+```JS
+function skip() {
+    let addOld = structuredClone(wordData[pick]); //deep copy
+    guessToComplete(addOld);
+    skipped.push(guessToComplete(addOld)); //adds word to skipped array for later
+    wordData.splice((pick), 1); //removes word from current array
+    clearRestart(); //sets up for next word
+}
+```
 
  # https://www.geeksforgeeks.org/how-to-clone-an-array-in-javascript/ - skipped back into word array
 
