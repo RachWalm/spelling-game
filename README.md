@@ -145,8 +145,8 @@ So that it would be a different order (not just iterate through the array) each 
 
 ```JS
 function rand() {
-    let rndm = Math.floor(Math.random() * wordData.length);
-    return rndm;
+    let randomly = Math.floor(Math.random() * wordData.length);
+    return randomly;
 }
 ```
 
@@ -199,14 +199,14 @@ event.preventDefault();
 
 #### Manipulating the DOM by ID
 
-Before any interactivity could be introduced the user interface had be made available, this was done using innerHTML functionality. I was introduced to this functionality in the code insitute tutorial JavaScript & the DOM  Manipulating the DOM  Changing Existing Elements. This allows me to add HTML dependent on the information that I was drawing from the array (later .JSON files). In this way I was able to add the image, description and hint connected with the current word.
+Before any interactivity could be introduced the user interface had be made available, this was done using innerHTML functionality. I was introduced to this functionality in the code institute tutorial JavaScript & the DOM  Manipulating the DOM  Changing Existing Elements. This allows me to add HTML dependent on the information that I was drawing from the array (later .JSON files). In this way I was able to add the image, description and hint connected with the current word.
 
 ```JS
-let imge = `<img id="images" ${wordData[pick].image}>`;
+let image = `<img id="images" ${wordData[pick].image}>`;
         let des = `<div id="dess"><p>${wordData[pick].decs}</p> </div>`;
         let hinty = `<div id="hintys"><p>${wordData[pick].hint}</p> </div>`;
         currentWord = wordData[pick].word;
-        document.getElementById("image").innerHTML += imge;
+        document.getElementById("image").innerHTML += image;
         document.getElementById("description").innerHTML += des;
 ```
 
@@ -222,10 +222,10 @@ disableArrayBoxes also used a for loop across the letters in the word but this t
 
 Several functions were used to assess the if the letter was correct. It needed to be a letter or not accepted. Special character, numbers and other keys needed to be avoided. 'lettersOnly' checks if the key relates to a letter, this was adapted from [W3 code to take letter only from](https://www.w3resource.com/javascript/form/all-letters-field.php#:~:text=You%20can%20write%20a%20JavaScript,HTML%20form%20contains%20only%20letters.&text=To%20get%20a%20string%20contains,%2F). This allowed me to identify '/^[A-Za-z]+$/'. If it did not fall into that range then an alert was raised in handleKeys. 
 
-However, this still left several keys that could be activated and put into the input such as tab and shift. So additionally the functionality lettersnotInput was created using two functions, getModifierState and keycodes to avoid those keys giving superfluous information.
+However, this still left several keys that could be activated and put into the input such as tab and shift. So additionally the functionality lettersNotInput was created using two functions, getModifierState and keycodes to avoid those keys giving superfluous information.
 
 ```JS
-function lettersnotInput(typed) {
+function lettersNotInput(typed) {
     let shift = typed.getModifierState("Shift");
 ```
 
@@ -272,16 +272,16 @@ It is the empty function that uses the DOM remove child to take all the HTML add
 
 ```JS
 function empty() {
-    const empimg = document.getElementById("image");
-    empimg.removeChild(empimg.firstElementChild);
+    const emptyImage = document.getElementById("image");
+    emptyImage.removeChild(empimg.firstElementChild);
     const empDesc = document.getElementById("description");
     empDesc.removeChild(empDesc.firstElementChild);
     const letterRemove = document.getElementById("actualGame");
     for (let i = 0; i < currentWord.length; i++) {
         letterRemove.removeChild(letterRemove.firstElementChild);
     }
-    const emphint = document.getElementById("hints");
-    emphint.removeChild(emphint.firstElementChild);
+    const emptyHint = document.getElementById("hints");
+    emptyHint.removeChild(emptyHint.firstElementChild);
     guess = [];
 }
 ```
@@ -331,7 +331,7 @@ window.onbeforeunload = function (event) {
 
 ### Colour Design
 
-The colour scheme was created to be gentle with clear bright colours where actions was required such as buttons. It was supposed to be reminisent of the sky as we has a fox woodland at the bottom. the BOE2F5 needed to be changed to rgba so that we could introduce a certain amount of opalescence (rgba = 176, 226, 245, 0.7).
+The colour scheme was created to be gentle with clear bright colours where actions was required such as buttons. It was supposed to be reminiscent of the sky as we has a fox woodland at the bottom. the BOE2F5 needed to be changed to rgba so that we could introduce a certain amount of opalescence (rgba = 176, 226, 245, 0.7).
 
 ![colour scheme](documents/colourscheme.png)
 
@@ -383,10 +383,10 @@ There were a couple of times during development when the letters that were being
 
 ### Showing old letters not most recent key press
 
-Another problem was that as the input was set to only have a max length of 1, the first letter typed was the one that went into the box and then whatever came after that wasn't shown. This was rectified with the function lettersinput.
+Another problem was that as the input was set to only have a max length of 1, the first letter typed was the one that went into the box and then whatever came after that wasn't shown. This was rectified with the function lettersInput.
 
 ```JS
-function lettersinput(typed) {
+function lettersInput(typed) {
     document.getElementById(whichBoxInput()).value = typed;
 }
 ```

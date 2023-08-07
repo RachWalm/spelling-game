@@ -114,8 +114,8 @@ function hideFront() {
  * produces a random number that can be fed in to make order picked from array random
  */
 function rand() {
-    let rndm = Math.floor(Math.random() * wordData.length);
-    return rndm;
+    let randomly = Math.floor(Math.random() * wordData.length);
+    return randomly;
 }
 
 /**
@@ -124,11 +124,11 @@ function rand() {
 function buildGameArea() {
     if (wordData.length != 0) { //words still available from array to be used
         pick = rand();
-        let imge = `<img id="images" ${wordData[pick].image}>`;
+        let image = `<img id="images" ${wordData[pick].image}>`;
         let des = `<div id="dess"><p>${wordData[pick].decs}</p> </div>`;
         let hinty = `<div id="hintys"><p>${wordData[pick].hint}</p> </div>`;
         currentWord = wordData[pick].word;
-        document.getElementById("image").innerHTML += imge;
+        document.getElementById("image").innerHTML += image;
         document.getElementById("description").innerHTML += des;
         buildLetters();
         showHint();
@@ -236,11 +236,11 @@ function handleKeys(event) {
         if (event.type === 'keydown') {
             if (lettersOnly(event.key) === false) {
                 alert('You must insert a letter. As numbers and special characters are not accepted'); //need an else if for weird characters
-            } else if (lettersnotInput(event) === true) {
+            } else if (lettersNotInput(event) === true) {
                 document.getElementById(whichBoxInput()).value = '-';
             } else if (lettersOnly(event.key) === true) {
                 let low = lowerCase(event.key);
-                lettersinput(low);
+                lettersInput(low);
                 guess.push(low);
                 isLetterCorrect();
             } else {
@@ -270,14 +270,14 @@ function isLetterCorrect() {
 /**
  *puts the key pressed in the box on screen
  */
-function lettersinput(typed) {
+function lettersInput(typed) {
     document.getElementById(whichBoxInput()).value = typed;
 }
 
 /**
  * makes keys that aren't relevant not appear in the letter box
  */
-function lettersnotInput(typed) {
+function lettersNotInput(typed) {
     let shift = typed.getModifierState("Shift");
     let meta = typed.getModifierState("Meta");
     let control = typed.getModifierState("Control");
@@ -295,7 +295,7 @@ function lettersnotInput(typed) {
 }
 
 /**
- * if there are more letters for the user to imput in the word it moves the focus to the next letter or clears screen for next word
+ * if there are more letters for the user to input in the word it moves the focus to the next letter or clears screen for next word
  */
 function moveOn() {
     if (whichBoxNumber() < currentWord.length) {
@@ -319,16 +319,16 @@ function clearRestart() {
  * clears screen and guess array
  */
 function empty() {
-    const empimg = document.getElementById("image");
-    empimg.removeChild(empimg.firstElementChild);
+    const emptyImage = document.getElementById("image");
+    emptyImage.removeChild(emptyImage.firstElementChild);
     const empDesc = document.getElementById("description");
     empDesc.removeChild(empDesc.firstElementChild);
     const letterRemove = document.getElementById("actualGame");
     for (let i = 0; i < currentWord.length; i++) {
         letterRemove.removeChild(letterRemove.firstElementChild);
     }
-    const emphint = document.getElementById("hints");
-    emphint.removeChild(emphint.firstElementChild);
+    const emptyHint = document.getElementById("hints");
+    emptyHint.removeChild(emptyHint.firstElementChild);
     guess = [];
 }
 
