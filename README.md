@@ -14,15 +14,15 @@ When you have completed the word it will provide you with an new image and descr
 
 #### Scope and Strategy
 
-The idea is to help children improve the spelling of unusual or particularly difficult to spell words. There are certain conventions or exceptions in English that make the spelling particularly difficult. This is often a long process for children at school and a game that helps them should speed up their learning.
+- The idea is to help children improve the spelling of unusual or particularly difficult to spell words. There are certain conventions or exceptions in English that make the spelling particularly difficult. This is often a long process for children at school and a game that helps them should speed up their learning.
 
-It is not possible to write the word that they have to spell on the screen or they would just copy it. Therefore, the word will be portrayed using an image and a description. If the user cannot figure out the word or spelling there will be a skip word button to avoid frustration.
+- It is not possible to write the word that they have to spell on the screen or they would just copy it. Therefore, the word will be portrayed using an image and a description. If the user cannot figure out the word or spelling there will be a skip word button to avoid frustration.
 
-The hint information should help to teach them the rules or exceptions in English spelling that are relevant to that word. Also if unable to spell the word this may give them the information that they require to complete the spelling.
+- The hint information should help to teach them the rules or exceptions in English spelling that are relevant to that word. Also if unable to spell the word this may give them the information that they require to complete the spelling.
 
-To make the game competitive (and therefore retain interest - to better ones score) there will be a score per letter that is correct.
+- To make the game competitive (and therefore retain interest - to better ones score) there will be a score per letter that is correct.
 
-It is out of scope to actually teach children spelling - this is just a fun game to aid their learning.
+- It is out of scope to actually teach children spelling - this is just a fun game to aid their learning.
 
 ### User Stories
 
@@ -296,7 +296,7 @@ To avoid frustration of a player that can't guess a word the skip function was a
 
 This means that during the skip operation it is essential to record the letters that the user has already guessed (if any), to avoid them getting additional score for the letters being put in again and avoid the annoyance of retyping them. As the letters are stored in a guess array during the word this is transferred to complete. Luckily this only required a shallow copy so was simpler than adding the .JSON information as the array could just be added to wordData.complete array.key. 
 
-#### give letter
+#### Give letter
 
 Also to make the game less irritating when stuck a give letter function was devised. Initially the plan was to decrease the score when buying a letter but this was found to be demotivating by the children I talked to so you just don't get a score increment for buying the letter. This function uses the length of the letters in the guess array to say which index is required to take the letter from the word, then inputs it in the screen box and guess array. The colour for these letters was decided as black as a neutral colour but still showed visibly that they hadn't got it right.
 
@@ -304,7 +304,7 @@ Both skip and give a letter were initiated by Eventlisteners for their relevant 
 
 Lots of people on first glance at the game said that they wanted the first letter of the word to already be in place when the user was presented with the information about the word. This was done by putting a dropdown select on the landing page and event listener for that. This then created a constant which was a boolean as wantFirstLetter, then on the calling of the function to set up for a new game this boolean could be checked by the function booFirstLetter and set for the rest of the game. Then at the end of the function building the input boxes on screen the wantedFirstLetter consults the boolean and if required using input0 as the first letter box adds the letter and it is added to the guess array to align all the indexes. The focus and disabled text boxes function disableArrayBoxes puts the first focus on the second box.
 
-#### end and score
+#### End and score
 
 When the game was in development the idea was to send the user to another finish page when they had run out of words or if they quit through the javascript :
 
@@ -365,13 +365,23 @@ restart goes via a score page
 
 ## Development Bugs
 
+### Array indexing
+
 Most development bugs centered around getting the indexing matching up to the correct box or point required by the code. Often the wrong letter or word was being used. As I was only using five words this was usually very easy to rectify by counting letters in words and subtracting 1 from the index number etc.
+
+### Styling layout
 
 With the CSS it took some time to get all the boxes where I wanted them, especially as I was unfamiliar with the things that were invisible taking space this took me some time. Also dealing with flex box growing and shrinking leaving 'usable' but not used space around the box giving purple areas on the chrome inspect function. The invisible areas was solved by making the boxes extremely small until required then setting them back to suitable areas. The purple box issue was solved by adding extra divs to provide containers for the boxes I was using.
 
+### Only allow letters
+
 Having non-letter characters display took some time, and may now have excess functions, but each function only dealt with some of the keys as I built them up. I don't feel that at this point there is value to experimenting with how to decrease the number of functions for efficiency as it works and time is limited (could be improved in the future).
 
+### Giving wrong letter when using give letter function
+
 There were a couple of times during development when the letters that were being input in the box were not the ones that were intended. This was found to either be because the letter was one out on the indexing between the box number and the current word, or that data was being read from the wordData array instead of the currentWord variable. This was solved by either correcting the indexing for the ones where that was the problem. For the ones that were reading the array or current word at the wrong point, it was either necessary to change which variable was being read or change when the current word was taken from the array so that they each contained the correct information when the functions were called.
+
+### Showing old letters not most recent key press
 
 Another problem was that as the input was set to only have a max length of 1, the first letter typed was the one that went into the box and then whatever came after that wasn't shown. This was rectified with the function lettersinput.
 
@@ -382,7 +392,19 @@ function lettersinput(typed) {
 ```
 This put the letter in that had most recently been typed so that the user could see what was being typed and the outcome.
 
-Something that provided a very interesting solution was cloning arrays. I was unaware of the difference between a shallow copy and a deep copy. Therefore, my initial attempts to just make one array 'equal' another were not producing what I expected. Therefore, I looked at a lot of google information and tried these solutions.
+### Array cloning
+
+Something that provided a very interesting solution was cloning arrays. I was unaware of the difference between a shallow copy and a deep copy. Therefore, my initial attempts to just make one array 'equal' another were not producing what I expected. Therefore, I looked at a lot of information and tried these solutions.
+
+The initial functionality that I experimented with were concat, object assign, array.map, array.from, spread operator and push etc. This does not work well with nested objects. These suggestions were adapted from [geeksforgeeks](https://www.geeksforgeeks.org/how-to-clone-an-array-in-javascript/).
+
+```JS
+let addOld = JSON.parse(JSON.stringify(wordData.splice((pick), 1)));
+```
+
+I learnt about the difference between shallow and deep cloning from [youtube](https://www.youtube.com/watch?v=E3dboLSBeJc), which explains that it is a memory address copy when you just use equals sign.
+
+The solution for the skip function required a deep clone and from watching [youtube](https://www.youtube.com/shorts/XK0V0E3bA-M) a built in function in Javascript called structuredClone seemed to provide the best functionality.
 
 ```JS
 function skip() {
@@ -394,12 +416,9 @@ function skip() {
 }
 ```
 
- # https://www.geeksforgeeks.org/how-to-clone-an-array-in-javascript/ - skipped back into word array
+## Testing
 
-# shallow copy vs deep copy  - tried concat push '=' etc but didn't get the copy that I wanted. putting things in indexed places or taking from indexed places.
-//let addOld = JSON.parse(JSON.stringify(wordData.splice((pick), 1)));
-https://www.youtube.com/watch?v=E3dboLSBeJc
-https://www.youtube.com/shorts/XK0V0E3bA-M 
+For testing, validators and accessibility see [Testing](TESTING.md)
 
 ### Unsolved Bugs
 
@@ -434,7 +453,7 @@ Here is the link https://rachwalm.github.io/spelling-game/ to the deployed page.
 4. link copied
 5. went to terminal (version control) and input the following :git clone https://github.com/RachWalm/spelling-game.git
 
-The project was be cloned.
+The project was cloned.
 
 ## Array of words
 
@@ -565,7 +584,7 @@ Now additional word could be put in the game.
 - [Canava](https://www.canva.com/) was used to generate the images when thinking about page lay out and flow chart.
 - [Git](https://git-scm.com/) was used for the version control through Git Commit.
 - [GitHub](https://github.com/) was used to host the website.
-- [pythontutor] (https://pythontutor.com/render.html#mode=edit) for when my functions were acting unexpectedly and to identify where certain array indexes were.
+- [pythontutor](https://pythontutor.com/render.html#mode=edit) for when my functions were acting unexpectedly and to identify where certain array indexes were.
 
 ## Acknowledgements
 
@@ -578,7 +597,3 @@ Children testers - Ben Cowking and Storm Cowking who have given me a great deal 
 My Partner - Ian Harris who has been extremely supportive while I have been working on this project.
 
 Code institute - For all the information and course content that has contributed to the creation of this project. Also to the tutor who solved my problem with a function running twice by spotting that I had called it twice.
-
-## Testing
-
-For testing, validators and accessibility see [Testing](TESTING.md)
