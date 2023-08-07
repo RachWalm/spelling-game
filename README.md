@@ -296,11 +296,15 @@ To avoid frustration of a player that can't guess a word the skip function was a
 
 This means that during the skip operation it is essential to record the letters that the user has already guessed (if any), to avoid them getting additional score for the letters being put in again and avoid the annoyance of retyping them. As the letters are stored in a guess array during the word this is transferred to complete. Luckily this only required a shallow copy so was simpler than adding the .JSON information as the array could just be added to wordData.complete array.key. 
 
-Also to make the game less irritating when stuck a buy letter function was devised. Initially the plan was to decrease the score when buying a letter but this was found to be demotivating by the children I talked to so you just don't get a score increment for buying the letter. This function uses the length of the letters in the guess array to say which index is required to take the letter from the word, then inputs it in the screen box and guess array. The colour for these letters was decided as black as a neutral colour but still showed visibly that they hadn't got it right.
+#### give letter
 
-Both skip and buy a letter were initiated by Eventlisteners for their relevant buttons identified by ID.
+Also to make the game less irritating when stuck a give letter function was devised. Initially the plan was to decrease the score when buying a letter but this was found to be demotivating by the children I talked to so you just don't get a score increment for buying the letter. This function uses the length of the letters in the guess array to say which index is required to take the letter from the word, then inputs it in the screen box and guess array. The colour for these letters was decided as black as a neutral colour but still showed visibly that they hadn't got it right.
+
+Both skip and give a letter were initiated by Eventlisteners for their relevant buttons identified by ID.
 
 Lots of people on first glance at the game said that they wanted the first letter of the word to already be in place when the user was presented with the information about the word. This was done by putting a dropdown select on the landing page and event listener for that. This then created a constant which was a boolean as wantFirstLetter, then on the calling of the function to set up for a new game this boolean could be checked by the function booFirstLetter and set for the rest of the game. Then at the end of the function building the input boxes on screen the wantedFirstLetter consults the boolean and if required using input0 as the first letter box adds the letter and it is added to the guess array to align all the indexes. The focus and disabled text boxes function disableArrayBoxes puts the first focus on the second box.
+
+#### end and score
 
 When the game was in development the idea was to send the user to another finish page when they had run out of words or if they quit through the javascript :
 
@@ -312,6 +316,8 @@ this code above was taken from [W3](https://www.w3schools.com/howto/howto_js_red
 
 
  but to do this proved less efficient and time consuming in an unanticipated way.
+
+#### onbeforeunload alert
 
 A final feature was to warn the user before they left the page as this would incur them loosing their score. This functionality was adapted from [W3](https://www.w3schools.com/jsref/event_onbeforeunload.asp) to give alert when someone tries to leave the site.
 
@@ -545,19 +551,21 @@ Now additional word could be put in the game.
 
 - [fish](https://www.freepnglogos.com/images/fish-11970.html) (<a href="https://www.freepnglogos.com/pics/fish">Fish from freepnglogos.com</a>)
 
-## Software used
+## Other tools
+
+### languages used
 
 - [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) was used for the basics of the site.
 - [CSS](https://developer.mozilla.org/en-US/docs/Web/css) was added to generate the styles and layout of the site.
 - [JavaScript](https://developer.mozilla.org/en-US/docs/Web/javascript) to produce the functions and interactivity.
+
+### tools
+
 - [VSCode](https://code.visualstudio.com/) was used to create and edit the website.
 - [Canava](https://www.canva.com/) was used to generate the images when thinking about page lay out and flow chart.
 - [Git](https://git-scm.com/) was used for the version control through Git Commit.
 - [GitHub](https://github.com/) was used to host the website.
 - [pythontutor] (https://pythontutor.com/render.html#mode=edit) for when my functions were acting unexpectedly and to identify where certain array indexes were.
-
-
-# mentor /* jshint esversion: 8 */
 
 ## Acknowledgements
 
