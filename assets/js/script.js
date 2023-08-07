@@ -5,9 +5,9 @@
 const first = document.getElementById("front");
 const last = document.getElementById("score");
 const buttonSkip = document.getElementById("skip");
-const buttonB = document.getElementById("quit");
-const buttonC = document.getElementById("buy");
-const buttonD = document.getElementById("hintButton");
+const buttonStart = document.getElementById("quit");
+const buttonGive = document.getElementById("buy");
+const buttonHint = document.getElementById("hintButton");
 
 //Array of words and information first iteration
 let wordData = [{
@@ -42,10 +42,10 @@ document.addEventListener("DOMContentLoaded", function () {
     buttonSkip.addEventListener("click", function () {
         skip(); // allows player to skip a word and it will be repeated at the end
     });
-    buttonB.addEventListener("click", function () {
+    buttonStart.addEventListener("click", function () {
         window.location.replace("index.html"); //takes user back to the beginning as a restart
     });
-    buttonC.addEventListener("click", function () {
+    buttonGive.addEventListener("click", function () {
         document.getElementById(whichBoxInput()).style.color = "black";
         addLetter();
     });
@@ -99,17 +99,16 @@ function hideFront() {
     last.style.visibility = "visible";
     last.innerHTML = `Your Score is :   <br>` + `<strong>0</strong>`;
     buttonSkip.style.visibility = "visible";
-    buttonB.style.visibility = "visible";
-    buttonC.style.visibility = "visible";
-    buttonD.style.visibility = "visible";
+    buttonStart.style.visibility = "visible";
+    buttonGive.style.visibility = "visible";
+    buttonHint.style.visibility = "visible";
     const gameBox = document.getElementById("gameBox");
     gameBox.style.visibility = "visible";
     gameBox.style.height = "80%";
 }
 
-/**
- * Javascript required to play the game
- */
+//Javascript required to play the game
+
 
 /**
  * produces a random number that can be fed in to make order picked from array random
@@ -426,8 +425,8 @@ function howDifficult() {
  * makes the hint visible or invisible depending on the option that the user has chosen from the drop down
  */
 function showHint() {
-    buttonD.addEventListener("change", function () {
-        let show = buttonD.value;
+    buttonHint.addEventListener("change", function () {
+        let show = buttonHint.value;
         console.log(show);
         if (show === 'hint') {
             hintys.style.visibility = "visible";
@@ -457,8 +456,8 @@ function theEnd() {
     last.style.display = "none";
     last.innerHTML = `Your Score is : ` + 0;
     buttonSkip.style.display = "none";
-    buttonC.style.display = "none";
-    buttonD.style.display = "none";
+    buttonGive.style.display = "none";
+    buttonHint.style.display = "none";
     const first = document.getElementById("finalScore");
     first.style.visibility = "visible";
     first.style.height = "auto";
