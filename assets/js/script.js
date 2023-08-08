@@ -336,7 +336,7 @@ function empty() {
  * increments and displays score 
  */
 function scores(score) {
-    last.innerHTML = `Your Score is : <strong>${score + 1}</strong>`;
+    last.innerHTML = `Your Score is :<br> <strong>${score + 1}</strong>`;
     return score + 1;
 }
 
@@ -454,7 +454,7 @@ function theEnd() {
     end.style.display = "none";
     end.style.height = "1px";
     last.style.display = "none";
-    last.innerHTML = `Your Score is : ` + 0;
+    last.innerHTML = `Your Score is :<br> ` + 0;
     buttonSkip.style.display = "none";
     buttonGive.style.display = "none";
     buttonHint.style.display = "none";

@@ -33,7 +33,7 @@ h1 {
     display: flex;
     justify-content: center;
     font-family: Quicksand, sans-serif;
-    font-size: 500%;
+    font-size: 10vh;
     height: fit-content;
 }
 
@@ -205,11 +205,10 @@ input {
 
 /*word associated image*/
 #image {
-    max-width: 40vw;
+    max-height: 30vh;
 }
 
 #images {
-    max-width: 100%;
     max-height: 100%;
     padding: 5px;
 }
@@ -272,8 +271,22 @@ footer {
 
 /*responsive interactions change to a column rather than three columns and reduced size and placed appropriately*/
 @media screen and (max-width:1024px) {
-    h1 {
-        font-size: 350%;
+
+    /* arrange screen vertically instead of horizontally*/
+    .split {
+        flex-direction: column;
+    }
+
+    #split1 {
+        margin-top: 10px;
+    }
+
+    #split2 {
+        margin-top: 10px;
+    }
+
+    #split3 {
+        margin-top: 10px;
     }
 
     /*reduced size of things on screen*/
@@ -304,12 +317,5 @@ footer {
     .fox {
         max-width: 25vw;
         max-height: 28vh;
-    }
-}
-
-/*reduced title so it didn't exceed screen*/
-@media screen and (max-width:380px) {
-    h1 {
-        font-size: 200%;
     }
 }
