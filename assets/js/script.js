@@ -8,6 +8,8 @@ const buttonSkip = document.getElementById("skip");
 const buttonStart = document.getElementById("quit");
 const buttonGive = document.getElementById("buy");
 const buttonHint = document.getElementById("hintButton");
+const whichBox = document.getElementById("whichBoxInput");
+const finishScore = document.getElementById("finalScore");
 
 //Array of words and information first iteration
 let wordData = [{
@@ -34,7 +36,7 @@ let repeat = false; //allows program to know if we are rerunning words to includ
  */
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("startGame").addEventListener("click", function () {
-        booFirstLetter(); //Player decides if they want the first letter provided
+        booleanFirstLetter(); //Player decides if they want the first letter provided
         howDifficult(); // easy or hard level
         buildGameArea();
         hideFront(); //Removes the initial screen features and replaces them with the game
@@ -46,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location.replace("index.html"); //takes user back to the beginning as a restart
     });
     buttonGive.addEventListener("click", function () {
-        document.getElementById(whichBoxInput()).style.color = "black";
+        whichBox.style.color = "black";
         addLetter();
     });
     document.onkeydown = function (e) {
@@ -218,7 +220,7 @@ function disableArrayBoxes() {
         let imp = 'input' + i;
         if (i === whichBoxNumber()) {
             document.getElementById(`${imp}`).disabled = false; //box in focus
-            document.getElementById(whichBoxInput()).focus(); //puts focus on correct box
+            whichBox.focus(); //puts focus on correct box
         } else {
             document.getElementById(`${imp}`).disabled = true; //box not in focus
         }
@@ -237,7 +239,7 @@ function handleKeys(event) {
             if (lettersOnly(event.key) === false) {
                 alert('You must insert a letter. As numbers and special characters are not accepted'); //need an else if for weird characters
             } else if (lettersNotInput(event) === true) {
-                document.getElementById(whichBoxInput()).value = '-';
+                whichBox.value = '-';
             } else if (lettersOnly(event.key) === true) {
                 let low = lowerCase(event.key);
                 lettersInput(low);
@@ -271,7 +273,7 @@ function isLetterCorrect() {
  *puts the key pressed in the box on screen
  */
 function lettersInput(typed) {
-    document.getElementById(whichBoxInput()).value = typed;
+    whichBox.value = typed;
 }
 
 /**
@@ -382,7 +384,7 @@ function guessToComplete(got) {
 /**
  * changes the variable wantFirstLetter to put or not put first letter in each word on screen depending on tick box
  */
-function booFirstLetter() {
+function booleanFirstLetter() {
     let checkBox = document.getElementById('wantFirstTick');
     if (checkBox.checked == true) {
         wantFirstLetter = true;
@@ -396,7 +398,7 @@ function booFirstLetter() {
  */
 function addLetter() {
     nextLetter = currentWord[guess.length]; //provides user next
-    document.getElementById(whichBoxInput()).value = nextLetter; //provides user next
+    whichBox.value = nextLetter; //provides user next
     guess.push(wordData[pick].word[guess.length]); //puts  letter in guess array to align with screen
     moveOn(); //puts focus on correct letter or changes to new word if letters run out
 }
@@ -442,8 +444,7 @@ function showHint() {
  *displays final score at end of game 
  */
 function finalScores(score) {
-    const area = document.getElementById("finalScore");
-    area.innerHTML = `Your Score was : <strong>${score}</strong>`;
+    finishScore.innerHTML = `Your Score was : <strong>${score}</strong>`;
 }
 
 /**
