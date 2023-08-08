@@ -294,6 +294,10 @@ footer {
         height: auto;
     }
 
+    h1 {
+        font-size: 5vh;
+    }
+
     input {
         width: 30px;
         height: 30px;
