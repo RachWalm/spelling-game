@@ -42,6 +42,14 @@ div {
     align-content: center;
 }
 
+a {
+    margin-left: 3px;
+}
+
+a:hover {
+    color: blue;
+}
+
 /* next functions keep screen split consistently*/
 .split {
     display: flex;
@@ -263,7 +271,17 @@ input {
     max-height: 28vh;
 }
 
+#credit {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    bottom: 0;
+    align-content: end;
+}
+
 footer {
+    display: flex;
+    justify-content: space-between;
     position: fixed;
     bottom: 0;
     width: 100%;
