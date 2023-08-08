@@ -13,12 +13,12 @@ const finishScore = document.getElementById("finalScore");
 
 //Array of words and information first iteration
 let wordData = [{
-    "word": "fox",
-    "image": "src='assets/images/fox.png' alt'cartoon incense'",
-    "decs": "woodland creature",
-    "hint": "x sounds like s",
-    "complete": [],
-    "firstLetter": ["f"]
+    "word": "fox", // word
+    "image": "src='assets/images/fox.png' alt'cartoon incense'", //source and alt for image
+    "decs": "woodland creature", //description
+    "hint": "x sounds like s", //hint
+    "complete": [], //array for guessed letters if skipped
+    "firstLetter": ["f"] // first letter for if requested
 }]
 
 //variables
@@ -70,20 +70,23 @@ const closeButton = document.querySelector("[data-close-modal]");
 const modal = document.querySelector("[data-modal]");
 
 /**
- * dialog box see README for code origin
+ * open dialog box button eventlistener 
+ * see README for code origin
  */
 openButton.addEventListener("click", () => {
-    modal.showModal();
+    modal.showModal(); //used showmodal not just show for improved function
 });
 
-/**dialog box see README for code origin */
+/**close dialog box event listener
+ * see README for code origin 
+ * */
 closeButton.addEventListener("click", () => {
     modal.close();
 });
 
 /**
  * dialog box see README for code origin 
- * to allow click outside modal close
+ * to allow click outside modal for close
  */
 modal.addEventListener("click", e => {
     const dialogDimensions = modal.getBoundingClientRect();
@@ -99,23 +102,23 @@ modal.addEventListener("click", e => {
 
 /**
  * removes initial screen functionality and 
- * replaces it with the game
+ * replaces it with the game by making everything 
+ * visible
  */
 function hideFront() {
-    first.style.display = "none";
+    first.style.display = "none"; //display none removes it
     last.style.visibility = "visible";
-    last.innerHTML = `Your Score is :   <br>` + `<strong>0</strong>`;
+    last.innerHTML = `Your Score is :   <br>` + `<strong>0</strong>`; // later put in with score by JS
     buttonSkip.style.visibility = "visible";
     buttonStart.style.visibility = "visible";
     buttonGive.style.visibility = "visible";
     buttonHint.style.visibility = "visible";
     const gameBox = document.getElementById("gameBox");
     gameBox.style.visibility = "visible";
-    gameBox.style.height = "80%";
+    gameBox.style.height = "80%"; //was small to not interfere with front 
 }
 
 //Javascript required to play the game
-
 
 /**
  * produces a random number that can be fed in to 
@@ -133,21 +136,21 @@ function rand() {
  */
 function buildGameArea() {
     if (wordData.length != 0) { //words still available from array to be used
-        pick = rand();
+        pick = rand(); //random number so random word form array to collect info
         let image = `<img id="images" ${wordData[pick].image}>`;
         let des = `<div id="dess"><p>${wordData[pick].decs}</p> </div>`;
         let hinty = `<div id="hintys"><p>${wordData[pick].hint}</p> </div>`;
         currentWord = wordData[pick].word;
-        document.getElementById("image").innerHTML += image;
-        document.getElementById("description").innerHTML += des;
-        buildLetters();
-        showHint();
+        document.getElementById("image").innerHTML += image; //add image to screen
+        document.getElementById("description").innerHTML += des; //add description to screen
+        buildLetters(); //works out input boxes required
+        showHint(); //hint required?
         document.getElementById("hints").innerHTML += hinty;
     } else if (wordData.length = 1) { //no words available so looks in skipped array
         if (skipped.length > 0) {
             wordData = Array.from(skipped, x => x); //gets words from skipped array
-            skipped = [];
-            repeat = true;
+            skipped = []; //empty skipped array
+            repeat = true; //so it knows to include already guessed letters
             pick = rand();
             currentWord = wordData[pick].word;
             buildGameArea();
@@ -155,7 +158,7 @@ function buildGameArea() {
             theEnd(); // no words in array or skipped so have to finish
         }
     } else {
-        console.log('wordData less than 0');
+        console.log('unexpected outcome of buildGameArea');
     }
 }
 
@@ -263,10 +266,10 @@ function handleKeys(event) {
                 guess.push(low);
                 isLetterCorrect();
             } else {
-                console.log('problem in lettersOnly possibly');
+                console.log('unexpected outcome of handleKeys');
             }
         } else if (event.type === 'keyup') {
-            moveOn();
+            moveOn(); //goes to next letter or word
         }
     }
 }
@@ -353,7 +356,7 @@ function empty() {
     }
     const emptyHint = document.getElementById("hints");
     emptyHint.removeChild(emptyHint.firstElementChild);
-    guess = [];
+    guess = []; //clears guess array
 }
 
 /**
@@ -465,7 +468,7 @@ function showHint() {
         } else if (show === 'no--hint') {
             hintys.style.visibility = "hidden";
         } else {
-            console.log('no hint')
+            console.log('unexpected outcome of showHint')
         }
     });
 }
