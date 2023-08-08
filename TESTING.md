@@ -8,7 +8,9 @@ The younger child liked getting a score per letter and the buy a letter function
 
 The words the younger child couldn't identify from the picture and they didn't know were : pharaoh, quarter and incense. The pictures they chose a different word for were : dinosaur was T-rex, but when told that it was a longer word got dinosaur, and station was subway and they did get cucumber but also thought it might be a pickle. Due to their level of education I didn't ask them to try to spell any of the words that were longer than 3 letters, but they enjoyed that.
 
-As the younger child and two of my adult testers didn't get incense I have removed this word from the list.
+The younger child used the give letter which means that they noticed that the screen instantly goes to the next word and you don't see the final letter.
+
+As the younger child and two of my adult testers didn't get incense was the word let alone how to spell it, I have removed this word from the list.
 
 The older child played very easily through the words (which at the time were mingled easy and hard) and said they understood what they were doing. The two words that they struggled with were incense and pharaoh (the 'oh' of pharaoh but could identify the picture). In general they enjoyed the game. Liking the scoring and not liking the idea of a timer.
 
@@ -28,7 +30,7 @@ first letter
 
 random order
 
-•	Check all Buttons
+Check all Buttons
 •	Check all functions
 •	All the way through buy
 •	All the way through skip
@@ -37,7 +39,6 @@ random order
 •	Intermingle skip, buy, right and wrong,
 •	Check hint for each word hidden and visible.
 •	Check restart at various points
-
 
 ## Validators and accessibility
 

@@ -7,8 +7,8 @@ This spelling game for children was designed so that they can play from an image
 The site can be accessed by this [link](https://rachwalm.github.io/spelling-game/).
 
 ## How to play
-Once you start the game it will provide you with an image, description and boxes to fill out to spell out the word that is required. There will be one box for each letter and the focus will start on the first letter required. As each letter is typed if you have the correct letter for spelling the word it will go blue and move you to the next box. Otherwise, the letter will go red and you will have to keep trying till you get the correct letter / skip the word or quit. Score will increment with each correct letter entered. 
-When you have completed the word it will provide you with an new image and description for a new word. Till you have completed all the words or quit. If you complete all the words it will give you a final score.
+Once you start the game it will provide you with an image, description and boxes to fill out to spell out the word. There will be one box for each letter and the focus will start on the first letter required. As each letter is typed, if you have the correct letter for spelling the word it will go blue and move you to the next box. Otherwise, the letter will go red and you will have to keep trying till you get the correct letter / request the letter/ skip the word or start over. Score will increment with each correct letter entered by the user. 
+When you have completed the word it will provide you with an new image and description for a new word till you have completed all the words or restart. If you complete all the words it will give you a final score.
 
 ## User Experience
 
@@ -24,7 +24,7 @@ When you have completed the word it will provide you with an new image and descr
 
 - To make the game competitive (and therefore retain interest - to better ones score) there will be a score per letter that is correct.
 
-- It is out of scope to actually teach children spelling - this is just a fun game to aid their learning.
+- It is out of scope to actually teach children spelling - this is just a fun game to be played on a a computer to aid their learning.
 
 ### User Stories
 
@@ -37,9 +37,14 @@ Repeat users should also get a random order to the words so it shouldn't become 
 ### Skeleton
 
 - Landing view will contain the general background and title/fox logo at bottom. Also two buttons to either get instructions (instructions and the point of the game information will appear in a pop up box) or to start the game. They can also pick between doing an easy level or hard level.
+![landing](documents/Laptop-1-1440x900.png)
 - Game view will contain the general background and title/fox logo at bottom. Additionally there will be the functionality of the game. This will include relevant image, description, box for each letter of the word and a hint (that can be turned on and off). This screen will also contain a skip word and and restart button as well as a timer (timer feature later decided against after discussion with potential users). As each word is completed the screen will clear of the old word information and be replaced with the next word.
+![game](documents/game-screen.png)
 - If you skip the word the game view will be retained with the next word replacing the current display. The skipped word will be saved for if words are run out of or if user just keeps skipping.
+- Once you are out of words you go to a final score page.
+![final-score](documents/final-score.png)
 - If you restart it will check that you want to leave the page and take you back to the beginning, this gives you the opportunity to return to the start of the game.
+![leave](documents/leave.png)
 - If you try to leave the page it will check that is what you intended so you don't loose your score.
 
 ## Functions
@@ -115,6 +120,8 @@ dialog::backdrop {
     background-color: rgba(176, 226, 245, 0.7);
 }
 ```
+![instructions](documents/large-instructions.png)
+
 #### Buttons activation
 
 All the buttons were activated by click event listener functionality which called the relevant function. For example:
@@ -156,7 +163,10 @@ This number could then be used to pick from the array at random using indexing.
 
 #### Arrays used
 
-Three arrays are used to hold information once the game has started, wordData - holds the words yet to be used, skipped - holds the words that were skipped (therefore incomplete) and finally guess - holds the letters of the current word that have been correctly guessed.
+Three arrays are used to hold information once the game has started.
+1. wordData - holds the words yet to be used
+2. skipped - holds the words that were skipped (therefore incomplete) 
+3. guess - holds the letters of the current word that have been correctly guessed.
 
 #### Linking on screen boxes to arrays
 
@@ -216,13 +226,26 @@ let image = `<img id="images" ${wordData[pick].image}>`;
 
 An additional function was created to do the input boxes correlated with the letters in the word called buildLetters. This required a for loop associated with each letter. This function also called functions to check if the first letter had been requested or if on a repeat through, what letters had already been inserted, wantedFirstLetter and whatComplete respectively. It also called the function disableArrayBoxes.
 
+empty input
+![input](documents/input-boxes.png)
+
+first letter requested
+![firstletter](documents/first-letter.png)
+
+retained letters from skipped word
+![skipped](documents/skipped.png)
+
 #### Only allow focused input activity
 
-disableArrayBoxes also used a for loop across the letters in the word but this time to disable the input ability of all but the relevant box and to put focus on the relevant box. The disable input was learnt from [W3](https://www.w3schools.com/jsref/prop_text_disabled.asp).
+disableArrayBoxes also used a for loop across the letters in the word but this time to disable the input ability of all but the relevant box and to put focus on the relevant box. In the above examples the top one has focus on the first box, then next the second box and the last the fifth box as they are the next letter required.
+
+The disable input was learnt from [W3](https://www.w3schools.com/jsref/prop_text_disabled.asp).
 
 #### Checking that key pressed was a letter not number, special character etc.
 
 Several functions were used to assess the if the letter was correct. It needed to be a letter or not accepted. Special character, numbers and other keys needed to be avoided. 'lettersOnly' checks if the key relates to a letter, this was adapted from [W3 code to take letter only from](https://www.w3resource.com/javascript/form/all-letters-field.php#:~:text=You%20can%20write%20a%20JavaScript,HTML%20form%20contains%20only%20letters.&text=To%20get%20a%20string%20contains,%2F). This allowed me to identify '/^[A-Za-z]+$/'. If it did not fall into that range then an alert was raised in handleKeys. 
+
+![alert](documents/alert.png)
 
 However, this still left several keys that could be activated and put into the input such as tab and shift. So additionally the functionality lettersNotInput was created using two functions, getModifierState and keycodes to avoid those keys giving superfluous information.
 
@@ -260,7 +283,9 @@ let isCorrect = guess[whichNumber] === currentWord[whichNumber];
 
 the outcome of this then needed to be fed back to the user. A colour system was decided upon, initially it was to be red and green, but upon discovering that it would not be a good colour combination for colour blind people this was changed to red and blue. Red for incorrect and blue for correct.
 
-Another signal to people who couldn't distinguish the colour is that it would only move/focus to the next letter through the moveOn function which decided where to disable the inputs and focus the letter. If the letter was incorrect it was also removed from the guess by pop. This meant the wrong letter wasn't retained for future use.
+![spelt-wrong](documents/wrong-letter.png)
+
+Another signal to people who couldn't distinguish the colour is that it would only move/focus to the next letter through the moveOn function which decided where to disable the inputs and focus the letter. If the letter was incorrect it was also removed from the guess by pop. This meant the wrong letter wasn't retained for future use. From the above example you can see that the focus remains on the wrong 'c' letter.
 
 The moveOn function had two options either to move to the next letter or if all the letters in the word had been correctly guessed then it removed the word from the wordData array so it wouldn't be recalled again using splice and called the clearRestart function to clear the user interface.
 
@@ -292,15 +317,25 @@ function empty() {
 
 The next features that help to improve engagement and interest of the user are the scores and finalScore. These used a global variable to hold the score and then .innerHTML to include it on the screen. They were separate functions as scores also incremented the score.
 
+![score](documents/score.png)
+
 #### Skip
 
 To avoid frustration of a player that can't guess a word the skip function was added. This allows the player to move to another word without completing all/any or the letters. To avoid running out of words quickly the words are then kept in a separate array to allow them to be run through when the original wordData array has been complete. 
 
 This means that during the skip operation it is essential to record the letters that the user has already guessed (if any), to avoid them getting additional score for the letters being put in again and avoid the annoyance of retyping them. As the letters are stored in a guess array during the word this is transferred to complete. Luckily this only required a shallow copy so was simpler than adding the .JSON information as the array could just be added to wordData.complete array.key. 
 
+![skipped](documents/skipped.png)
+
 #### Give letter
 
 Also to make the game less irritating when stuck a give letter function was devised. Initially the plan was to decrease the score when buying a letter but this was found to be demotivating by the children I talked to so you just don't get a score increment for buying the letter. This function uses the length of the letters in the guess array to say which index is required to take the letter from the word, then inputs it in the screen box and guess array. The colour for these letters was decided as black as a neutral colour but still showed visibly that they hadn't got it right.
+
+![give](documents/give-letter.png)
+
+In this example the first letter had been ticked so that is black as receives not score and the blue letters are correct, then the last 'a' is black as it has been requested not provided by the user.
+
+#### event listeners for interactivity
 
 Both skip and give a letter were initiated by Eventlisteners for their relevant buttons identified by ID.
 
@@ -317,7 +352,9 @@ window.location.replace("http://www.w3schools.com");
 this code above was taken from [W3](https://www.w3schools.com/howto/howto_js_redirect_webpage.asp#:~:text=There%20are%20a%20couple%20of%20ways%20to%20redirect,%3D%20%22http%3A%2F%2Fwww.w3schools.com%22%3B%20%2F%2F%20Simulate%20an%20HTTP%20redirect%3A%20window.location.replace%28%22http%3A%2F%2Fwww.w3schools.com%22%29%3B)
 
 
- but to do this proved less efficient and time consuming in an unanticipated way.
+ but to do this proved less efficient and time consuming in an unanticipated way. So the following page was designed within the index page.
+
+ ![final-score](documents/final-score.png)
 
 #### onbeforeunload alert
 
@@ -328,6 +365,7 @@ window.onbeforeunload = function (event) {
     event.returnValue = "leaving site";
 };
 ```
+![leave](documents/leave.png)
 
 ## Features
 
@@ -347,23 +385,43 @@ The title using Quicksand is a slightly rounder font which is similar to a lot o
 
 ## Future improvements
 
-Audio hints.
-additional words
-levels of complexity
-levels by theme
-more words
-different durations on the TIMER
-Option to add your name
+There are several future improvements that should be recommended if there was unlimited time to continue with this project.
 
-less functions for non-letter character
+There are a couple of code efficiencies:
 
-only have one way of picking if it is a letter.
-Be more efficient and not put it in guess then take it out.
-NOT PUT FIRST LETTER INI ARRAY
+1. Instead of having the first letter in it's own key pair in the wordData function it could be done by indexing the actual "word", rather than "firstLetter".
+```JS
+let wordData = [{
+    "word": "fox", // word
+    "image": "src='assets/images/fox.png' alt'cartoon incense'", //source and alt for image
+    "decs": "woodland creature", //description
+    "hint": "x sounds like s", //hint
+    "complete": [], //array for guessed letters if skipped
+    "firstLetter": ["f"] // first letter for if requested
+}]
+```
 
-have full word stay on screen for a moment
+2. Figure out which buttons the various functions that ensure it is only a letter not other key do and reduce the number of functions. Currently, lettersOnly and lettersNotInput are doing different parts of the same thing.
 
-restart goes via a score page
+3. As the letter goes into the guess array when it is typed at the moment then is removed if it is wrong, an efficiency would be to reorder the functions in such a way as it checked first then it needn't enter the guess array.
+
+Improvements in user experience:
+
+- Provide the description and the hint read audibly so that people who have difficulty visually can also use the game.
+
+- Have a name input so that the user can be referred to by name later on.
+
+- Currently the word instantly disappears so you move to the next word and never actually see the final letter. It might be nice to have a slight delay so the whole word can be seen, especially if the user has requested the last letter as they can't guess it.
+
+- start over button could go through the score screen so you get the feeling of finishing.
+
+- Although the timer idea was fairly universally disliked, it could be put as an option which people can switch on if they want to go against the clock.
+
+Extension of the game:
+
+1. Include more words.
+2. Include levels which you complete to go to the next.
+3. Themed lists
 
 ## Development Bugs
 
@@ -612,21 +670,21 @@ Now additional word could be put in the game.
 
 ### Web resources
 
-- Chrome-DevTools were extremely useful for trying out different code without affecting my core code and particularly when working on responsiveness.
+- [Chrome-DevTools](https://developer.chrome.com/docs/devtools/) were extremely useful for trying out different code without affecting my core code and particularly when working on responsiveness.
 
-- Lighthouse was used to run the checks for performance and accessibility.
+- [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) was used to run the checks for performance and accessibility.
 
-- HTML-markdown-validator was used to validate the HTML.
+- [HTML-markdown-validator](https://validator.w3.org/) was used to validate the HTML.
 
-- CSS-validator was used to perform the CSS validation.
+- [CSS-validator](https://jigsaw.w3.org/css-validator/) was used to perform the CSS validation.
 
-- JS-validator was used to perform the JS validation 
+- [JS-validator](https://jshint.com/) was used to perform the JS validation 
 
-The first image in the README.md was a screenshot from AmIResponsive.
+The first image in the README.md was a screenshot from [AmIResponsive](https://ui.dev/amiresponsive).
 
-The pallet for the colors for the overall look of the website were generated using coolors
+The pallet for the colors for the overall look of the website were generated using [coolors](https://coolors.co/)
 
-Responsive testing was performed using Responsive viewer extension (only front page as other pages got into a loop)
+Responsive testing was performed using [Responsive viewer extension](https://chrome.google.com/webstore/detail/responsive-viewer/inmopeiepgfljkpkidclfgbgbmfcennb) (only front page as other pages got into a loop)
 
 ## Acknowledgements
 
