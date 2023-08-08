@@ -32,7 +32,9 @@ let repeat = false; //allows program to know if we are rerunning words to includ
 
 
 /**
- * On DOM load sets up the listeners sends it to the game or gives the instructions pop up, then game interactivity
+ * On DOM load sets up the listeners sends 
+ * it to the game or gives the instructions 
+ * pop up, then game interactivity
  */
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("startGame").addEventListener("click", function () {
@@ -60,7 +62,8 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /**
- * build instructions for the dialog box see README for code origin
+ * build instructions for the dialog box 
+ * see README for code origin
  */
 const openButton = document.querySelector("[data-open-modal]");
 const closeButton = document.querySelector("[data-close-modal]");
@@ -79,7 +82,8 @@ closeButton.addEventListener("click", () => {
 });
 
 /**
- * dialog box see README for code origin to allow click outside modal close
+ * dialog box see README for code origin 
+ * to allow click outside modal close
  */
 modal.addEventListener("click", e => {
     const dialogDimensions = modal.getBoundingClientRect();
@@ -94,7 +98,8 @@ modal.addEventListener("click", e => {
 });
 
 /**
- * removes initial screen functionality and replaces it with the game
+ * removes initial screen functionality and 
+ * replaces it with the game
  */
 function hideFront() {
     first.style.display = "none";
@@ -113,7 +118,8 @@ function hideFront() {
 
 
 /**
- * produces a random number that can be fed in to make order picked from array random
+ * produces a random number that can be fed in to 
+ * make order picked from array random
  */
 function rand() {
     let randomly = Math.floor(Math.random() * wordData.length);
@@ -121,7 +127,9 @@ function rand() {
 }
 
 /**
- * builds the necessary HTML depending on the current word picked, if none left in array takes the skipped array or if none left ends
+ * builds the necessary HTML depending on the 
+ * current word picked, if none left in array 
+ * takes the skipped array or if none left ends
  */
 function buildGameArea() {
     if (wordData.length != 0) { //words still available from array to be used
@@ -152,7 +160,8 @@ function buildGameArea() {
 }
 
 /**
- * for each letter in the current word provides a box to put the letter in
+ * for each letter in the current word provides 
+ * a box to put the letter in
  */
 function buildLetters() {
     for (let i = 0; i < currentWord.length; i++) {
@@ -165,7 +174,8 @@ function buildLetters() {
 }
 
 /**
- * checks if user has requested first letter and if so provides it
+ * checks if user has requested first 
+ * letter and if so provides it
  */
 function wantedFirstLetter() {
     if (wantFirstLetter) {
@@ -179,7 +189,8 @@ function wantedFirstLetter() {
 
 
 /**
- * checks that the key pressed was not a number or special character
+ * checks that the key pressed was not a number 
+ * or special character
  */
 function lettersOnly(l) {
     let matcher = /^[A-Za-z]+$/;
@@ -187,7 +198,8 @@ function lettersOnly(l) {
 }
 
 /**
- * Provides the number of the box that is currently in focus to have a letter added
+ * Provides the number of the box that is currently 
+ * in focus to have a letter added
  */
 function whichBoxNumber() {
     let guessLen = parseInt(guess.length);
@@ -196,7 +208,8 @@ function whichBoxNumber() {
 }
 
 /**
- * Provides the id 'input'number of the box that is currently in focus to have a letter added
+ * Provides the id 'input'number of the box that is 
+ * currently in focus to have a letter added
  */
 function whichBoxInput() {
     let num = 'input' + whichBoxNumber();
@@ -204,7 +217,9 @@ function whichBoxInput() {
 }
 
 /**
- * Provides the id 'input'number of the box that is currently in focus to have a letter added so that it can be matched to the number in the array
+ * Provides the id 'input'number of the box that is 
+ * currently in focus to have a letter added so that 
+ * it can be matched to the number in the array
  */
 function whichBoxInputMinusOne() {
     let minus = whichBoxNumber() - 1;
@@ -228,7 +243,9 @@ function disableArrayBoxes() {
 }
 
 /**
- * deals with each key press to put item in box if it is a letter and calls functions to determine if it is correct
+ * deals with each key press to put item in box 
+ * if it is a letter and calls functions to determine 
+ * if it is correct
  */
 function handleKeys(event) {
     event.preventDefault();
@@ -237,7 +254,7 @@ function handleKeys(event) {
     } else {
         if (event.type === 'keydown') {
             if (lettersOnly(event.key) === false) {
-                alert('You must insert a letter. As numbers and special characters are not accepted'); //need an else if for weird characters
+                alert('It must a letter. Numbers etc. are not accepted'); //need an else if for weird characters
             } else if (lettersNotInput(event) === true) {
                 whichBox.value = '-';
             } else if (lettersOnly(event.key) === true) {
@@ -255,7 +272,8 @@ function handleKeys(event) {
 }
 
 /**
- * checks if the input letter is the next one in the word to spell correctly
+ * checks if the input letter is the next 
+ * one in the word to spell correctly
  */
 function isLetterCorrect() {
     let whichNumber = whichBoxNumber() - 1; //matches input numbers to array
@@ -277,7 +295,8 @@ function lettersInput(typed) {
 }
 
 /**
- * makes keys that aren't relevant not appear in the letter box
+ * makes keys that aren't relevant not 
+ * appear in the letter box
  */
 function lettersNotInput(typed) {
     let shift = typed.getModifierState("Shift");
@@ -297,7 +316,9 @@ function lettersNotInput(typed) {
 }
 
 /**
- * if there are more letters for the user to input in the word it moves the focus to the next letter or clears screen for next word
+ * if there are more letters for the user to input 
+ * in the word it moves the focus to the next letter 
+ * or clears screen for next word
  */
 function moveOn() {
     if (whichBoxNumber() < currentWord.length) {
@@ -310,7 +331,8 @@ function moveOn() {
 }
 
 /**
- * calls functions to clear screen/guess array and starts next word build
+ * calls functions to clear screen/guess 
+ * array and starts next word build
  */
 function clearRestart() {
     empty();
@@ -343,7 +365,9 @@ function scores(score) {
 }
 
 /**
- * allows uppercase letters typed but changed to lower for display and recognition as correct against array - returns lower case
+ * allows uppercase letters typed but changed 
+ * to lower for display and recognition as correct 
+ * against array - returns lower case
  */
 function lowerCase(letter) {
     let lower = letter.toLowerCase();
@@ -351,7 +375,8 @@ function lowerCase(letter) {
 }
 
 /**
- * when user skips letters user already provided go from guess into the complete key's pair
+ * when user skips letters user already provided 
+ * go from guess into the complete key's pair
  */
 function whatComplete() {
     for (i = 0; i < wordData[pick].complete.length; i++) {
@@ -363,7 +388,8 @@ function whatComplete() {
 }
 
 /**
- * allows words to be skipped and stored to be repeated when words run out
+ * allows words to be skipped and stored 
+ * to be repeated when words run out
  */
 function skip() {
     let addOld = structuredClone(wordData[pick]); //deep copy
@@ -374,7 +400,8 @@ function skip() {
 }
 
 /**
- * puts the guess array into the complete : key pair of the skipped array
+ * puts the guess array into the 
+ * complete : key pair of the skipped array
  */
 function guessToComplete(got) {
     got.complete = guess;
@@ -382,7 +409,8 @@ function guessToComplete(got) {
 }
 
 /**
- * changes the variable wantFirstLetter to put or not put first letter in each word on screen depending on tick box
+ * changes the variable wantFirstLetter to put or not put 
+ * first letter in each word on screen depending on tick box
  */
 function booleanFirstLetter() {
     let checkBox = document.getElementById('wantFirstTick');
@@ -404,7 +432,8 @@ function addLetter() {
 }
 
 /**
- * decides whether to collect the words for wordData array from the easy or hard JSON
+ * decides whether to collect the words for 
+ * wordData array from the easy or hard JSON
  */
 function howDifficult() {
     let skillLevel = document.getElementById("difficult").value;
@@ -424,7 +453,8 @@ function howDifficult() {
 }
 
 /**
- * makes the hint visible or invisible depending on the option that the user has chosen from the drop down
+ * makes the hint visible or invisible depending on the 
+ * option that the user has chosen from the drop down
  */
 function showHint() {
     buttonHint.addEventListener("change", function () {
@@ -448,7 +478,8 @@ function finalScores(score) {
 }
 
 /**
- * switches to final screen by display none for game features and calls final score
+ * switches to final screen by display none for 
+ * game features and calls final score
  */
 function theEnd() {
     const end = document.getElementById("gameBox");
