@@ -8,6 +8,7 @@ const buttonSkip = document.getElementById("skip");
 const buttonStart = document.getElementById("quit");
 const buttonGive = document.getElementById("buy");
 const buttonHint = document.getElementById("hintButton");
+const credit = document.getElementById("credit");
 const finishScore = document.getElementById("finalScore");
 
 //Array of words and information first iteration
@@ -112,6 +113,7 @@ function hideFront() {
     buttonStart.style.visibility = "visible";
     buttonGive.style.visibility = "visible";
     buttonHint.style.visibility = "visible";
+    credit.style.visibility = "hidden";
     const gameBox = document.getElementById("gameBox");
     gameBox.style.visibility = "visible";
     gameBox.style.height = "80%"; //was small to not interfere with front 
@@ -493,6 +495,7 @@ function theEnd() {
     buttonGive.style.display = "none";
     buttonHint.style.display = "none";
     const first = document.getElementById("finalScore");
+    credit.style.visibility = "visible";
     first.style.visibility = "visible";
     first.style.height = "auto";
     finalScores(currentScore);
