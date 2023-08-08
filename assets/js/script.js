@@ -8,7 +8,6 @@ const buttonSkip = document.getElementById("skip");
 const buttonStart = document.getElementById("quit");
 const buttonGive = document.getElementById("buy");
 const buttonHint = document.getElementById("hintButton");
-const whichBox = document.getElementById("whichBoxInput");
 const finishScore = document.getElementById("finalScore");
 
 //Array of words and information first iteration
@@ -50,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location.replace("index.html"); //takes user back to the beginning as a restart
     });
     buttonGive.addEventListener("click", function () {
-        whichBox.style.color = "black";
+        document.getElementById(whichBoxInput()).style.color = "black";
         addLetter();
     });
     document.onkeydown = function (e) {
@@ -186,7 +185,7 @@ function wantedFirstLetter() {
         guess = wordData[pick].firstLetter; //puts first letter in guess array to align with screen
         disableArrayBoxes(); //puts focus on second/correct letter
     } else {
-        console.log('don"t include first letter');
+        console.log('first letter not required');
     }
 }
 
@@ -238,7 +237,7 @@ function disableArrayBoxes() {
         let imp = 'input' + i;
         if (i === whichBoxNumber()) {
             document.getElementById(`${imp}`).disabled = false; //box in focus
-            whichBox.focus(); //puts focus on correct box
+            document.getElementById(whichBoxInput()).focus(); //puts focus on correct box
         } else {
             document.getElementById(`${imp}`).disabled = true; //box not in focus
         }
@@ -259,7 +258,7 @@ function handleKeys(event) {
             if (lettersOnly(event.key) === false) {
                 alert('It must a letter. Numbers etc. are not accepted'); //need an else if for weird characters
             } else if (lettersNotInput(event) === true) {
-                whichBox.value = '-';
+                document.getElementById(whichBoxInput()).value = '-';
             } else if (lettersOnly(event.key) === true) {
                 let low = lowerCase(event.key);
                 lettersInput(low);
@@ -294,7 +293,7 @@ function isLetterCorrect() {
  *puts the key pressed in the box on screen
  */
 function lettersInput(typed) {
-    whichBox.value = typed;
+    document.getElementById(whichBoxInput()).value = typed;
 }
 
 /**
@@ -429,7 +428,7 @@ function booleanFirstLetter() {
  */
 function addLetter() {
     nextLetter = currentWord[guess.length]; //provides user next
-    whichBox.value = nextLetter; //provides user next
+    document.getElementById(whichBoxInput()).value = nextLetter; //provides user next
     guess.push(wordData[pick].word[guess.length]); //puts  letter in guess array to align with screen
     moveOn(); //puts focus on correct letter or changes to new word if letters run out
 }
