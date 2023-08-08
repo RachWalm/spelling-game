@@ -2,6 +2,8 @@
 
 This spelling game for children was designed so that they can play from an image and description to fill out the letters in the word to boxes. There is also a hint section to let them know what is odd about the spelling of this particular word. This should improve their spelling of difficult or unusual words.
 
+![allscreens](documents/allscreen.png)
+
 The site can be accessed by this [link](https://rachwalm.github.io/spelling-game/).
 
 ## How to play
@@ -415,6 +417,28 @@ function skip() {
     clearRestart(); //sets up for next word
 }
 ```
+
+## Responsive
+
+The google chrome responsive viewer was used to gain images of the front page efficiently, but on game play pages this got stuck in an infinite loop. Also it would not be realistic to do each word of game play in this section so the first page will have many examples then a few words and sizes will be picked for the remaining pages.
+
+### Landing
+
+- [Galaxy-S9-Note-8-S8](documents/Galaxy-S9-Note-8-S8-360x740.png)
+- [Galaxy-S9-Plus-S8-Plus](documents/Galaxy-S9-Plus-S8-Plus-412x846.png)
+- [ipad-Mini](documents/iPad-Mini-768x1024.png)
+- [ipad-Pro](documents/iPad-Pro-(12.9-inch)-1024x1366.png)
+- [iphone-XR](documents/iPhone-XR-XS-Max-414x896.png)
+- [iphone-XS](documents/iPhone-XS-X-375x812.png)
+- [laptop1](documents/Laptop-1-1440x900.png)
+- [laptop2](documents/Laptop-2-1280x800.png)
+- [laptop3](documents/Laptop-3-1280x950.png)
+- [large-monitor](documents/Large-monitor-1920x1080.png)
+- [large-screen](documents/Large-Screen-688x1031.png)
+- [medium-screen](documents/Medium-Screen-1024x800.png)
+- [Pixel-3](documents/Pixel-3-3-XL-393x786.png)
+
+### Instructions
 
 ## Testing
 
