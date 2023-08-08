@@ -146,6 +146,7 @@ function buildGameArea() {
         document.getElementById("description").innerHTML += des; //add description to screen
         buildLetters(); //works out input boxes required
         showHint(); //hint required?
+        buttonHint.selectedIndex = 0;
         document.getElementById("hints").innerHTML += hinty;
     } else if (wordData.length = 1) { //no words available so looks in skipped array
         if (skipped.length > 0) {
