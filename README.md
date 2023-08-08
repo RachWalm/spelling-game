@@ -586,6 +586,24 @@ Now additional word could be put in the game.
 - [GitHub](https://github.com/) was used to host the website.
 - [pythontutor](https://pythontutor.com/render.html#mode=edit) for when my functions were acting unexpectedly and to identify where certain array indexes were.
 
+### Web resources
+
+- Chrome-DevTools were extremely useful for trying out different code without affecting my core code and particularly when working on responsiveness.
+
+- Lighthouse was used to run the checks for performance and accessibility.
+
+- HTML-markdown-validator was used to validate the HTML.
+
+- CSS-validator was used to perform the CSS validation.
+
+- JS-validator was used to perform the JS validation 
+
+The first image in the README.md was a screenshot from AmIResponsive.
+
+The pallet for the colors for the overall look of the website were generated using coolors
+
+Responsive testing was performed using Responsive viewer extension (only front page as other pages got into a loop)
+
 ## Acknowledgements
 
 My Mentor - Juliia Konn has been enthusiastic and provided encouragement and a great deal of information.
