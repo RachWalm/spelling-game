@@ -11,7 +11,7 @@ const buttonGive = document.getElementById("buy");
 const buttonHint = document.getElementById("hintButton");
 const credit = document.getElementById("credit");
 const finishScore = document.getElementById("finalScore");
-const finishNumber = document.getElementById("finishNumber")
+const finishNumber = document.getElementById("finishNumber");
 
 //Array of words and information first iteration
 let wordData = [{
@@ -361,7 +361,7 @@ function empty() {
  */
 function scores(score) {
     last.innerHTML = `Your Score is :`;
-    number.innerHTML = `<strong>${score + 1}</strong>`
+    number.innerHTML = `<strong>${score + 1}</strong>`;
     return score + 1;
 }
 
@@ -474,7 +474,7 @@ function showHint() {
  */
 function finalScores(score) {
     finishScore.innerHTML = `Your Final Score was : `;
-    finishNumber.innerHTML = `<strong>${score}</strong>`
+    finishNumber.innerHTML = `<strong>${score}</strong>`;
 }
 
 /**
