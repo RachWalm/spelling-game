@@ -182,8 +182,8 @@ function buildLetters() {
  */
 function wantedFirstLetter() {
     if (wantFirstLetter) {
-        document.getElementById('input0').value = currentWord.firstLetter[0]; //provides user first letter
-        guess = currentWord.firstLetter; //puts first letter in guess array to align with screen
+        document.getElementById('input0').value = wordData[pick].firstLetter[0]; //provides user first letter
+        guess = wordData[pick].firstLetter; //puts first letter in guess array to align with screen
         disableArrayBoxes(); //puts focus on second/correct letter
     } else {
         console.log('first letter not required');
