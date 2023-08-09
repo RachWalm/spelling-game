@@ -486,7 +486,7 @@ function skip() {
 
 ## Responsive
 
-The google chrome responsive viewer was used to gain images of the front page efficiently, but on game initiation this got stuck in an infinite loop. Also it would not be realistic to do each word of game play in this section so the first page will have many examples then a few words and sizes will be picked for the remaining pages.
+The google chrome responsive viewer was used to gain images of the front page efficiently, but on game initiation this got stuck in an infinite loop. Also it would not be realistic to do each word of game play in this section so the first page will be the examples. The media queries lead to a responsive game.
 
 ### Landing
 
