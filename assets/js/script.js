@@ -257,7 +257,7 @@ function handleKeys(event) {
     } else {
         if (event.type === 'keydown') {
             if (lettersOnly(event.key) === false) {
-                alert('It must a letter. Numbers etc. are not accepted'); //need an else if for weird characters
+                alert('It must be a letter. Numbers etc. are not accepted'); //need an else if for weird characters
             } else if (lettersNotInput(event) === true) {
                 document.getElementById(whichBoxInput()).value = '-';
             } else if (lettersOnly(event.key) === true) {
