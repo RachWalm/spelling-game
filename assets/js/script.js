@@ -4,18 +4,20 @@
 
 const first = document.getElementById("front");
 const last = document.getElementById("score");
+const number = document.getElementById("number");
 const buttonSkip = document.getElementById("skip");
 const buttonStart = document.getElementById("quit");
 const buttonGive = document.getElementById("buy");
 const buttonHint = document.getElementById("hintButton");
 const credit = document.getElementById("credit");
 const finishScore = document.getElementById("finalScore");
+const finishNumber = document.getElementById("finishNumber")
 
 //Array of words and information first iteration
 let wordData = [{
     "word": "fox", // word
     "image": "src='assets/images/fox.png' alt'cartoon incense'", //source and alt for image
-    "decs": "woodland creature", //description
+    "decs": "Tutorial - warm up with this woodland creature, type the letters or try the buttons", //description
     "hint": "x sounds like s", //hint
     "complete": [], //array for guessed letters if skipped
     "firstLetter": ["f"] // first letter for if requested
@@ -29,7 +31,6 @@ let skipped = []; //words that have been skipped
 let currentScore = 0; //starting score 0
 let wantFirstLetter = false; //player choice of wanting to receive first letter or not
 let repeat = false; //allows program to know if we are rerunning words to include already guessed letters
-
 
 /**
  * On DOM load sets up the listeners sends 
@@ -108,7 +109,9 @@ modal.addEventListener("click", e => {
 function hideFront() {
     first.style.display = "none"; //display none removes it
     last.style.visibility = "visible";
-    last.innerHTML = `Your Score is :   <br>` + `<strong>0</strong>`; // later put in with score by JS
+    last.innerHTML = "Your score is :"; // later put in with score by JS
+    number.style.visibility = "visible";
+    number.innerHTML = "<strong>0</strong>";
     buttonSkip.style.visibility = "visible";
     buttonStart.style.visibility = "visible";
     buttonGive.style.visibility = "visible";
@@ -357,7 +360,8 @@ function empty() {
  * increments and displays score 
  */
 function scores(score) {
-    last.innerHTML = `Your Score is :<br> <strong>${score + 1}</strong>`;
+    last.innerHTML = `Your Score is :`;
+    number.innerHTML = `<strong>${score + 1}</strong>`
     return score + 1;
 }
 
@@ -469,7 +473,8 @@ function showHint() {
  *displays final score at end of game 
  */
 function finalScores(score) {
-    finishScore.innerHTML = `Your Score was : <strong>${score}</strong>`;
+    finishScore.innerHTML = `Your Final Score was : `;
+    finishNumber.innerHTML = `<strong>${score}</strong>`
 }
 
 /**
@@ -481,14 +486,15 @@ function theEnd() {
     end.style.display = "none";
     end.style.height = "1px";
     last.style.display = "none";
-    last.innerHTML = `Your Score is :<br> ` + 0;
     buttonSkip.style.display = "none";
     buttonGive.style.display = "none";
     buttonHint.style.display = "none";
-    const first = document.getElementById("finalScore");
+    number.style.display = "none";
     credit.style.visibility = "visible";
-    first.style.visibility = "visible";
-    first.style.height = "auto";
+    finishScore.style.visibility = "visible";
+    finishScore.style.height = "auto";
+    finishNumber.style.visibility = "visible";
+    finishNumber.style.height = "auto";
     finalScores(currentScore);
 }
 
