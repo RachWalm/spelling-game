@@ -185,8 +185,6 @@ function wantedFirstLetter() {
         document.getElementById('input0').value = wordData[pick].firstLetter[0]; //provides user first letter
         guess = wordData[pick].firstLetter; //puts first letter in guess array to align with screen
         disableArrayBoxes(); //puts focus on second/correct letter
-    } else {
-        console.log('first letter not required');
     }
 }
 
@@ -265,8 +263,6 @@ function handleKeys(event) {
                 lettersInput(low);
                 guess.push(low);
                 isLetterCorrect();
-            } else {
-                console.log('unexpected outcome of handleKeys');
             }
         } else if (event.type === 'keyup') {
             moveOn(); //goes to next letter or word
@@ -311,8 +307,6 @@ function lettersNotInput(typed) {
         return true;
     } else if (typed.keyCode > 90) {
         return true;
-    } else {
-        console.log('should be legitimate letter');
     }
     let wrong = shift || meta || control || altg || alt;
     return wrong;
@@ -467,8 +461,6 @@ function showHint() {
             hintys.style.visibility = "visible";
         } else if (show === 'no--hint') {
             hintys.style.visibility = "hidden";
-        } else {
-            console.log('unexpected outcome of showHint');
         }
     });
 }
