@@ -18,27 +18,35 @@ As adults have also had problems with incense this was removed from the list. Ph
 
 ## User stories testing
 
-race through all on buy letter
+The site was played on chrome, firefox, edge and safari(on the ipad - which suffers from being an onscreen keyboard - looks like if each letter is pressed twice it works - maybe due to caps turning on for each input).
 
-race through all on skip word
+The final version was retested by the two children who had been testers once before during development, and had given their suggestions (with friends) at the beginning.
 
-every x skip word every y skip letter ultimately complete
+The main testing was done using chrome:
 
-easy hard
+|level|first letter on/off|action|result|
+|---|---|---|---|
+|easy|off|run through just buying letter||
+|easy|on|run through just buying letter||
+|hard|off|run through just buying letter||
+|hard|on|run through just buying letter||
+|easy|off|run through just skipping||
+|easy|on|run through just skipping||
+|hard|off|run through just skipping||
+|hard|on|run through just skipping||
+|easy|off|run through correct letter||
+|easy|on|run through correct letter||
+|hard|off|run through correct letter||
+|hard|on|run through correct letter||
+|easy|off|Intermingle skip, buy, right and wrong||
+|easy|on|Intermingle skip, buy, right and wrong||
+|hard|off|Intermingle skip, buy, right and wrong||
+|hard|on|Intermingle skip, buy, right and wrong||
 
-first letter
 
-random order
-
-Check all Buttons
-•	Check all functions
-•	All the way through buy
-•	All the way through skip
-•	All the way through correct
-•	All the way through wrong
-•	Intermingle skip, buy, right and wrong,
-•	Check hint for each word hidden and visible.
-•	Check restart at various points
+- Checked hint for each word hidden and visible and relevant
+- Checked image, word, description and letters correlated
+- Checked restart at various points
 
 ## Validators and accessibility
 
@@ -67,5 +75,14 @@ The below was added to the javascript to aid with the validator.
 
 ## Functions
 
-when testing modal re-watch the video so that you can test all the features of dialogue
-click to close dialogue by button or escape
+All buttons checked to see if they did what was anticipated, which they did.
+
+First round through checked for random order and skipped checked for random order. Both found to be different to other orders.
+
+Instructions dialog box raised and closed by clicking button or outside of box. This worked.
+
+The only issue that was found at any point during testing was if the person was using an onscreen keyboard, which appears to not be able to use the *onkeyup* and *onkeydown*. This is considered out of scope as the game was designed for a keyboard.
+
+## Conclusion
+
+This site met all of the requirements of the testing.
