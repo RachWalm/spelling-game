@@ -1,4 +1,12 @@
 [{
+        "word": "fish",
+        "image": "src='assets/images/fish.png' alt'moon'",
+        "decs": "swims in water",
+        "hint": "f not ph",
+        "complete": [],
+        "firstLetter": ["f"]
+    },
+    {
         "word": "rose",
         "image": "src='assets/images/rose.png' alt'rose'",
         "decs": "a type of flower that is a symbol of love",
@@ -12,13 +20,6 @@
         "hint": "how many o's",
         "complete": [],
         "firstLetter": ["m"]
-    }, {
-        "word": "fish",
-        "image": "src='assets/images/fish.png' alt'moon'",
-        "decs": "swims in water",
-        "hint": "f not ph",
-        "complete": [],
-        "firstLetter": ["f"]
     },
     {
         "word": "cat",

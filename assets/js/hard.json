@@ -1,4 +1,12 @@
 [{
+        "word": "fruit",
+        "image": "src='assets/images/fruit.png ' alt'fruit '",
+        "decs": "a food group that isn't vegetables",
+        "hint": "can't hear the i",
+        "complete": [],
+        "firstLetter": ["f"]
+    },
+    {
         "word": "elephant",
         "image": "src='assets/images/elephant.png ' alt'cartoon elephant '",
         "decs": "large animal often found in Africa or Asia",

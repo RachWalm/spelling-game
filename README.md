@@ -655,6 +655,8 @@ Now additional word could be put in the game.
 
 - [moon](https://www.freepnglogos.com/images/moon-10192.html) (<a href="https://www.freepnglogos.com/pics/moon">Moon from freepnglogos.com</a>)
 
+- [fruit](https://www.freepnglogos.com/images/fruits-12117.html) (<a href="https://www.freepnglogos.com/pics/fruits">Fruits from freepnglogos.com</a>)
+
 - [penguin](https://www.freepnglogos.com/images/linux-22631.html) (<a href="https://www.freepnglogos.com/pics/linux">Linux from freepnglogos.com</a>)
 
 - [fish](https://www.freepnglogos.com/images/fish-11970.html) (<a href="https://www.freepnglogos.com/pics/fish">Fish from freepnglogos.com</a>)

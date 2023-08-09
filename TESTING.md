@@ -26,11 +26,11 @@ The main testing was done using chrome:
 
 |level|first letter on/off|action|result|
 |---|---|---|---|
-|easy|off|run through just buying letter||
-|easy|on|run through just buying letter||
-|hard|off|run through just buying letter||
-|hard|on|run through just buying letter||
-|easy|off|run through just skipping||
+|easy|off|run through just buying letter|as expected|
+|easy|on|run through just buying letter|as expected|
+|hard|off|run through just buying letter|as expected|
+|hard|on|run through just buying letter|as expected|
+|easy|off|run through just skipping|as expected|
 |easy|on|run through just skipping||
 |hard|off|run through just skipping||
 |hard|on|run through just skipping||
