@@ -31,17 +31,17 @@ The main testing was done using chrome:
 |hard|off|run through just buying letter|as expected|
 |hard|on|run through just buying letter|as expected|
 |easy|off|run through just skipping|as expected|
-|easy|on|run through just skipping||
-|hard|off|run through just skipping||
-|hard|on|run through just skipping||
-|easy|off|run through correct letter||
-|easy|on|run through correct letter||
-|hard|off|run through correct letter||
-|hard|on|run through correct letter||
-|easy|off|Intermingle skip, buy, right and wrong||
-|easy|on|Intermingle skip, buy, right and wrong||
-|hard|off|Intermingle skip, buy, right and wrong||
-|hard|on|Intermingle skip, buy, right and wrong||
+|easy|on|run through just skipping|as expected|
+|hard|off|run through just skipping|as expected|
+|hard|on|run through just skipping|as expected|
+|easy|off|run through correct letter|as expected|
+|easy|on|run through correct letter|as expected|
+|hard|off|run through correct letter|as expected|
+|hard|on|run through correct letter|as expected|
+|easy|off|Intermingle skip, buy, right and wrong|as expected|
+|easy|on|Intermingle skip, buy, right and wrong|as expected|
+|hard|off|Intermingle skip, buy, right and wrong|as expected|
+|hard|on|Intermingle skip, buy, right and wrong|as expected|
 
 
 - Checked hint for each word hidden and visible and relevant
