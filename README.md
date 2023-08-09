@@ -20,11 +20,11 @@ When you have completed the word it will provide you with an new image and descr
 
 - It is not possible to write the word that they have to spell on the screen or they would just copy it. Therefore, the word will be portrayed using an image and a description. If the user cannot figure out the word or spelling there will be a skip word button to avoid frustration.
 
-- The hint information should help to teach them the rules or exceptions in English spelling that are relevant to that word. Also if unable to spell the word this may give them the information that they require to complete the spelling.
+- The hint information should help to teach them the rules or exceptions in English spelling that are relevant to that word. Also, if unable to spell the word this may give them the information that they require to complete the spelling.
 
 - To make the game competitive (and therefore retain interest - to better ones score) there will be a score per letter that is correct.
 
-- It is out of scope to actually teach children spelling - this is just a fun game to be played on a a computer to aid their learning.
+- It is out of scope to actually teach children spelling - this is just a fun game to be played on a computer to aid their learning.
 
 ### User Stories
 
@@ -36,16 +36,16 @@ Repeat users should also get a random order to the words so it shouldn't become 
 
 ### Skeleton
 
-- Landing view will contain the general background and title, with a fox logo at bottom. Also two buttons to either get instructions (instructions and the point of the game information will appear in a pop up box) or to start the game. They can also pick between doing an easy level or hard level and whether to have the first letter provided.
+- Landing view will contain the general background and title, with a fox logo at bottom. Also, there are two buttons to to enable the player to choose either get instructions (instructions and the point of the game information will appear in a pop up box) or to start the game. They can also pick between doing an easy level or hard level and whether to have the first letter provided.
 ![landing](documents/Laptop-1-1440x900.png)
-- Game view will contain the general background and title, with fox logo at bottom. Additionally there will be the functionality of the game. This will include relevant image, description, box for each letter of the word and a hint (that can be turned on and off). This screen will also contain a give letter, skip word and and start over button. The timer on the initial idea was discarded after discussion with potential users/children. As each word is completed the screen will clear of the old word information and be replaced with the next word.
+- Game view will contain the general background and title, with fox logo at bottom. Additionally there will be the functionality of the game. This will include relevant image, description, box for each letter of the word and a hint (that can be turned on and off). This screen will also contain a give letter, skip word and start over button. The timer on the initial idea was discarded after discussion with potential users/children. As each word is completed the screen will clear of the old word information and be replaced with the next word.
 ![game](documents/game-screen.png)
 - If you skip the word the game view will be retained with the next word replacing the current display. The skipped word will be saved for if words are run out of or if user just keeps skipping.
 - Once you are out of words you go to a final score page.
 ![final-score](documents/final-score.png)
 - If you restart it will check that you want to leave the page and take you back to the beginning, this gives you the opportunity to return to the start.
 ![leave](documents/leave.png)
-- If you try to leave the page it will check that is what you intended so you don't loose your score.
+- If you try to leave the page it will check that is what you intended so you don't lose your score.
 
 ## Functions
 
@@ -71,21 +71,21 @@ written thoughts/explanations:
 
 -[explanation](documents/first-thoughts.png)
 
-which lead us to draw up this flow chart:
+which led us to draw up this flow chart:
 
 ![initial flow chart](documents/first-flow-chart.png)
 
 #### Final Flow Chart
 
-As the development progressed it evolved to include the below decision tree (overview not every decision, but groups of decisions - like acceptable key pressed?):
+As the development progressed it evolved to include the decision tree below (overview not every decision, but groups of decisions - like acceptable key pressed?):
 
 ![current flow chart](documents/current-flow-chart.png)
 
-There is also features that allow the player to ask for the first letter/be given a letter or see the hint that aren't critical to play that haven't been included in this flow chart to keep it simple.
+There are also features that allow the player to ask for the first letter/be given a letter or see the hint that aren't critical to play that haven't been included in this flow chart to keep it simple.
 
 There were a couple of design changes that developed out of speaking with children (two of whom I got to test the final site). The timer was consistently described as making it stressful, or causing anxiety. One child said it made it feel like a test/being at school. Therefore, this option wasn't coded as it would be detrimental, rather than improve the user experience.
 
-Several children said that they weren't interested in a hint. On the slides I showed them with suggested words, especially younger children didn't understand them. So these were made so that they could be switched on and off.
+Several children said that they weren't interested in a hint. On the slides I showed them with suggested words, especially younger children didn't understand them. So these were made so that they could be switched on and off as required.
 
 The youngest of the testers tried to take the image of the fox off the screen as he liked it so much. As the background of the slides and eventually the site had some fox decoration and fox is an extremely easy and common word that most children know, it was also decided to have that as the first word each time as a tutorial word given in the instructions, then they aren't starting with a hard word and figuring out the game at the same time. 
 
@@ -139,7 +139,7 @@ document.getElementById("skip").addEventListener("click", function () {
 
 #### Progression from one view to next
 
-As everything took place within one page *index.html* it was necessary to to hide and/or use visibility to only have the current things on the page. This was done through a combination of CSS to set things to their original state then make changes at certain points using JavaScript. Anything not required at time of landing was put as hidden and some elements had to have their areas reduced to very small so they didn't affect the positioning of the currently visible material.
+As everything took place within one page *index.html* it was necessary to to hide and/or use visibility to only have the current items on the page. This was done through a combination of CSS to set things to their original state then make changes at certain points using JavaScript. Anything not required at time of landing was put as hidden and some elements had to have their areas reduced to very small so they didn't affect the positioning of the currently visible material.
 
 ```CSS
 #gameBox {
@@ -176,7 +176,7 @@ Three arrays are used to hold information once the game has started.
 
 #### Linking on screen boxes to arrays
 
-It was necessary to write functions to link the index that we wanted to access of the array and the input boxes that were on the screen for the user. These functions were *whichBoxNumber* (output **int**), *whichBoxInput* (output **'input'int** as these were the id's of the inputs in HTML), and *whichBoxInputMinusOne* (output **'input'int** to align id's with the correct box at certain points in the code). These function linked the array indexes and text on screen to allow various other functions to operate on the correct bit of code.
+It was necessary to write functions to link the index required to access of the array and the input boxes that were on the screen for the user. These functions were *whichBoxNumber* (output **int**), *whichBoxInput* (output **'input'int** as these were the id's of the inputs in HTML), and *whichBoxInputMinusOne* (output **'input'int** to align id's with the correct box at certain points in the code). These function linked the array indexes and text on screen to allow various other functions to operate on the correct part of the code.
 
 #### Keyboard listening events
 
@@ -192,7 +192,7 @@ In the code institute tutorial the javascript for the *onkeyup* and *onkeydown* 
 
 As my mentor said that it would be better practise for HTML to contain HTML only and the javascript to be in script.js I moved this functionality to the javascript, although I couldn't find an example on the internet of the syntax so had to experiment. Eventually, I found an example taking *onkeyup* and *onkeydown* out of html into Javascript from slack entry on 31st July 2021 AnthonyK in the project-milestone-2 under code institute.
 
-This lead to the addition of the code:
+This led to the addition of the code:
 
 ```JS
 document.onkeydown = function (e) {
@@ -205,7 +205,7 @@ document.onkeydown = function (e) {
 
 #### Use of *onKeyDown* and *onKeyUp*
 
-To avoid bugs that would cause the user inconvenience or confusion, it was necessary to eliminate the code accepting the wrong key entries and performing tasks. Therefore the *onkeydown* was used to assess the key pressed and if correct then the *onkeyup* would allow the user to progress to the next letter.
+To avoid bugs that would cause the user inconvenience or confusion, it was necessary to eliminate the code accepting the wrong key entries and performing tasks. Therefore, the *onkeydown* was used to assess the key pressed and if correct then the *onkeyup* would allow the user to progress to the next letter.
 
 The *onkeyup* and *onkeydown* functions were inspired by the  Code Institute javascript& the dom > handling DOM events > keyboard events tutorial which included the stop repeat event code used:
 
@@ -230,7 +230,7 @@ let image = `<img id="images" ${wordData[pick].image}>`;
 
 #### Put input boxes relating to letters on screen
 
-An additional function was created to do the input boxes correlated with the letters in the word called *buildLetters*. This required a for loop associated with each letter. This function also called functions to check if the first letter had been requested or if on a repeat through, what letters had already been inserted, *wantedFirstLetter* and *whatComplete* respectively. It also called the function *disableArrayBoxes*.
+An additional function was created to correlate the input boxes with the letters in the word called *buildLetters*. This required a for loop associated with each letter. This function also called functions to check if the first letter had been requested or if on a repeat through, what letters had already been inserted, *wantedFirstLetter* and *whatComplete* respectively. It also called the function *disableArrayBoxes*.
 
 - empty input
 ![input](documents/input-boxes.png)
@@ -253,7 +253,7 @@ Several functions were used to assess the if the letter was correct. It needed t
 
 ![alert](documents/alert.png)
 
-However, this still left several keys that could be activated and put into the input such as tab and shift. So additionally the functionality *lettersNotInput* was created using two functions, *getModifierState* and *keycodes* to avoid those keys giving superfluous information.
+However, this still left several keys that could be activated and put into the input such as tab and shift. So additionally the functionality *lettersNotInput* was created using two functions, *getModifierState* and *keycodes* to avoid those keys giving superfluous input.
 
 ```JS
 function lettersNotInput(typed) {
@@ -267,7 +267,7 @@ if (typed.keyCode < 58) {
 
 #### Uppercase turned to lowercase
 
-Users also might use upper case letters when typing. But the key pair of word was in lower case. So to solve this problem and make it look nicer and easier to read, the letters were going to be fed in as lower case irrespective of which case they were originally in.
+Users also might use upper case letters when typing. But the key pair of word was in lower case. So to solve this problem and make it look nicer and easier to read (and compliant with good educational practice), the letters were going to be fed in as lower case irrespective of which case they were originally in.
 
 This was easily done with function *lowerCase*:
 
@@ -329,7 +329,7 @@ The next features that help to improve engagement and interest of the user are t
 
 #### Skip
 
-To avoid frustration of a player that can't guess a word the *skip* function was added. This allows the player to move to another word without completing all/any or the letters. To avoid running out of words quickly the words are then kept in a separate array to allow them to be run through when the original **wordData** array has been complete. 
+To avoid the frustration caused by a player being unable to complete a word the *skip* function was added. This allows the player to move to another word without completing all/any or the letters. To avoid running out of words quickly the words are then kept in a separate array to allow them to be run through when the original **wordData** array has been complete. 
 
 This means that during the *skip* operation it is essential to record the letters that the user has already guessed (if any), to avoid them getting additional score for the letters being put in again and avoid the annoyance of retyping them. As the letters are stored in a **guess** array during the word this is transferred to key 'complete'. Luckily this only required a shallow copy so was simpler than adding the .JSON information as the array could just be added to **wordData.complete** **array.key**. 
 
@@ -337,11 +337,11 @@ This means that during the *skip* operation it is essential to record the letter
 
 #### Give letter
 
-Also to make the game less irritating when stuck - a *give letter* function was devised. Initially the plan was to decrease the score when buying a letter but this was found to be demotivating by the children testers, therefore users just don't get a score increment for getting the letter. This function uses the length of the letters in the **guess** array to say which index is required to take the letter from the word, then inputs it in the screen box and **guess array**. The colour for these letters was decided as black as a neutral colour but still showed visibly that they hadn't got it right.
+Also to make the game less irritating when stuck - a *give letter* function was devised. Initially the plan was to decrease the score when buying a letter but this was found to be demotivating by the child testers, therefore users just don't get a score increment for getting the letter. This function uses the length of the letters in the **guess** array to say which index is required to take the letter from the word, then inputs it in the screen box and **guess array**. The colour for these letters was decided as black as a neutral colour but still showed visibly that they hadn't achieved the correct letter independently.
 
 ![give](documents/give-letter.png)
 
-In this example the first letter function request had been ticked so that is black as receives not score and the blue letters are correct, then the last 'a' is black as it has been requested not provided by the user.
+In this example the first letter function request had been ticked so that is black as it receives no score and the blue letters are correct, then the last 'a' is black as it has been requested not provided by the user.
 
 #### event listeners for interactivity
 
@@ -360,13 +360,13 @@ window.location.replace("http://www.w3schools.com");
 this code above was taken from [W3](https://www.w3schools.com/howto/howto_js_redirect_webpage.asp#:~:text=There%20are%20a%20couple%20of%20ways%20to%20redirect,%3D%20%22http%3A%2F%2Fwww.w3schools.com%22%3B%20%2F%2F%20Simulate%20an%20HTTP%20redirect%3A%20window.location.replace%28%22http%3A%2F%2Fwww.w3schools.com%22%29%3B)
 
 
- but to do this proved less efficient and time consuming in an unanticipated way. So the following page was designed within the index page.
+ but to do this proved less efficient and more time consuming in an unanticipated way. So the following page was designed within the index page.
 
  ![final-score](documents/final-score.png)
 
 #### onbeforeunload alert
 
-A final feature was to warn the user before they left the page as this would incur them loosing their score. This functionality was adapted from [W3](https://www.w3schools.com/jsref/event_onbeforeunload.asp) to give alert when someone tries to leave the site.
+A final feature was to warn the user before they left the page as this would incur them losing their score. This functionality was adapted from [W3](https://www.w3schools.com/jsref/event_onbeforeunload.asp) to give alert when someone tries to leave the site.
 
 ```JS
 window.onbeforeunload = function (event) {
@@ -415,11 +415,11 @@ let wordData = [{
 
 Improvements in user experience:
 
-- Provide the description and the hint read audibly so that people who have difficulty visually can also use the game.
+- Provide the description and the hint read audibly so that people who have difficulty visually can also use the game. In which case the letter input would also need to be audible with an audible indication of whether it was correct. The score would need to be read audibly.
 
 - Have a name input so that the user can be referred to by name later on.
 
-- Currently the word instantly disappears so you move to the next word and never actually see the final letter. It might be nice to have a slight delay so the whole word can be seen, especially if the user has requested the last letter as they can't guess it.
+- Currently the word instantly disappears so you move to the next word and never actually see the final letter. It might be nice to have a slight delay so the whole word can be seen and celebrated especially if the user has requested the last letter as they can't guess it.
 
 - start over button could go through the score screen so you get the feeling of finishing.
 
@@ -439,7 +439,7 @@ Most development bugs centered around getting the indexing matching up to the co
 
 ### Styling layout
 
-With the CSS it took some time to get all the boxes where I wanted them, especially as I was unfamiliar with the things that were invisible taking space this took me some time. Also dealing with flex box growing and shrinking leaving 'usable' but not used space around the box giving purple areas on the chrome *inspect* function. The invisible areas was solved by making the boxes extremely small until required then setting them back to suitable areas. The purple box issue was solved by adding extra divs to provide containers for the boxes I was using.
+With the CSS it took some time to get all the boxes where required, especially as there were hidden images that were invisible taking space. Also dealing with flex box growing and shrinking leaving 'usable' but not used space around the box giving purple areas on the chrome *inspect* function. The invisible areas was solved by making the boxes extremely small until required then setting them back to suitable areas. The purple box issue was solved by adding extra divs to provide containers for the boxes I was using.
 
 ### Only allow letters
 
@@ -520,7 +520,7 @@ Many spelling mistakes, all rectified.
 
 Due to unfamiliarity with some of the syntax and functions that are available, there was a great deal of experimentation that took place to get the correct function or syntax that output my anticipated results.
 
-One error that required the assistance of the tutors at code institute was that an event listener was calling *handleKeys* function where it appeared that an input typed was occurring twice. After watching many tutorials and trying various fixes nothing worked when I changed the function. The tutor quickly spotted I was calling the function *handleKeys* right at the top of the code and further down. Unfortunately, I had got too focused on the function to look at whole code. This is a learning experience to take a look at the whole process, not just what you are currently doing.
+One error that required the assistance of the tutors at code institute was that an event listener was calling *handleKeys* function where it appeared that an input typed was occurring twice. After watching many tutorials and trying various fixes nothing worked when I changed the function. The tutor quickly spotted I was calling the function *handleKeys* right at the top of the code and further down. Unfortunately, I had got too focused on the function to look at whole code. This is a learning experience to take a look at the whole process, not just the part you are currently considering.
 
 ## Deployment to Github
 
@@ -607,7 +607,7 @@ let wordData = [{
 - [freepnglogos](https://www.freepnglogos.com/)
 - [Canava](https://www.canva.com/)
 
-The above array was generated from my head and the images are:
+The above array was generated by me for development and the images are:
 
 - [elephant](https://pixabay.com/vectors/elephant-animal-jungle-savannah-1598359/) (Image by <a href="https://pixabay.com/users/andremsantana-61090/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1598359">André Santana AndreMS</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1598359">Pixabay</a>)
 
@@ -703,4 +703,4 @@ Children testers - Ben Cowking and Storm Cowking who have given me a great deal 
 
 My Partner - Ian Harris who has been extremely supportive while I have been working on this project.
 
-Code institute - For all the information and course content that has contributed to the creation of this project. Also to the tutor who solved my problem with a function running twice by spotting that I had called it twice.
+Code institute - For all the information and course content that has contributed to the creation of this project. Also, to the tutor who solved my problem with a function running twice by spotting that I had called it twice.
