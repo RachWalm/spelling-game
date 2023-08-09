@@ -19,7 +19,7 @@ let wordData = [{
     "hint": "x sounds like s", //hint
     "complete": [], //array for guessed letters if skipped
     "firstLetter": ["f"] // first letter for if requested
-}]
+}];
 
 //variables
 let pick = rand(); //allows word order to be random
@@ -148,7 +148,7 @@ function buildGameArea() {
         showHint(); //hint required?
         buttonHint.selectedIndex = 0; //sets hint select to no hint option
         document.getElementById("hints").innerHTML += hinty;
-    } else if (wordData.length = 1) { //no words available so looks in skipped array
+    } else { //no words available so looks in skipped array
         if (skipped.length > 0) {
             wordData = Array.from(skipped, x => x); //gets words from skipped array
             skipped = []; //empty skipped array
@@ -159,8 +159,6 @@ function buildGameArea() {
         } else {
             theEnd(); // no words in array or skipped so have to finish
         }
-    } else {
-        console.log('unexpected outcome of buildGameArea');
     }
 }
 
@@ -314,7 +312,7 @@ function lettersNotInput(typed) {
     } else if (typed.keyCode > 90) {
         return true;
     } else {
-        console.log('should be legitimate letter')
+        console.log('should be legitimate letter');
     }
     let wrong = shift || meta || control || altg || alt;
     return wrong;
@@ -430,7 +428,7 @@ function booleanFirstLetter() {
  * allows the next letter to be put in the guess array on on screen
  */
 function addLetter() {
-    nextLetter = currentWord[guess.length]; //provides user next
+    let nextLetter = currentWord[guess.length]; //provides user next
     document.getElementById(whichBoxInput()).value = nextLetter; //provides user next
     guess.push(wordData[pick].word[guess.length]); //puts  letter in guess array to align with screen
     moveOn(); //puts focus on correct letter or changes to new word if letters run out
@@ -446,13 +444,13 @@ function howDifficult() {
         fetch('assets/js/hard.json') //get from server
             .then((response) => response.json())
             .then(harder => {
-                wordData = Array.from(harder, x => x)
-            })
+                wordData = Array.from(harder, x => x);
+            });
     } else {
         fetch('assets/js/easy.json') //get from server
             .then((response) => response.json())
             .then(easy => {
-                wordData = Array.from(easy, x => x)
+                wordData = Array.from(easy, x => x);
             });
     }
 }
@@ -464,13 +462,13 @@ function howDifficult() {
 function showHint() {
     buttonHint.addEventListener("change", function () {
         let show = buttonHint.value;
-        console.log(show);
+        let hintys = document.getElementById("hintys");
         if (show === 'hint') {
             hintys.style.visibility = "visible";
         } else if (show === 'no--hint') {
             hintys.style.visibility = "hidden";
         } else {
-            console.log('unexpected outcome of showHint')
+            console.log('unexpected outcome of showHint');
         }
     });
 }
