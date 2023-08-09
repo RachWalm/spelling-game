@@ -208,15 +208,24 @@ input {
     display: flex;
     justify-content: center;
     align-items: center;
+    align-content: center;
     height: 10vh;
 }
 
 /*word associated image*/
 #image {
     max-height: 30vh;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
 }
 
 #images {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
     max-height: 100%;
     padding: 5px;
 }
